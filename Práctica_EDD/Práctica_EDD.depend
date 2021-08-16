@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1629092707 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\main.cpp
+	<iostream>
+	"Menu.h"
+
+1629092849 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
+
+1629097368 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+	<iostream>
+	"Menu.h"
+	<string>
+
