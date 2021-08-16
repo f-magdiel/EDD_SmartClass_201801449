@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Menu.h"
 #include <string>
+#include "Archivo.h"
 using namespace std;
 void menuPrincipal(){
     string opcionPrincipal;
@@ -21,7 +22,8 @@ getline(cin,opcionPrincipal);
 
 //opciones del menu
 if(opcionPrincipal == "1"){
-cout << "Carga de estudiantes" << endl;
+leerArchivo();
+
 }else if(opcionPrincipal == "2"){
  cout << "Carga de tareas" << endl;
 }else if(opcionPrincipal == "3"){

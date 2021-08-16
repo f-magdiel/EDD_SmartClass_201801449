@@ -5,8 +5,17 @@
 
 1629092849 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
-1629097368 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+1629145441 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	<string>
+	"Archivo.h"
+
+1629144659 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\archivo.h
+
+1629145935 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivo.cpp
+	"Archivo.h"
+	<iostream>
+	<string>
+	<fstream>
 
