@@ -34,8 +34,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Archivo.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Archivo.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

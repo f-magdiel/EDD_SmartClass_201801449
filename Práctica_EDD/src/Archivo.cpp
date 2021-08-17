@@ -24,3 +24,7 @@ getline(cin,ruta);
     cout << texto << endl;
     archivo.close();
 }
+
+void validacionEntrada(string texto){
+
+}

@@ -3,5 +3,6 @@
 
 
 void leerArchivo();
+void validacionEntrada(string);
 
 #endif // ARCHIVO_H
