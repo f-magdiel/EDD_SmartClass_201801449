@@ -62,6 +62,7 @@ void validacionCadena(string lineas){
     banderaCorreo = regex_match(correo,expCorreo);
     if(banderaCorreo){
         cout << "Correo valido"<<endl;
+        banderaCorreo = true;
     }else{
     cout << "Correo invalido" << endl;
     }
