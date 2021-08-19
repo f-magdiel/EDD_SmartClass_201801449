@@ -2,6 +2,8 @@
 #include "Menu.h"
 #include <string>
 #include "Archivo.h"
+
+
 using namespace std;
 void menuPrincipal(){
     string opcionPrincipal;
