@@ -27,8 +27,9 @@ getline(cin,opcionPrincipal);
 
 //opciones del menu
 if(opcionPrincipal == "1"){
-leerArchivo();
-
+    leerArchivo();
+    cout << "\n" << endl;
+    menuPrincipal();
 }else if(opcionPrincipal == "2"){
  cout << "Carga de tareas" << endl;
 }else if(opcionPrincipal == "3"){

@@ -71,6 +71,8 @@ void validacionCadena(string lineas){
         banderaCorreo = false;
 
     }
+    //validacion paso a paso
+
     //validacion de entradas y almacenamiento
     if((banderaDPI == true)&&(banderaCarne == true)&&(banderaCorreo==true)){
         //para lista doble circular, sin errores
