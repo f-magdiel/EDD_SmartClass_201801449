@@ -127,6 +127,10 @@ void ListaDobleCircular::buscarModificar(string _dpi){
              actual->correo=datoACambiar;
              cout <<"   Correo actualizado" << endl;
              datoACambiar = "";
+            }else if(opcion == "9"){
+
+            }else{
+            buscarModificar(_dpi);
             }
 
 
@@ -136,6 +140,7 @@ void ListaDobleCircular::buscarModificar(string _dpi){
     if(informacion==""){
         cout << "Dato no encotrado, por favor ingresar un dato valido" << endl;
     }
+    //delete(actual);
 }
 
 void ListaDobleCircular::eliminar(string _dpi){
@@ -167,8 +172,13 @@ void ListaDobleCircular::eliminar(string _dpi){
             valorAnterior->siguiente = actual->siguiente;
             valorMuySiguiente->anterior = valorAnterior;
         }
-        actual = NULL; // se limpia
+        //se libera memoria
+        //delete(actual);
+        //delete(valorAnterior);
+        //delete(valorMuySiguiente);
+
     }
+    cout << "   Se elimino el dato" << endl;
 }
 
 void ListaDobleCircular::mostrar(){
@@ -179,6 +189,8 @@ void ListaDobleCircular::mostrar(){
         resultado+= actual->carnet+","+actual->dpi+","+actual->nombre+","+actual->carrera+","+actual->password+","+actual->creditos+","+actual->edad+","+actual->correo+"\n";
         actual = actual->siguiente;
     }while(actual!=this->cabeza);
+
+    //delete(actual);
     cout << resultado;
 }
 

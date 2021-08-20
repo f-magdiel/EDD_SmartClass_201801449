@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1629433824 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\main.cpp
+1629442851 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\main.cpp
 	<iostream>
 	"Menu.h"
 	"ListaDobleCircular.h"
-	"Globales.h"
+	"ColaError.h"
 
 1629092849 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
@@ -19,7 +19,7 @@
 	<cstdlib>
 	<vector>
 
-1629345615 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivo.cpp
+1629443998 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivo.cpp
 	"Archivo.h"
 	<iostream>
 	<string>
@@ -28,6 +28,8 @@
 	<cstdlib>
 	<stdlib.h>
 	<regex>
+	"ListaDobleCircular.h"
+	"ColaError.h"
 
 1629433984 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\listadoblecircular.h
 	"NodoDobleCircular.h"
@@ -40,13 +42,31 @@
 1629433980 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\globales.h
 	<iostream>
 
-1629435399 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoblecircular.cpp
+1629443215 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoblecircular.cpp
 	"ListaDobleCircular.h"
 	<string>
 	<iostream>
 
 1629433593 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nododoblecircular.cpp
 	"NodoDobleCircular.h"
+	<string>
+	<iostream>
+
+1629443875 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\colaerror.h
+	"NodoCola.h"
+	<string>
+
+1629438497 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\nodocola.h
+	<iostream>
+	<string>
+
+1629438582 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nodocola.cpp
+	"NodoCola.h"
+	<string>
+	<iostream>
+
+1629444462 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\colaerror.cpp
+	"ColaError.h"
 	<string>
 	<iostream>
 

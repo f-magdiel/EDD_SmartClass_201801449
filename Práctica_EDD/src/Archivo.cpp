@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <regex>
 #include "ListaDobleCircular.h"
+#include "ColaError.h"
 
 using namespace std;
 void leerArchivo(){
@@ -31,8 +32,8 @@ getline(cin,ruta);
 
         }
     }
-
     archivo.close();
+    colaDeError.mostrarError();
 }
 void validacionCadena(string lineas){
     //cout << "lineas > "+lineas << endl;
@@ -78,9 +79,9 @@ void validacionCadena(string lineas){
     }else{
         //lista doble con errores, pero se auxilia de la cola de errores
         listadc.agregarFinal(palabras[0],palabras[1],palabras[2],palabras[3],palabras[4],palabras[5],palabras[6],palabras[7]);
-
+        colaDeError.encolar(palabras[0],palabras[1],palabras[2],palabras[3],palabras[4],palabras[5],palabras[6],palabras[7]);
     }
-    listadc.mostrar();
+
 }
 
 vector<string> split(string linea) {
