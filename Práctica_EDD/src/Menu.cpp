@@ -6,6 +6,9 @@
 
 using namespace std;
 void menuPrincipal(){
+
+
+
     string opcionPrincipal;
 printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
 printf("%c        MENU PRINCIPAL       %c\n",186,186);

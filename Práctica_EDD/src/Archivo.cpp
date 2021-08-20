@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <regex>
+#include "ListaDobleCircular.h"
 
 using namespace std;
 void leerArchivo(){
@@ -45,27 +46,41 @@ void validacionCadena(string lineas){
     //validacion DPI
     if(palabras[1].length() == 13){
         banderaDPI = true;
-        cout << "dpi : "+palabras[1]<<endl;
+
     }else{
-        cout << "dpi: invalido" << endl;
+        banderaDPI = false;
+
     }
 
    //validación Carne
    if(palabras[0].length()== 9){
         banderaCarne = true;
-    cout << "carne : "+palabras[0]<<endl;
+
    }else{
-        cout << "Carne: invalido" << endl;
+       banderaCarne = false;
+
    }
 
    //validacion Correo
     banderaCorreo = regex_match(correo,expCorreo);
     if(banderaCorreo){
-        cout << "Correo valido"<<endl;
         banderaCorreo = true;
+
     }else{
-    cout << "Correo invalido" << endl;
+        banderaCorreo = false;
+
     }
+    //validacion de entradas y almacenamiento
+    if((banderaDPI == true)&&(banderaCarne == true)&&(banderaCorreo==true)){
+        //para lista doble circular, sin errores
+        listadc.agregarFinal(palabras[0],palabras[1],palabras[2],palabras[3],palabras[4],palabras[5],palabras[6],palabras[7]);
+
+    }else{
+        //lista doble con errores, pero se auxilia de la cola de errores
+        listadc.agregarFinal(palabras[0],palabras[1],palabras[2],palabras[3],palabras[4],palabras[5],palabras[6],palabras[7]);
+
+    }
+    listadc.mostrar();
 }
 
 vector<string> split(string linea) {
