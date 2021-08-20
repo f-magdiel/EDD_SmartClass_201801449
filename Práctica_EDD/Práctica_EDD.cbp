@@ -35,12 +35,16 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Archivo.h" />
+		<Unit filename="include/ColaError.h" />
 		<Unit filename="include/ListaDobleCircular.h" />
 		<Unit filename="include/Menu.h" />
+		<Unit filename="include/NodoDobleCircular.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Archivo.cpp" />
+		<Unit filename="src/ColaError.cpp" />
 		<Unit filename="src/ListaDobleCircular.cpp" />
 		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/NodoDobleCircular.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
