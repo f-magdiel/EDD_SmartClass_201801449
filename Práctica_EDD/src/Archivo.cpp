@@ -33,7 +33,7 @@ getline(cin,ruta);
         }
     }
     archivo.close();
-    colaDeError.mostrarError();
+
 }
 void validacionCadena(string lineas){
     //cout << "lineas > "+lineas << endl;
@@ -42,6 +42,8 @@ void validacionCadena(string lineas){
     bool banderaDPI = false;
     bool banderaCarne = false;
     bool banderaCorreo = false;
+
+
     const regex expCorreo ("[a-z0-9_.]+\\@[a-z]+\\.[com|es|org]+");
     string correo = palabras[7];
     //validacion DPI
@@ -50,7 +52,8 @@ void validacionCadena(string lineas){
 
     }else{
         banderaDPI = false;
-
+        colaDeError.contadorID++;
+        colaDeError.encolar(colaDeError.contadorID,"Estudiante","DPI incorrecto",palabras[1]);
     }
 
    //validación Carne
@@ -59,7 +62,8 @@ void validacionCadena(string lineas){
 
    }else{
        banderaCarne = false;
-
+        colaDeError.contadorID++;
+        colaDeError.encolar(colaDeError.contadorID,"Estudiante","Carnet incorrecto",palabras[1]);
    }
 
    //validacion Correo
@@ -69,7 +73,8 @@ void validacionCadena(string lineas){
 
     }else{
         banderaCorreo = false;
-
+        colaDeError.contadorID++;
+        colaDeError.encolar(colaDeError.contadorID,"Estudiante","Correo incorrecto",palabras[1]);
     }
     //validacion paso a paso
 
@@ -81,7 +86,7 @@ void validacionCadena(string lineas){
     }else{
         //lista doble con errores, pero se auxilia de la cola de errores
         listadc.agregarFinal(palabras[0],palabras[1],palabras[2],palabras[3],palabras[4],palabras[5],palabras[6],palabras[7]);
-        colaDeError.encolar(palabras[0],palabras[1],palabras[2],palabras[3],palabras[4],palabras[5],palabras[6],palabras[7]);
+
     }
 
 }

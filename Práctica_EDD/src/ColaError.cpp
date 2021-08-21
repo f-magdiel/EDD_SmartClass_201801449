@@ -8,12 +8,13 @@ ColaError::ColaError()
     this->frente = NULL;
     this->fin = NULL;
     this->tamanio = 0;
+    this->contadorID =0;
 }
 
-void ColaError::encolar(string _carnet,string _dpi, string _nombre, string _carrera, string _pass,string _creditos, string _edad, string _correo){
+void ColaError::encolar(int _id,string _tipo,string _descripcion,string _dpi){
     this->tamanio++;
 
-    NodoCola* nuevoNodo = new NodoCola(_carnet,_dpi,_nombre,_carrera,_pass,_creditos,_edad,_correo);
+    NodoCola* nuevoNodo = new NodoCola(_id,_tipo,_descripcion,_dpi);
     if(this->frente==NULL && this->fin==NULL){
         this->frente = nuevoNodo;
         this->fin = nuevoNodo;
@@ -46,6 +47,22 @@ void ColaError::mostrarError(){
         cout << "   -Errores en la entrada: ";
         cout << this->tamanio << endl;
     }
+}
+
+void ColaError::mostrarCola(){
+    NodoCola* actual = this->frente;
+    string res="";
+    while(actual!=NULL){
+        cout << "Id: ";
+        cout << actual->id <<endl;
+        cout << "Tipo: ";
+        cout << actual->tipo << endl;
+        cout << "Descripcion: ";
+        cout << actual->descripcion << endl;
+        cout << "\n";
+        actual = actual->siguiente;
+    }
+
 }
 ColaError::~ColaError()
 {

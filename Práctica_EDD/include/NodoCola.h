@@ -8,17 +8,13 @@ using namespace std;
 class NodoCola
 {
     public:
-        NodoCola(string,string,string,string,string,string,string,string);
+        NodoCola(int,string,string,string);
         virtual ~NodoCola();
-
-    string carnet;
+    int id;
+    string tipo;
+    string descripcion;
     string dpi;
-    string nombre;
-    string carrera;
-    string correo;
-    string password;
-    string creditos;
-    string edad;
+
 
     NodoCola* siguiente;
 };

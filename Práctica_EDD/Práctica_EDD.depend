@@ -1,17 +1,18 @@
 # depslib dependency file v1.0
-1629442851 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\main.cpp
+1629521636 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\main.cpp
 	<iostream>
 	"Menu.h"
 	"ListaDobleCircular.h"
 	"ColaError.h"
 
-1629092849 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
+1629521633 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
-1629432210 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+1629520199 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	<string>
 	"Archivo.h"
+	"ColaError.h"
 
 1629324024 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\archivo.h
 	<string>
@@ -19,7 +20,7 @@
 	<cstdlib>
 	<vector>
 
-1629443998 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivo.cpp
+1629518115 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivo.cpp
 	"Archivo.h"
 	<iostream>
 	<string>
@@ -52,20 +53,20 @@
 	<string>
 	<iostream>
 
-1629443875 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\colaerror.h
+1629515642 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\colaerror.h
 	"NodoCola.h"
 	<string>
 
-1629438497 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\nodocola.h
+1629515531 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\nodocola.h
 	<iostream>
 	<string>
 
-1629438582 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nodocola.cpp
+1629515759 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nodocola.cpp
 	"NodoCola.h"
 	<string>
 	<iostream>
 
-1629444462 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\colaerror.cpp
+1629518648 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\colaerror.cpp
 	"ColaError.h"
 	<string>
 	<iostream>

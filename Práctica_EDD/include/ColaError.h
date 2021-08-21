@@ -12,7 +12,8 @@ class ColaError
         NodoCola* frente;
         NodoCola* fin;
         int tamanio=0;
-        void encolar(string,string,string,string,string,string,string,string);
+        int contadorID =0;
+        void encolar(int,string,string,string);
         void desencolar();
         void mostrarCola();
         void mostrarError();

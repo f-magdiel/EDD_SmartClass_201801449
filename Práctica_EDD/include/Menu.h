@@ -3,5 +3,7 @@
 
 
 void menuPrincipal();
+void menuEstudiantes();
+
 
 #endif // MENU_H

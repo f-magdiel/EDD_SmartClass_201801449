@@ -3,16 +3,12 @@
 #include <iostream>
 
 using namespace std;
-NodoCola::NodoCola(string _carnet,string _dpi, string _nombre, string _carrera, string _pass,string _creditos, string _edad, string _correo)
+NodoCola::NodoCola(int _id,string _tipo, string _descripcion, string _dpi )
 {
-   this->carnet = _carnet;
+   this->id = _id;
+   this->descripcion = _descripcion;
+   this->tipo = _tipo;
    this->dpi = _dpi;
-   this->nombre = _nombre;
-   this->carrera = _carrera;
-   this->correo = _correo;
-   this->password = _pass;
-   this->creditos = _creditos;
-   this->edad = _edad;
    this->siguiente = NULL;
 }
 
