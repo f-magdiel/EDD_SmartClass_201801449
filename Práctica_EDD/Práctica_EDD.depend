@@ -5,14 +5,15 @@
 	"ListaDobleCircular.h"
 	"ColaError.h"
 
-1629521633 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
+1629526652 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
-1629520199 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+1629527315 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	<string>
 	"Archivo.h"
 	"ColaError.h"
+	"ListaDobleCircular.h"
 
 1629324024 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\archivo.h
 	<string>
