@@ -72,6 +72,8 @@ void ListaDobleCircular::buscarModificar(string _dpi){
             cout << "7. Edad" << endl;
             cout << "8. Correo" << endl;
             cout << "9. Regresar" << endl;
+
+            cout << "   -Ingrese una opcion >> ";
             getline(cin,opcion);
 
             if(opcion == "1"){
@@ -183,7 +185,7 @@ void ListaDobleCircular::buscarModificar(string _dpi){
     }while(actual!=this->cabeza);
 
     if(informacion==""){
-        cout << "Dato no encotrado, por favor ingresar un dato valido" << endl;
+        cout << "   *Dato no encotrado, por favor ingresar un dato valido" << endl;
         operacionEstudiantes();
     }
 
@@ -221,7 +223,7 @@ void ListaDobleCircular::eliminar(string _dpi){
 
 
     }
-    cout << "   Se elimino el dato" << endl;
+    cout << "   *Se elimino el dato" << endl;
 }
 
 void ListaDobleCircular::mostrar(){

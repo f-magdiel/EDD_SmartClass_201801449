@@ -135,7 +135,11 @@ void operacionEstudiantes(){
             listadc.buscarModificar(_dpi);
             listadc.mostrar();
         }else if(opEstudiante == "3"){
-
+            cout << "   -Ingrese el dpi: ";
+            getline(cin,_dpi);
+            listadc.eliminar(_dpi);
+            listadc.mostrar();
+            operacionEstudiantes();
         }else if(opEstudiante == "4"){
             ingresoManual();
         }else{
