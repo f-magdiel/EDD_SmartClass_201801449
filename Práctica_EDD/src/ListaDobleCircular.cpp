@@ -75,16 +75,16 @@ void ListaDobleCircular::buscarModificar(string _dpi){
             printf("%c  [8] Correo      %c\n",186,186);
             printf("%c  [9] Regresar    %c\n",186,186);
             printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
-            cout << "   -Datos encontrados: "+informacion << endl;
+            cout << "   *Datos encontrados: "+informacion << endl;
             cout << "   -Ingrese una opcion >> ";
             getline(cin,opcion);
 
             if(opcion == "1"){
-             cout << "  -Ingrese el carnet >> ";
+             cout << "      -Ingrese el carnet >> ";
              getline(cin,datoACambiar);
              actual->carnet=datoACambiar;
              colaDeError.cima(_dpi);
-             cout <<"   -Carnet actualizado" << endl;
+             cout <<"   *Carnet actualizado" << endl;
              datoACambiar = "";
              colaDeError.mostrarCola();
              listadc.mostrar();
@@ -92,11 +92,11 @@ void ListaDobleCircular::buscarModificar(string _dpi){
              break;
 
             }else if(opcion == "2"){
-             cout << "  -Ingrese el DPI >> ";
+             cout << "      -Ingrese el DPI >> ";
              getline(cin,datoACambiar);
              actual->dpi=datoACambiar;
              colaDeError.cima(_dpi);
-             cout << "   -DPI actualizado" << endl;
+             cout << "   *DPI actualizado" << endl;
              datoACambiar = "";
              colaDeError.mostrarCola();
              listadc.mostrar();
@@ -104,11 +104,11 @@ void ListaDobleCircular::buscarModificar(string _dpi){
              break;
 
             }else if(opcion == "3"){
-            cout << "  -Ingrese el nombre >> ";
+            cout << "       -Ingrese el nombre >> ";
              getline(cin,datoACambiar);
              actual->nombre=datoACambiar;
              colaDeError.cima(_dpi);
-             cout <<"   -Nombre actualizado" << endl;
+             cout <<"   *Nombre actualizado" << endl;
              datoACambiar = "";
              colaDeError.mostrarCola();
              listadc.mostrar();
@@ -116,11 +116,11 @@ void ListaDobleCircular::buscarModificar(string _dpi){
              break;
 
             }else if(opcion == "4"){
-             cout << "  -Ingrese la carrera >> ";
+             cout << "      -Ingrese la carrera >> ";
              getline(cin,datoACambiar);
              actual->carrera=datoACambiar;
              colaDeError.cima(_dpi);
-             cout <<"   -Carrera actualizada" << endl;
+             cout <<"   *Carrera actualizada" << endl;
              datoACambiar = "";
              colaDeError.mostrarCola();
              listadc.mostrar();
@@ -128,11 +128,11 @@ void ListaDobleCircular::buscarModificar(string _dpi){
              break;
 
             }else if(opcion == "5"){
-             cout << "  -Ingrese el password >> ";
+             cout << "      -Ingrese el password >> ";
              getline(cin,datoACambiar);
              actual->password=datoACambiar;
              colaDeError.cima(_dpi);
-             cout <<"   -Password actualizado" << endl;
+             cout <<"   *Password actualizado" << endl;
              datoACambiar = "";
              colaDeError.mostrarCola();
              listadc.mostrar();
@@ -140,11 +140,11 @@ void ListaDobleCircular::buscarModificar(string _dpi){
              break;
 
             }else if(opcion == "6"){
-             cout << "  -Ingrese los creditos >> ";
+             cout << "      -Ingrese los creditos >> ";
              getline(cin,datoACambiar);
              actual->creditos=datoACambiar;
              colaDeError.cima(_dpi);
-             cout <<"   -Creditos actualizado" << endl;
+             cout <<"   *Creditos actualizado" << endl;
              datoACambiar = "";
              colaDeError.mostrarCola();
              listadc.mostrar();
@@ -152,11 +152,11 @@ void ListaDobleCircular::buscarModificar(string _dpi){
              break;
 
             }else if(opcion == "7"){
-             cout << "  -Ingrese la edad >> ";
+             cout << "      -Ingrese la edad >> ";
              getline(cin,datoACambiar);
              actual->edad=datoACambiar;
              colaDeError.cima(_dpi);
-             cout <<"   -Edad actualizada" << endl;
+             cout <<"   *Edad actualizada" << endl;
              datoACambiar = "";
              colaDeError.mostrarCola();
              listadc.mostrar();
@@ -164,11 +164,11 @@ void ListaDobleCircular::buscarModificar(string _dpi){
              break;
 
             }else if(opcion == "8"){
-             cout << "  -Ingrese el correo >> ";
+             cout << "      -Ingrese el correo >> ";
              getline(cin,datoACambiar);
              actual->correo=datoACambiar;
              colaDeError.cima(_dpi);
-             cout <<"   -Correo actualizado" << endl;
+             cout <<"   *Correo actualizado" << endl;
              datoACambiar = "";
              colaDeError.mostrarCola();
              listadc.mostrar();

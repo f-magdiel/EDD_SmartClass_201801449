@@ -4,6 +4,7 @@
 #include "Archivo.h"
 #include "ColaError.h"
 #include "ListaDobleCircular.h"
+#include "ArchivoTarea.h"
 
 using namespace std;
 void menuPrincipal(){
@@ -32,7 +33,7 @@ if(opcionPrincipal == "1"){
     cout << "\n" << endl;
     menuPrincipal();
 }else if(opcionPrincipal == "2"){
- cout << "Carga de tareas" << endl;
+    archivoTarea.leerArchivoTarea();
 }else if(opcionPrincipal == "3"){
     ingresoManual();
 }else if(opcionPrincipal == "4"){
