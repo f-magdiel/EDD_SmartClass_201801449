@@ -7,7 +7,7 @@
 
 1629526652 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
-1629610106 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+1629614456 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	<string>
@@ -44,7 +44,7 @@
 1629433980 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\globales.h
 	<iostream>
 
-1629610992 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoblecircular.cpp
+1629614243 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoblecircular.cpp
 	"ListaDobleCircular.h"
 	<string>
 	<iostream>
@@ -69,7 +69,7 @@
 	<string>
 	<iostream>
 
-1629608386 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\colaerror.cpp
+1629612879 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\colaerror.cpp
 	"ColaError.h"
 	<string>
 	<iostream>

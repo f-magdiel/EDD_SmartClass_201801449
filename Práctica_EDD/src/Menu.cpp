@@ -21,7 +21,7 @@ printf("%c  [4] Reportes               %c\n",186,186);
 printf("%c  [5] Salir                  %c\n",186,186);
 printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
 
-cout << "-Ingrese una opcion >> ";
+cout << "   -Ingrese una opcion >> ";
 getline(cin,opcionPrincipal);
 
 //opciones del menu
@@ -41,7 +41,7 @@ if(opcionPrincipal == "1"){
  exit(0);
 }else{
 
-    cout << "ERROR: Al menos seleccione una opcion" << endl;
+    cout << "   *ERROR: Al menos seleccione una opcion" << endl;
     cout << "\n" << endl;
     menuPrincipal();
 }
@@ -62,7 +62,7 @@ void ingresoManual(){
     printf("%c  [3] Regresar                       %c\n",186,186);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
 
-    cout << "-Ingrese una opcion: ";
+    cout << "-Ingrese una opcion >> ";
     getline(cin,opcionOperaciones);
 
     if(opcionOperaciones == "1"){
@@ -101,25 +101,25 @@ void operacionEstudiantes(){
 
         if(opEstudiante == "1"){
             cout << "   DATOS A INGRESAR"<< endl;
-            cout << "   -Ingrese carnet: ";
+            cout << "   -Ingrese carnet >> ";
             getline(cin,_carnet);
             cout <<"\n";
-            cout << "   -Ingrese DPI: ";
+            cout << "   -Ingrese DPI >> ";
             getline(cin,_dpi);
             cout <<"\n";
-            cout << "   -Ingrese nombre: ";
+            cout << "   -Ingrese nombre >> ";
             getline(cin,_nombre);
             cout <<"\n";
-            cout << "   -Ingrese carrera: ";
+            cout << "   -Ingrese carrera >> ";
             getline(cin,_carrera);
             cout <<"\n";
-            cout << "   -Ingrese password: ";
+            cout << "   -Ingrese password >> ";
             getline(cin,_pass);
             cout <<"\n";
-            cout << "   -Ingrese creditos: ";
+            cout << "   -Ingrese creditos >> ";
             getline(cin,_creditos);
             cout <<"\n";
-            cout << "   -Ingrese correo: ";
+            cout << "   -Ingrese correo >> ";
             getline(cin,_correo);
             cout <<"\n";
             informacion = _carnet+","+_dpi+","+_nombre+","+_carrera+","+_pass+","+_creditos+","+_edad+","+_correo;
@@ -130,12 +130,12 @@ void operacionEstudiantes(){
             colaDeError.mostrarCola();
             operacionEstudiantes();
         }else if(opEstudiante == "2"){
-            cout << "   -Ingrese el dpi: ";
+            cout << "   -Ingrese el dpi >> ";
             getline(cin,_dpi);
             listadc.buscarModificar(_dpi);
             listadc.mostrar();
         }else if(opEstudiante == "3"){
-            cout << "   -Ingrese el dpi: ";
+            cout << "   -Ingrese el dpi >> ";
             getline(cin,_dpi);
             listadc.eliminar(_dpi);
             listadc.mostrar();

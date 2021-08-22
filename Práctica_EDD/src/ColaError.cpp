@@ -30,7 +30,6 @@ void ColaError::desencolar(){
 
     if(this->frente!=NULL){
         this->frente = aux->siguiente;
-        //delete(aux);
 
     }else{
     cout << "   *Cola Vacia" << endl;
