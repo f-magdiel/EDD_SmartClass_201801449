@@ -127,6 +127,7 @@ void operacionEstudiantes(){
             validacionCadena(informacion);
             colaDeError.mostrarCola();
             listadc.mostrar();
+            colaDeError.mostrarCola();
             operacionEstudiantes();
         }else if(opEstudiante == "2"){
             cout << "   -Ingrese el dpi: ";

@@ -35,6 +35,7 @@ void ColaError::desencolar(){
     }else{
     cout << "   *Cola Vacia" << endl;
     }
+
 }
 
 void ColaError::mostrarError(){
@@ -59,10 +60,19 @@ void ColaError::mostrarCola(){
         cout << actual->tipo << endl;
         cout << "Descripcion: ";
         cout << actual->descripcion << endl;
+        cout << "DPI: ";
+        cout << actual->dpi << endl;
         cout << "\n";
         actual = actual->siguiente;
     }
 
+}
+
+void ColaError::cima(string _dpi){
+    if(_dpi == this->frente->dpi){
+        cout << this->frente->dpi << endl;
+        desencolar();
+    }
 }
 ColaError::~ColaError()
 {

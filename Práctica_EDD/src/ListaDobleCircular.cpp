@@ -1,6 +1,8 @@
 #include "ListaDobleCircular.h"
 #include <string>
 #include <iostream>
+#include "ColaError.h"
+#include "Menu.h"
 
 using namespace std;
 ListaDobleCircular::ListaDobleCircular()
@@ -59,7 +61,7 @@ void ListaDobleCircular::buscarModificar(string _dpi){
     do{
         if(_dpi == actual->dpi){
             informacion = actual->carnet+","+actual->dpi+","+actual->nombre+","+actual->carrera+","+actual->password+","+actual->creditos+","+actual->edad+","+actual->correo;
-            cout << "Datos encontrados: "+informacion << endl;
+            cout << "   -Datos encontrados: "+informacion << endl;
             cout << "Escoger dato a modificar: "<<endl;
             cout << "1. Carnet" << endl;
             cout << "2. DPI" << endl;
@@ -73,74 +75,118 @@ void ListaDobleCircular::buscarModificar(string _dpi){
             getline(cin,opcion);
 
             if(opcion == "1"){
-             cout << "  Ingrese el carnet:";
+             cout << "  -Ingrese el carnet:";
              getline(cin,datoACambiar);
              actual->carnet=datoACambiar;
-             cout <<"   Carnet actualizado" << endl;
+             colaDeError.cima(_dpi);
+             cout <<"   -Carnet actualizado" << endl;
              datoACambiar = "";
+             colaDeError.mostrarCola();
+             listadc.mostrar();
+             buscarModificar(_dpi);
+             break;
 
             }else if(opcion == "2"){
-             cout << "  Ingrese el DPI: ";
+             cout << "  -Ingrese el DPI: ";
              getline(cin,datoACambiar);
              actual->dpi=datoACambiar;
-             cout << "   DPI actualizado" << endl;
+             colaDeError.cima(_dpi);
+             cout << "   -DPI actualizado" << endl;
              datoACambiar = "";
+             colaDeError.mostrarCola();
+             listadc.mostrar();
+             buscarModificar(_dpi);
+             break;
 
             }else if(opcion == "3"){
-            cout << "  Ingrese el nombre:";
+            cout << "  -Ingrese el nombre:";
              getline(cin,datoACambiar);
              actual->nombre=datoACambiar;
-             cout <<"   Nombre actualizado" << endl;
+             colaDeError.cima(_dpi);
+             cout <<"   -Nombre actualizado" << endl;
              datoACambiar = "";
+             colaDeError.mostrarCola();
+             listadc.mostrar();
+             buscarModificar(_dpi);
+             break;
 
             }else if(opcion == "4"){
-             cout << "  Ingrese la carrera:";
+             cout << "  -Ingrese la carrera:";
              getline(cin,datoACambiar);
              actual->carrera=datoACambiar;
-             cout <<"   Carrera actualizada" << endl;
+             colaDeError.cima(_dpi);
+             cout <<"   -Carrera actualizada" << endl;
              datoACambiar = "";
+             colaDeError.mostrarCola();
+             listadc.mostrar();
+             buscarModificar(_dpi);
+             break;
 
             }else if(opcion == "5"){
-             cout << "  Ingrese el password:";
+             cout << "  -Ingrese el password:";
              getline(cin,datoACambiar);
              actual->password=datoACambiar;
-             cout <<"   Password actualizado" << endl;
+             colaDeError.cima(_dpi);
+             cout <<"   -Password actualizado" << endl;
              datoACambiar = "";
+             colaDeError.mostrarCola();
+             listadc.mostrar();
+             buscarModificar(_dpi);
+             break;
 
             }else if(opcion == "6"){
-             cout << "  Ingrese los creditos:";
+             cout << "  -Ingrese los creditos:";
              getline(cin,datoACambiar);
              actual->creditos=datoACambiar;
-             cout <<"   Creditos actualizado" << endl;
+             colaDeError.cima(_dpi);
+             cout <<"   -Creditos actualizado" << endl;
              datoACambiar = "";
+             colaDeError.mostrarCola();
+             listadc.mostrar();
+             buscarModificar(_dpi);
+             break;
 
             }else if(opcion == "7"){
-             cout << "  Ingrese la edad:";
+             cout << "  -Ingrese la edad:";
              getline(cin,datoACambiar);
              actual->edad=datoACambiar;
-             cout <<"   Edad actualizada" << endl;
+             colaDeError.cima(_dpi);
+             cout <<"   -Edad actualizada" << endl;
              datoACambiar = "";
+             colaDeError.mostrarCola();
+             listadc.mostrar();
+             buscarModificar(_dpi);
+             break;
 
             }else if(opcion == "8"){
-             cout << "  Ingrese el correo:";
+             cout << "  -Ingrese el correo:";
              getline(cin,datoACambiar);
              actual->correo=datoACambiar;
-             cout <<"   Correo actualizado" << endl;
+             colaDeError.cima(_dpi);
+             cout <<"   -Correo actualizado" << endl;
              datoACambiar = "";
-            }else if(opcion == "9"){
+             colaDeError.mostrarCola();
+             listadc.mostrar();
+             buscarModificar(_dpi);
+             break;
 
+            }else if(opcion == "9"){
+                operacionEstudiantes();
+                break;
             }else{
-            buscarModificar(_dpi);
+                buscarModificar(_dpi);
+                break;
             }
 
-
         }
+        actual = actual->siguiente;
     }while(actual!=this->cabeza);
 
     if(informacion==""){
         cout << "Dato no encotrado, por favor ingresar un dato valido" << endl;
+        operacionEstudiantes();
     }
-    //delete(actual);
+
 }
 
 void ListaDobleCircular::eliminar(string _dpi){
@@ -172,10 +218,7 @@ void ListaDobleCircular::eliminar(string _dpi){
             valorAnterior->siguiente = actual->siguiente;
             valorMuySiguiente->anterior = valorAnterior;
         }
-        //se libera memoria
-        //delete(actual);
-        //delete(valorAnterior);
-        //delete(valorMuySiguiente);
+
 
     }
     cout << "   Se elimino el dato" << endl;
