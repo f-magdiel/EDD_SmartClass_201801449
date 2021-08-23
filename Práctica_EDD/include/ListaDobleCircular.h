@@ -16,7 +16,7 @@ class ListaDobleCircular
         void eliminar(string);
         void buscarModificar(string);
         void mostrar();
-
+        bool buscar(string);
 };
 
 extern ListaDobleCircular listadc;

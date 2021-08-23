@@ -56,7 +56,7 @@ void validacionCadena(string lineas){
         colaDeError.encolar(colaDeError.contadorID,"Estudiante","DPI incorrecto",palabras[1]);
     }
 
-   //validación Carne
+   //validación Carnet
    if(palabras[0].length()== 9){
         banderaCarne = true;
 
