@@ -7,9 +7,9 @@
 	"ArchivoTarea.h"
 	"Matriz.h"
 
-1629526652 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
+1629756754 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
-1629708209 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+1629756863 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	<string>
@@ -55,7 +55,7 @@
 	"ColaError.h"
 	"Menu.h"
 
-1629433593 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nododoblecircular.cpp
+1629739002 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nododoblecircular.cpp
 	"NodoDobleCircular.h"
 	<string>
 	<iostream>
@@ -68,7 +68,7 @@
 	<iostream>
 	<string>
 
-1629515759 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nodocola.cpp
+1629737435 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nodocola.cpp
 	"NodoCola.h"
 	<string>
 	<iostream>
@@ -78,7 +78,7 @@
 	<string>
 	<iostream>
 
-1629708561 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivotarea.cpp
+1629709410 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivotarea.cpp
 	"ArchivoTarea.h"
 	<iostream>
 	<string>
@@ -103,4 +103,22 @@
 
 1629705127 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\matriz.cpp
 	"Matriz.h"
+
+1629756668 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoble.cpp
+	"ListaDoble.h"
+	<string>
+	<iostream>
+
+1629756654 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\listadoble.h
+	"NodoListaDoble.h"
+	<iostream>
+
+1629736851 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\nodolistadoble.h
+	<string>
+	<iostream>
+
+1629756476 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\nodolistadoble.cpp
+	"NodoListaDoble.h"
+	<string>
+	<iostream>
 

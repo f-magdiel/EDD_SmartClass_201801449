@@ -6,5 +6,6 @@ void menuPrincipal();
 void menuEstudiantes();
 void ingresoManual();
 void operacionEstudiantes();
+void operacionTareas();
 
 #endif // MENU_H

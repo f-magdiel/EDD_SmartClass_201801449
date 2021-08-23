@@ -84,7 +84,7 @@ void ingresoManual(){
     if(opcionOperaciones == "1"){
         operacionEstudiantes();
     }else if(opcionOperaciones == "2"){
-        cout << "Tareas";
+        operacionTareas();
     }else if(opcionOperaciones == "3"){
         menuPrincipal();
     }else{
@@ -96,7 +96,6 @@ void ingresoManual(){
 
 void operacionEstudiantes(){
         string opEstudiante;
-
         printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
         printf("%c        ESTUDIANTES            %c\n",186,186);
         printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
@@ -163,6 +162,23 @@ void operacionEstudiantes(){
             operacionEstudiantes();
         }
 
+}
+
+void operacionTareas(){
+        string opTareas;
+        printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
+        printf("%c          TAREAS           %c\n",186,186);
+        printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
+        printf("\n");
+        printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
+        printf("%c  [1] Agregar una Tarea    %c\n",186,186);
+        printf("%c  [2] Modificar una Tarea  %c\n",186,186);
+        printf("%c  [3] Eliminar una Tarea   %c\n",186,186);
+        printf("%c  [4] Regresar             %c\n",186,186);
+        printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
+        cout << "\n";
+        cout << "  -Ingrese una opcion >> ";
+        getline(cin,opTareas);
 }
 
 

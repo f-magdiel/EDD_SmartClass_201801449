@@ -1,6 +1,8 @@
 #ifndef LISTADOBLE_H
 #define LISTADOBLE_H
-
+#include "NodoListaDoble.h"
+#include <iostream>
+using namespace std;
 
 class ListaDoble
 {
@@ -8,9 +10,13 @@ class ListaDoble
         ListaDoble();
         virtual ~ListaDoble();
 
-    protected:
+   void agregar(int,string,string,string,string,string,string,string);
+   void buscar(int);
+   void actualizar(int);
+   void eliminar(int);
+   NodoListaDoble* cabeza;
+   NodoListaDoble* cola;
 
-    private:
 };
 
 #endif // LISTADOBLE_H
