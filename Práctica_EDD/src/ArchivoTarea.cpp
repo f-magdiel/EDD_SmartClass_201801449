@@ -12,6 +12,7 @@
 
 using namespace std;
 int contadorIDTarea=0;
+int contadorErrorTarea = 0;
 ArchivoTarea::ArchivoTarea()
 {
     this->contadorID =0;
@@ -40,6 +41,7 @@ void ArchivoTarea::leerArchivoTarea(){
         }
     }
     archivo.close();
+    verError();
 }
 
 void ArchivoTarea::dividirCadena(string lineas){
@@ -54,12 +56,20 @@ void ArchivoTarea::dividirCadena(string lineas){
     mes = mes-7;
     dia = dia-1;
     hora = hora-8;
-
+    //validacion de posiciones en la matriz
     if(hora>=0 && hora<=8){
-        validacionTarea(mes,dia,hora,palabrasTarea[3],palabrasTarea[4],palabrasTarea[5],palabrasTarea[6],palabrasTarea[7],palabrasTarea[8]);
-    }else{
-        cout << "Hora valio" <<endl;
-        cout << hora;
+        if(dia>=0 && dia<=29){
+            if(mes>=0 && mes<=4){
+                    //para validar solo una tarea en una hora
+                string dato = matrizTareas[mes][hora][dia]->carnet;
+                if(dato=="-1"){
+                   validacionTarea(mes,dia,hora,palabrasTarea[3],palabrasTarea[4],palabrasTarea[5],palabrasTarea[6],palabrasTarea[7],palabrasTarea[8]);
+                }else{
+                cout << "   *Posicion Ocupada"<<endl;
+                }
+
+            }
+        }
     }
 
 
@@ -75,18 +85,13 @@ void ArchivoTarea::validacionTarea(int _mes,int _dia,int _hora,string _carnet,st
     const regex expFecha ("\\d{4}\\/([[0][7|8|9]|[1][0|1])\\/([[0][1-9]|[1][0-9]|[2][0-9]|[3][0])");
     //validacion carnet
     banderaCarnet = listadc.buscar(_carnet);
-    cout << "POsiciones" << endl;
-    cout << "Mes: ";
-    cout << _mes;
-    cout << " Dia: ";
-    cout << _dia;
-    cout << " Hora: ";
-    cout << _hora << endl;
+
     //validacion carnet
     if(banderaCarnet==true){
         banderaCarnet = true;
 
     }else{
+        contadorErrorTarea++;
         banderaCarnet = false;
         colaDeError.contadorID++;
         colaDeError.encolar(colaDeError.contadorID,"Tarea","Carnet no encontrado",_carnet);
@@ -97,15 +102,17 @@ void ArchivoTarea::validacionTarea(int _mes,int _dia,int _hora,string _carnet,st
     if(banderaFecha){
         banderaFecha = true;
     }else{
+        contadorErrorTarea++;
         banderaFecha = false;
         colaDeError.contadorID++;
         colaDeError.encolar(colaDeError.contadorID,"Tarea","Fecha incorrecta",_carnet);
     }
 
     //validacion hora
-    if(_hora>=8 && _hora<=16){
+    if(_hora>=0 && _hora<=8){
         banderaHora = true;
     }else{
+        contadorErrorTarea++;
         banderaHora = false;
         colaDeError.contadorID++;
         colaDeError.encolar(colaDeError.contadorID,"Tarea","Hora incorrecta",_carnet);
@@ -142,6 +149,16 @@ vector<string> splitTarea(string linea) {
     }
 
     return resultado;
+}
+
+void ArchivoTarea::verError(){
+    if(contadorErrorTarea!=0){
+        cout << "   *Error encontrado: ";
+        cout << contadorErrorTarea << endl;
+    }else{
+        cout << "   *Error encontrado: ";
+        cout << contadorErrorTarea << endl;
+    }
 }
 
 ArchivoTarea::~ArchivoTarea()

@@ -195,15 +195,16 @@ void ListaDobleCircular::buscarModificar(string _dpi){
 }
 
 bool ListaDobleCircular::buscar(string _carnet){
-    bool bandera = false;
+    bool banderaBuscar = false;
     NodoDobleCircular* actual = this->cabeza;
     do{
         if(_carnet==actual->carnet){
-            bandera = true;
-            return bandera;
+                banderaBuscar = true;
+                break;
         }
         actual = actual->siguiente;
     }while(actual!=this->cabeza);
+    return banderaBuscar;
 }
 
 void ListaDobleCircular::eliminar(string _dpi){

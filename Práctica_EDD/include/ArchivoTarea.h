@@ -16,7 +16,7 @@ class ArchivoTarea
     void leerArchivoTarea();
     void dividirCadena(string);
     void validacionTarea(int,int,int,string,string,string,string,string,string);
-
+    void verError();
 
 };
 

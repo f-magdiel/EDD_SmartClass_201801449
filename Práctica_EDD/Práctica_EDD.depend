@@ -9,7 +9,7 @@
 
 1629526652 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
-1629618718 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+1629708209 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	<string>
@@ -17,6 +17,7 @@
 	"ColaError.h"
 	"ListaDobleCircular.h"
 	"ArchivoTarea.h"
+	"Matriz.h"
 
 1629324024 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\archivo.h
 	<string>
@@ -47,7 +48,7 @@
 1629433980 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\globales.h
 	<iostream>
 
-1629689706 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoblecircular.cpp
+1629708558 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoblecircular.cpp
 	"ListaDobleCircular.h"
 	<string>
 	<iostream>
@@ -77,7 +78,7 @@
 	<string>
 	<iostream>
 
-1629705298 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivotarea.cpp
+1629708561 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\archivotarea.cpp
 	"ArchivoTarea.h"
 	<iostream>
 	<string>
@@ -90,7 +91,7 @@
 	"Matriz.h"
 	"ColaError.h"
 
-1629688296 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\archivotarea.h
+1629708011 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\archivotarea.h
 	<string>
 	<iostream>
 	<cstdlib>

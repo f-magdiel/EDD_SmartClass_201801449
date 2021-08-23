@@ -35,18 +35,20 @@ if(opcionPrincipal == "1"){
     menuPrincipal();
 }else if(opcionPrincipal == "2"){
     archivoTarea.leerArchivoTarea();
-   for(int i=0;i<5;i++){
+   /**for(int i=0;i<5;i++){
         for (int j=0;j<9;j++){
             for(int k=0;k<30;k++){
 
                 cout << matrizTareas[i][j][k]->carnet;
                 cout << " ";
-
             }
             cout << "\n";
         }
         cout << "\n";
-    }
+    }**/
+    colaDeError.mostrarCola();
+    menuPrincipal();
+
 }else if(opcionPrincipal == "3"){
     ingresoManual();
 }else if(opcionPrincipal == "4"){
