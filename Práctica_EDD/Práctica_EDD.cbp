@@ -37,20 +37,24 @@
 		<Unit filename="include/Archivo.h" />
 		<Unit filename="include/ArchivoTarea.h" />
 		<Unit filename="include/ColaError.h" />
+		<Unit filename="include/ListaDoble.h" />
 		<Unit filename="include/ListaDobleCircular.h" />
 		<Unit filename="include/Matriz.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/NodoCola.h" />
 		<Unit filename="include/NodoDobleCircular.h" />
+		<Unit filename="include/NodoListaDoble.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Archivo.cpp" />
 		<Unit filename="src/ArchivoTarea.cpp" />
 		<Unit filename="src/ColaError.cpp" />
+		<Unit filename="src/ListaDoble.cpp" />
 		<Unit filename="src/ListaDobleCircular.cpp" />
 		<Unit filename="src/Matriz.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/NodoCola.cpp" />
 		<Unit filename="src/NodoDobleCircular.cpp" />
+		<Unit filename="src/NodoListaDoble.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

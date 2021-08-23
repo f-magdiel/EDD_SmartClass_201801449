@@ -19,6 +19,18 @@ int main()
             }
         }
     }
+    int TZ = 5; //caras
+    int TJ = 9;
+    int _k=0;
+    //para recorrer y linealizar
+    for(int z=0;z<5;z++){
+        for (int i = 0;i<9;i++){
+            for(int j = 0;j<30;j++){
+                _k = (j*TJ+i)*TZ+z;
+                matrizTareas[z][i][j]->setK(_k);
+            }
+        }
+    }
 
     //matrizTareas[0][0][0] ->insertar("nombre","dato");
     listadc = ListaDobleCircular();

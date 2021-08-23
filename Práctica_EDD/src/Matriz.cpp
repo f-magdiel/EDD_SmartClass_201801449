@@ -2,6 +2,7 @@
 
 Matriz::Matriz()
 {
+    this->k = -1;
     this->id = -1;
     this->hora = "-1";
     this->carnet = "-1";
@@ -30,7 +31,7 @@ void Matriz::mostrarMatriz(){
         for (j = 0;j<9;j++){
             for(k = 0;k<30;k++){
 
-                cout << matrizTareas[i][j][k]->carnet;
+                cout << matrizTareas[i][j][k]->k;
                 cout << " ";
                 cout << "\n";
             }
@@ -39,7 +40,13 @@ void Matriz::mostrarMatriz(){
         cout << "\n";
     }
 }
+void Matriz::setK(int _k){
+    this->k = _k;
+}
 
+int Matriz::getK(){
+    return this->k;
+}
 Matriz::~Matriz()
 {
     //dtor

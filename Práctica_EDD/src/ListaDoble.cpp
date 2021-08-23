@@ -61,6 +61,10 @@ void ListaDoble::actualizar(int _id){
     }
 }
 
+void ListaDoble::eliminar(int _id){
+    NodoListaDoble* actual = this->cabeza;
+}
+
 ListaDoble::~ListaDoble()
 {
     //dtor

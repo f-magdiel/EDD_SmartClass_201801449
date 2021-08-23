@@ -9,7 +9,7 @@ class Matriz
     public:
         Matriz();
         virtual ~Matriz();
-
+        int k =0;
         int id=0;
         string hora;
         string carnet;
@@ -21,6 +21,8 @@ class Matriz
 
         void insertar(int,string,string,string,string,string,string,string);
         void mostrarMatriz();
+        int getK();
+        void setK(int);
 
 };
 extern Matriz* matrizTareas [5][9][30];
