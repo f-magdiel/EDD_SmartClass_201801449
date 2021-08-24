@@ -143,9 +143,16 @@ void operacionEstudiantes(){
         }else if(opEstudiante == "3"){
             cout << "   -Ingrese el dpi >> ";
             getline(cin,_dpi);
-            listadc.eliminar(_dpi);
-            listadc.mostrar();
-            operacionEstudiantes();
+            string op;
+            cout << "   *Estas seguro de eliminar ese dato [S/N] >> ";
+            getline(cin,op);
+            if(op=="S"){
+                listadc.eliminar(_dpi);
+                listadc.mostrar();
+                operacionEstudiantes();
+            }else{
+                operacionEstudiantes();
+            }
         }else if(opEstudiante == "4"){
             ingresoManual();
         }else{
