@@ -9,6 +9,7 @@
 #include "ListaDoble.h"
 
 using namespace std;
+int contadorImagelista=0;
 void menuPrincipal(){
 
     string opcionPrincipal;
@@ -43,7 +44,7 @@ if(opcionPrincipal == "1"){
 }else if(opcionPrincipal == "3"){
     ingresoManual();
 }else if(opcionPrincipal == "4"){
- cout << "Reportes" << endl;
+    menuReporte();
 }else if(opcionPrincipal == "5"){
  exit(0);
 }else{
@@ -431,5 +432,44 @@ void modificacionMatriz(int cara,int fila, int columna){
             operacionTareas();
     }
 }
+
+void menuReporte(){
+    string opcionReporte;
+    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
+    printf("%c                      REPORTE                     %c\n",186,186);
+    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
+    printf("\n");
+    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
+    printf("%c  [1] Reporte Sobre Lista Estudiantes             %c\n",186,186);
+    printf("%c  [2] Reporte Sobre Lista de Tareas Linealizada   %c\n",186,186);
+    printf("%c  [3] Busqueda en Estructura Linealizada          %c\n",186,186);
+    printf("%c  [4] Busqueda de Posicion en Lista Linealizada   %c\n",186,186);
+    printf("%c  [5] Cola de Errores                             %c\n",186,186);
+    printf("%c  [6] Codigo Generado de Salida                   %c\n",186,186);
+    printf("%c  [7] Regresar                                    %c\n",186,186);
+    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
+    cout << "   -Ingrese una opcion >> ";
+    getline(cin,opcionReporte);
+
+    if(opcionReporte == "1"){
+    listadc.generadorImagen();
+    menuReporte();
+    }else if(opcionReporte == "2"){
+
+    }else if(opcionReporte == "3"){
+
+    }else if(opcionReporte == "4"){
+
+    }else if(opcionReporte == "5"){
+
+    }else if(opcionReporte == "6"){
+
+    }else if(opcionReporte == "7"){
+
+    }
+
+}
+
+
 
 

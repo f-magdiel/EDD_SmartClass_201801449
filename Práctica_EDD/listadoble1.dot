@@ -1,0 +1,54 @@
+digraph G {
+
+rankdir = LR;
+
+	node [shape=record,color=black];
+label = "Lista Estudiantes"; 
+
+color= black 
+
+		N_0[label = "Carnet: 201700886\nDpi: 3502451230508\nNombre: Emilia Miramontes\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: nicols36@hotmail.com\nPassword: roxodiciqi\nCreditos: 205\nEdad: 21"];
+
+		N_1[label = "Carnet: 201501786\nDpi: 7249529279753\nNombre: Juan Curiel\nCarrera: Ingenieria Industrial\nCorreo: jernimo.caballero@yahoo.com\nPassword: zanolexima\nCreditos: 245\nEdad: 24"];
+
+		N_2[label = "Carnet: 201822186\nDpi: 9298434863898\nNombre: Eloisa Rincon\nCarrera: Ingenieria Civil\nCorreo: carolinaelizondo85@yahoo.com\nPassword: toqelijanu\nCreditos: 95\nEdad: 19"];
+
+		N_3[label = "Carnet: 201901425\nDpi: 4131766125532\nNombre: Bernardo Hinojosa\nCarrera: Ingenieria Mecanica\nCorreo: alfonso03@hotmail.com\nPassword: wosopumano\nCreditos: 100\nEdad: 20"];
+
+		N_4[label = "Carnet: 201503186\nDpi: 8549191766348\nNombre: Manuel Manzanares\nCarrera: Ingenieria Electrica\nCorreo: benitoarmas92@gmail.com\nPassword: rejumudore\nCreditos: 226\nEdad: 24"];
+
+		N_5[label = "Carnet: 201123146\nDpi: 9616636196552\nNombre: Julia Corona\nCarrera: Ingenieria Electronica\nCorreo: ngela.solorio86@yahoo.com\nPassword: xojobavuji\nCreditos: 237\nEdad: 26"];
+
+		N_6[label = "Carnet: 201704186\nDpi: 4778315315575\nNombre: Berta Carrasco\nCarrera: Ingenieria Ambiental\nCorreo: carmen.montenegro@yahoo.com\nPassword: gayahizatu\nCreditos: 210\nEdad: 22"];
+
+		N_7[label = "Carnet: 202000786\nDpi: 7382344774121\nNombre: Lola Delapaz\nCarrera: Ingenieria Quimica\nCorreo: adriana56@gmail.com\nPassword: hujocikimi\nCreditos: 45\nEdad: 19"];
+
+		N_8[label = "Carnet: 201611446\nDpi: 2511893949443\nNombre: Sonia Arteaga\nCarrera: Ingenieria Mecanica Industrial\nCorreo: esperanza.meza41@hotmail.com\nPassword: rezutafila\nCreditos: 195\nEdad: 23"];
+
+		N_9[label = "Carnet: 201819852\nDpi: 3423442386381\nNombre: Benjamin Asencio\nCarrera: Ingenieria Mecanica Electrica\nCorreo: horacio_tejada15@yahoo.com\nPassword: runoqozepo\nCreditos: 117\nEdad: 20"];
+
+		N_10[label = "Carnet: 201801441\nDpi: 3275257541409\nNombre: Magdiel Asicona\nCarrera:  Ingenieria en Ciencias y Sistemas\nCorreo: magdielasicona@gmail.com\nPassword: magdieelas\nCreditos: 123\nEdad: 21"];
+
+N_0->N_1;
+N_1->N_0;
+N_1->N_2;
+N_2->N_1;
+N_2->N_3;
+N_3->N_2;
+N_3->N_4;
+N_4->N_3;
+N_4->N_5;
+N_5->N_4;
+N_5->N_6;
+N_6->N_5;
+N_6->N_7;
+N_7->N_6;
+N_7->N_8;
+N_8->N_7;
+N_8->N_9;
+N_9->N_8;
+N_9->N_10;
+N_10->N_9;
+N_0->N_10;
+N_10->N_0;
+ }

@@ -17,6 +17,7 @@ class ListaDoble
    void actualizar(string,string,string,string,string,string,string,int);
    void eliminar(int);
    void imprimir();
+   void generadorImagen();
    NodoListaDoble* cabeza;
    NodoListaDoble* cola;
 

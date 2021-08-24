@@ -17,6 +17,7 @@ class ListaDobleCircular
         void buscarModificar(string);
         void mostrar();
         bool buscar(string);
+        void generadorImagen();
 };
 
 extern ListaDobleCircular listadc;

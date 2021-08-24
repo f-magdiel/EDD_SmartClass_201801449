@@ -1,8 +1,10 @@
 #include "ListaDoble.h"
 #include <string>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
+
 ListaDoble::ListaDoble()
 {
     this->cabeza = NULL;
@@ -73,6 +75,8 @@ void ListaDoble::imprimir(){
         actual = actual->siguiente;
     }
 }
+
+
 ListaDoble::~ListaDoble()
 {
     //dtor

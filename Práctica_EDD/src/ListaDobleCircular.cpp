@@ -3,8 +3,11 @@
 #include <iostream>
 #include "ColaError.h"
 #include "Menu.h"
+#include <fstream>
 
 using namespace std;
+int iteradorImagen =0;
+int nodoNombre =0;
 ListaDobleCircular::ListaDobleCircular()
 {
     this->cabeza = NULL;
@@ -205,6 +208,45 @@ bool ListaDobleCircular::buscar(string _carnet){
         actual = actual->siguiente;
     }while(actual!=this->cabeza);
     return banderaBuscar;
+}
+
+void ListaDobleCircular::generadorImagen(){
+
+    iteradorImagen++;
+    string iterador = to_string(iteradorImagen);
+    string nombre = "listadoble"+iterador;
+    ofstream fs(nombre+".dot");
+        fs<<"digraph G {"<<"\n"<<endl;
+        fs << "rankdir = LR;\n" <<endl;
+        fs << "\tnode [shape=record,color=black];" <<endl;
+        fs << "label = \"Lista Estudiantes\"; \n"<<endl;
+        fs << "color= black \n"<<endl;
+    NodoDobleCircular* actual = this->cabeza;
+    do{
+        fs <<"\t\tN_"<<nodoNombre<<"[label = \"Carnet: " << actual->carnet<<"\\nDpi: "<<actual->dpi<<"\\nNombre: "<<actual->nombre<<"\\nCarrera: "<<actual->carrera<<"\\nCorreo: "<<actual->correo<<"\\nPassword: "<<actual->password<<"\\nCreditos: "<<actual->creditos<<"\\nEdad: "<<actual->edad<<"\"];\n"<<endl;
+        actual = actual->siguiente;
+        nodoNombre++;
+    }while(actual!=this->cabeza);
+
+
+    for(int i=0;i<nodoNombre-1;i++){
+        fs<<"N_"<<i<<"->"<<"N_"<<i+1<<";"<<endl;
+        fs<<"N_"<<i+1<<"->"<<"N_"<<i<<";"<<endl;
+
+    }
+
+    fs<<"N_"<<"0"<<"->"<<"N_"<<nodoNombre-1<<";"<<endl;
+    fs<<"N_"<<nodoNombre-1<<"->"<<"N_"<<"0"<<";"<<endl;
+
+    fs << " }" << endl;
+    fs.close();
+    string info = "dot -Tsvg "+nombre+".dot -o "+nombre+".svg";
+    const char* c = info.c_str();
+    cout << c;
+    cout << "\n     *Generado exitosamente"<<endl;
+    system(c);
+
+
 }
 
 void ListaDobleCircular::eliminar(string _dpi){
