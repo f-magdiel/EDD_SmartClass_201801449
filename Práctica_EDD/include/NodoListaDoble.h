@@ -7,7 +7,7 @@ using namespace std;
 class NodoListaDoble
 {
     public:
-        NodoListaDoble(int,string,string,string,string,string,string,string);
+        NodoListaDoble(int,string,string,string,string,string,string,string,int);
         virtual ~NodoListaDoble();
         int id;
         string carnet;
@@ -17,6 +17,7 @@ class NodoListaDoble
         string fecha;
         string hora;
         string estado;
+        int linea;
         NodoListaDoble* siguiente;
         NodoListaDoble* anterior;
 

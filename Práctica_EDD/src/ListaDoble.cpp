@@ -9,8 +9,8 @@ ListaDoble::ListaDoble()
     this->cola = NULL;
 }
 
-void ListaDoble::agregar(int _id,string _carnet,string _nombre,string _descripcion,string _materia,string _fecha,string _hora,string _estado){
-    NodoListaDoble* nuevoNodo = new NodoListaDoble(_id,_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado);
+void ListaDoble::agregar(int _id,string _carnet,string _nombre,string _descripcion,string _materia,string _fecha,string _hora,string _estado,int _linea){
+    NodoListaDoble* nuevoNodo = new NodoListaDoble(_id,_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
     if(!this->cabeza){
         this->cabeza = nuevoNodo;
     }else{
@@ -65,6 +65,14 @@ void ListaDoble::eliminar(int _id){
     NodoListaDoble* actual = this->cabeza;
 }
 
+void ListaDoble::imprimir(){
+    NodoListaDoble* actual = this->cabeza;
+    while(actual!=NULL){
+        cout << actual->materia;
+        cout << " ";
+        actual = actual->siguiente;
+    }
+}
 ListaDoble::~ListaDoble()
 {
     //dtor

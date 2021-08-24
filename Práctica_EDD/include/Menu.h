@@ -7,5 +7,6 @@ void menuEstudiantes();
 void ingresoManual();
 void operacionEstudiantes();
 void operacionTareas();
+void linealizacion();
 
 #endif // MENU_H

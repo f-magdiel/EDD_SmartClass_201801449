@@ -4,8 +4,9 @@
 #include "ColaError.h"
 #include "ArchivoTarea.h"
 #include "Matriz.h"
-
+#include "ListaDoble.h"
 using namespace std;
+ListaDoble listadoble;
 ListaDobleCircular listadc;
 ColaError colaDeError;
 ArchivoTarea archivoTarea;
@@ -32,7 +33,7 @@ int main()
         }
     }
 
-    //matrizTareas[0][0][0] ->insertar("nombre","dato");
+    listadoble = ListaDoble();
     listadc = ListaDobleCircular();
     colaDeError = ColaError();
     menuPrincipal();

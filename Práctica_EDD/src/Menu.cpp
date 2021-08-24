@@ -6,6 +6,7 @@
 #include "ListaDobleCircular.h"
 #include "ArchivoTarea.h"
 #include "Matriz.h"
+#include "ListaDoble.h"
 
 using namespace std;
 void menuPrincipal(){
@@ -35,18 +36,9 @@ if(opcionPrincipal == "1"){
     menuPrincipal();
 }else if(opcionPrincipal == "2"){
     archivoTarea.leerArchivoTarea();
-   for(int i=0;i<5;i++){
-        for (int j=0;j<9;j++){
-            for(int k=0;k<30;k++){
-
-                cout << matrizTareas[i][j][k]->k;
-                cout << " ";
-            }
-            cout << "\n";
-        }
-        cout << "\n";
-    }
+    linealizacion();
     colaDeError.mostrarCola();
+    //listadoble.imprimir();
     menuPrincipal();
 
 }else if(opcionPrincipal == "3"){
@@ -180,6 +172,33 @@ void operacionTareas(){
         cout << "  -Ingrese una opcion >> ";
         getline(cin,opTareas);
 }
+void linealizacion(){
+    int id_;
+    string carnet_;
+    string nombre_;
+    string descripcion_;
+    string materia_;
+    string fecha_;
+    string hora_;
+    string estado_;
+    int linea_;
 
+    for(int i=0;i<30;i++){
+        for (int j=0;j<9;j++){
+            for(int k=0;k<5;k++){
+                id_ = matrizTareas[k][j][i]->id;
+                carnet_ = matrizTareas[k][j][i]->carnet;
+                nombre_ = matrizTareas[k][j][i]->nombreTarea;
+                descripcion_ = matrizTareas[k][j][i]->descripcion;
+                materia_ = matrizTareas[k][j][i]->materia;
+                fecha_ = matrizTareas[k][j][i]->fecha;
+                hora_ = matrizTareas[k][j][i]->hora;
+                estado_ = matrizTareas[k][j][i]->estado;
+                linea_ = matrizTareas[k][j][i]->k;
+                listadoble.agregar(id_,carnet_,nombre_,descripcion_,materia_,fecha_,hora_,estado_,linea_);
+            }
+        }
+    }
+}
 
 
