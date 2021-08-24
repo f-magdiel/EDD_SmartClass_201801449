@@ -13,8 +13,8 @@ class ListaDoble
         virtual ~ListaDoble();
 
    void agregar(int,string,string,string,string,string,string,string,int);
-   void buscar(int);
-   void actualizar(int);
+   void buscarAgregar(int,string,string,string,string,string,string,string,int);
+   void actualizar(string,string,string,string,string,string,string,int);
    void eliminar(int);
    void imprimir();
    NodoListaDoble* cabeza;

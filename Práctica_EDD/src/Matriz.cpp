@@ -47,6 +47,16 @@ void Matriz::setK(int _k){
 int Matriz::getK(){
     return this->k;
 }
+
+void Matriz::modificar(string _hora,string _carnet,string _nombreTarea,string _descripcion,string _materia ,string _fecha,string _estado){
+    this->hora = _hora;
+    this->carnet = _carnet;
+    this->nombreTarea = _nombreTarea;
+    this->descripcion = _descripcion;
+    this->materia = _materia;
+    this->fecha = _fecha;
+    this->estado = _estado;
+}
 Matriz::~Matriz()
 {
     //dtor

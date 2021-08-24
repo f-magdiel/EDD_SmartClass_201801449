@@ -23,6 +23,7 @@ class Matriz
         void mostrarMatriz();
         int getK();
         void setK(int);
+        void modificar(string,string,string,string,string,string,string);
 
 };
 extern Matriz* matrizTareas [5][9][30];

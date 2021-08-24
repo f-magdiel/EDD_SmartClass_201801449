@@ -23,7 +23,7 @@ int main()
     int TZ = 5; //caras
     int TJ = 9;
     int _k=0;
-    //para recorrer y linealizar
+    //para recorrer y linealizar matriz
     for(int z=0;z<5;z++){
         for (int i = 0;i<9;i++){
             for(int j = 0;j<30;j++){
@@ -32,8 +32,19 @@ int main()
             }
         }
     }
-
     listadoble = ListaDoble();
+    //se crea la lista al principio y se agrega la linealizacion #
+    int linea;
+    for(int i=0;i<30;i++){
+        for (int j=0;j<9;j++){
+            for(int k=0;k<5;k++){
+                linea = matrizTareas[k][j][i]->k;
+                listadoble.agregar(-1,"-1","-1","-1","-1","-1","-1","-1",linea);
+            }
+        }
+    }
+
+
     listadc = ListaDobleCircular();
     colaDeError = ColaError();
     menuPrincipal();

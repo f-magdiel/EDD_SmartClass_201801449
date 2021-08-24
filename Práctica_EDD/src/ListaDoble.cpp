@@ -25,36 +25,35 @@ void ListaDoble::agregar(int _id,string _carnet,string _nombre,string _descripci
 
 }
 
-void ListaDoble::buscar(int _id){
+void ListaDoble::buscarAgregar(int _id,string _carnet,string _nombre,string _descripcion,string _materia,string _fecha,string _hora,string _estado,int _linea){
     NodoListaDoble* actual = this->cabeza;
     while(actual!=NULL){
-        if(_id==actual->id){
-            cout << "Si esta" << endl;
+        if(_linea==actual->linea){
+            actual->id = _id;
+            actual->carnet = _carnet;
+            actual->nombre = _nombre;
+            actual->descripcion = _descripcion;
+            actual->materia = _materia;
+            actual->fecha = _fecha;
+            actual->hora = _hora;
+            actual->estado = _estado;
+            break;
         }
         actual = actual->siguiente;
     }
 }
 
-void ListaDoble::actualizar(int _id){
+void ListaDoble::actualizar(string _carnet,string _nombre,string _descripcion,string _materia,string _fecha,string _hora,string _estado,int _linea){
     NodoListaDoble* actual = this->cabeza;
     while(actual!=NULL){
-        if(_id==actual->id){
-            string opcion;
-            printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
-            printf("%c     MODIFICAR    %c\n",186,186);
-            printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
-            printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
-            printf("%c  [1] Carnet        %c\n",186,186);
-            printf("%c  [2] Nombre Tarea  %c\n",186,186);
-            printf("%c  [3] Descripcion   %c\n",186,186);
-            printf("%c  [4] Materia       %c\n",186,186);
-            printf("%c  [5] Fecha         %c\n",186,186);
-            printf("%c  [6] Hora          %c\n",186,186);
-            printf("%c  [7] Estado        %c\n",186,186);
-            printf("%c  [8] Regresar      %c\n",186,186);
-            printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
-            cout << "   -Ingrese una opcion >> ";
-            getline(cin,opcion);
+        if(_linea==actual->linea){
+            actual->carnet = _carnet;
+            actual->nombre = _nombre;
+            actual->descripcion = _descripcion;
+            actual->materia = _materia;
+            actual->fecha = _fecha;
+            actual->hora = _hora;
+            actual->estado = _estado;
             break;
         }
         actual = actual->siguiente;
@@ -66,9 +65,10 @@ void ListaDoble::eliminar(int _id){
 }
 
 void ListaDoble::imprimir(){
+    cout << "IMPRESION"<<endl;
     NodoListaDoble* actual = this->cabeza;
     while(actual!=NULL){
-        cout << actual->materia;
+        cout << actual->carnet;
         cout << " ";
         actual = actual->siguiente;
     }

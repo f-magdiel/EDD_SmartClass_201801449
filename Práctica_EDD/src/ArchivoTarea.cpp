@@ -9,6 +9,7 @@
 #include "ListaDobleCircular.h"
 #include "Matriz.h"
 #include "ColaError.h"
+#include "ListaDoble.h"
 
 using namespace std;
 int contadorIDTarea=0;
@@ -80,6 +81,11 @@ void ArchivoTarea::validacionTarea(int _mes,int _dia,int _hora,string _carnet,st
     bool banderaFecha=false;
     bool banderaCarnet=false;
     bool banderaHora=false;
+    int TZ = 5; //caras
+    int TJ = 9;
+    int _k=0;
+
+    _k = (_dia*TJ+_hora)*TZ+_mes;
     string hora_ = to_string(_hora);
 
     const regex expFecha ("\\d{4}\\/([[0][7|8|9]|[1][0|1])\\/([[0][1-9]|[1][0-9]|[2][0-9]|[3][0])");
@@ -122,11 +128,11 @@ void ArchivoTarea::validacionTarea(int _mes,int _dia,int _hora,string _carnet,st
     if((banderaCarnet == true)&&(banderaFecha == true)&&(banderaHora == true)){
         contadorIDTarea++;
         matrizTareas[_mes][_hora][_dia] ->insertar(contadorIDTarea,hora_,_carnet,_nombreTarea,_descripcion,_materia,_fecha,_estado);
-
+        listadoble.buscarAgregar(contadorIDTarea,_carnet,_nombreTarea,_descripcion,_materia,_fecha,hora_,_estado,_k);
     }else{
         contadorIDTarea++;
         matrizTareas[_mes][_hora][_dia] ->insertar(contadorIDTarea,hora_,_carnet,_nombreTarea,_descripcion,_materia,_fecha,_estado);
-
+        listadoble.buscarAgregar(contadorIDTarea,_carnet,_nombreTarea,_descripcion,_materia,_fecha,hora_,_estado,_k);
     }
 
 

@@ -36,9 +36,8 @@ if(opcionPrincipal == "1"){
     menuPrincipal();
 }else if(opcionPrincipal == "2"){
     archivoTarea.leerArchivoTarea();
-    linealizacion();
     colaDeError.mostrarCola();
-    //listadoble.imprimir();
+    listadoble.imprimir();
     menuPrincipal();
 
 }else if(opcionPrincipal == "3"){
@@ -171,33 +170,258 @@ void operacionTareas(){
         cout << "\n";
         cout << "  -Ingrese una opcion >> ";
         getline(cin,opTareas);
-}
-void linealizacion(){
-    int id_;
-    string carnet_;
-    string nombre_;
-    string descripcion_;
-    string materia_;
-    string fecha_;
-    string hora_;
-    string estado_;
-    int linea_;
 
-    for(int i=0;i<30;i++){
-        for (int j=0;j<9;j++){
-            for(int k=0;k<5;k++){
-                id_ = matrizTareas[k][j][i]->id;
-                carnet_ = matrizTareas[k][j][i]->carnet;
-                nombre_ = matrizTareas[k][j][i]->nombreTarea;
-                descripcion_ = matrizTareas[k][j][i]->descripcion;
-                materia_ = matrizTareas[k][j][i]->materia;
-                fecha_ = matrizTareas[k][j][i]->fecha;
-                hora_ = matrizTareas[k][j][i]->hora;
-                estado_ = matrizTareas[k][j][i]->estado;
-                linea_ = matrizTareas[k][j][i]->k;
-                listadoble.agregar(id_,carnet_,nombre_,descripcion_,materia_,fecha_,hora_,estado_,linea_);
+        string mes,dia,hora,carnet,nombre,descripcion,materia,fecha,estado;
+        string informacionTarea;
+        if(opTareas=="1"){
+            cout << "-INGRESO TAREA"<<endl;
+            cout << "   -Ingrese mes >> ";
+            getline(cin,mes);
+            cout << "\n";
+
+            cout << "   -Ingrese dia >> ";
+            getline(cin,dia);
+            cout << "\n";
+
+            cout << "   -Ingrese hora >> ";
+            getline(cin,hora);
+            cout << "\n";
+
+            cout << "   -Ingrese carnet >> ";
+            getline(cin,carnet);
+            cout << "\n";
+
+            cout << "   -Ingrese nombre >> ";
+            getline(cin,nombre);
+            cout << "\n";
+
+            cout << "   -Ingrese descripcion >> ";
+            getline(cin,descripcion);
+            cout << "\n";
+
+            cout << "   -Ingrese materia >> ";
+            getline(cin,materia);
+            cout << "\n";
+
+            cout << "   -Ingrese fecha >> ";
+            getline(cin,fecha);
+            cout << "\n";
+
+            cout << "   -Ingrese estado >> ";
+            getline(cin,estado);
+            cout <<"\n";
+            informacionTarea = mes+","+dia+","+hora+","+carnet+","+nombre+","+descripcion+","+materia+","+fecha+","+estado;
+            archivoTarea.dividirCadena(informacionTarea);
+            operacionTareas();
+        }else if(opTareas=="2"){
+            int cara,fila,columna;
+            string _cara,_fila,_columna;
+
+            cout << "MODIFICAR"<<endl;
+            cout << "   -Ingrese cara >> ";
+            getline(cin,_cara);
+            cout << "   -Ingrese fila >> ";
+            getline(cin,_fila);
+            cout << "   -Ingrese columna >> ";
+            getline(cin,_columna);
+            cara = stoi(_cara);
+            fila = stoi(_fila);
+            columna = stoi(_columna);
+            modificacionMatriz(cara,fila,columna);
+            operacionTareas();
+        }else if(opTareas=="3"){
+            int TZ = 5; //caras
+            int TJ = 9;
+            int _k=0;
+
+            int cara,fila,columna;
+            string _cara,_fila,_columna;
+            string eliminacion;
+            cout << "ELIMINAR"<<endl;
+            cout << "   -Ingrese cara >> ";
+            getline(cin,_cara);
+            cout << "   -Ingrese fila >> ";
+            getline(cin,_fila);
+            cout << "   -Ingrese columna >> ";
+            getline(cin,_columna);
+            cara = stoi(_cara);
+            fila = stoi(_fila);
+            columna = stoi(_columna);
+            _k = (columna*TJ+fila)*TZ+cara;
+
+            cout << "   *Estas seguro de eliminar esa posicion[S/N] >> ";
+            getline(cin,eliminacion);
+            if(eliminacion == "S"){
+                matrizTareas[cara][fila][columna]->insertar(-1,"-1","-1","-1","-1","-1","-1","-1");
+                listadoble.buscarAgregar(-1,"-1","-1","-1","-1","-1","-1","-1",_k);
+                listadoble.imprimir();
+                operacionTareas();
+            }else{
+                operacionTareas();
             }
+
+        }else if(opTareas=="4"){
+            ingresoManual();
+        }else{
+            cout << "   *Ingrese una opcion valida" << endl;
+            operacionTareas();
         }
+}
+
+
+void modificacionMatriz(int cara,int fila, int columna){
+    if(matrizTareas[cara][fila][columna]->id!= -1){
+
+            string op;
+            printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
+            printf("%c      MODIFICAR     %c\n",186,186);
+            printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
+            printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
+            printf("%c  [1] Carnet        %c\n",186,186);
+            printf("%c  [2] Nombre Tarea  %c\n",186,186);
+            printf("%c  [3] Descripcion   %c\n",186,186);
+            printf("%c  [4] Materia       %c\n",186,186);
+            printf("%c  [5] Fecha         %c\n",186,186);
+            printf("%c  [6] Hora          %c\n",186,186);
+            printf("%c  [7] Estado        %c\n",186,186);
+            printf("%c  [8] Regresar      %c\n",186,186);
+            printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
+            cout << "   -Ingrese una opcion >> ";
+            getline(cin,op);
+
+            string datos;
+            string _carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado;
+            int _linea;
+
+            //condiciones del menu
+            if(op=="1"){
+                cout << "   -Ingrese carnet >> ";
+                getline(cin,datos);
+                matrizTareas[cara][fila][columna]->carnet = datos;
+
+                _carnet = matrizTareas[cara][fila][columna]->carnet;
+                _nombre = matrizTareas[cara][fila][columna]->nombreTarea;
+                _descripcion = matrizTareas[cara][fila][columna]->descripcion;
+                _materia = matrizTareas[cara][fila][columna]->materia;
+                _fecha = matrizTareas[cara][fila][columna]->fecha;
+                _hora = matrizTareas[cara][fila][columna]->hora;
+                _estado = matrizTareas[cara][fila][columna]->estado;
+                _linea = matrizTareas[cara][fila][columna]->k;
+
+                listadoble.actualizar(_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
+
+                cout << "\n";
+            }else if(op=="2"){
+                cout << "   -Ingrese nombre tarea >> ";
+                getline(cin,datos);
+                matrizTareas[cara][fila][columna]->nombreTarea = datos;
+
+                _carnet = matrizTareas[cara][fila][columna]->carnet;
+                _nombre = matrizTareas[cara][fila][columna]->nombreTarea;
+                _descripcion = matrizTareas[cara][fila][columna]->descripcion;
+                _materia = matrizTareas[cara][fila][columna]->materia;
+                _fecha = matrizTareas[cara][fila][columna]->fecha;
+                _hora = matrizTareas[cara][fila][columna]->hora;
+                _estado = matrizTareas[cara][fila][columna]->estado;
+                _linea = matrizTareas[cara][fila][columna]->k;
+
+                listadoble.actualizar(_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
+
+                cout << "\n";
+            }else if(op=="3"){
+                cout << "   -Ingrese descripcion >> ";
+                getline(cin,datos);
+                matrizTareas[cara][fila][columna]->descripcion = datos;
+
+                _carnet = matrizTareas[cara][fila][columna]->carnet;
+                _nombre = matrizTareas[cara][fila][columna]->nombreTarea;
+                _descripcion = matrizTareas[cara][fila][columna]->descripcion;
+                _materia = matrizTareas[cara][fila][columna]->materia;
+                _fecha = matrizTareas[cara][fila][columna]->fecha;
+                _hora = matrizTareas[cara][fila][columna]->hora;
+                _estado = matrizTareas[cara][fila][columna]->estado;
+                _linea = matrizTareas[cara][fila][columna]->k;
+
+                listadoble.actualizar(_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
+
+                cout << "\n";
+            }else if(op=="4"){
+                cout << "   -Ingrese materia >> ";
+                getline(cin,datos);
+                matrizTareas[cara][fila][columna]->materia = datos;
+
+                _carnet = matrizTareas[cara][fila][columna]->carnet;
+                _nombre = matrizTareas[cara][fila][columna]->nombreTarea;
+                _descripcion = matrizTareas[cara][fila][columna]->descripcion;
+                _materia = matrizTareas[cara][fila][columna]->materia;
+                _fecha = matrizTareas[cara][fila][columna]->fecha;
+                _hora = matrizTareas[cara][fila][columna]->hora;
+                _estado = matrizTareas[cara][fila][columna]->estado;
+                _linea = matrizTareas[cara][fila][columna]->k;
+
+                listadoble.actualizar(_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
+
+                cout << "\n";
+            }else if(op=="5"){
+                cout << "   -Ingrese fecha >> ";
+                getline(cin,datos);
+                matrizTareas[cara][fila][columna]->fecha = datos;
+
+                _carnet = matrizTareas[cara][fila][columna]->carnet;
+                _nombre = matrizTareas[cara][fila][columna]->nombreTarea;
+                _descripcion = matrizTareas[cara][fila][columna]->descripcion;
+                _materia = matrizTareas[cara][fila][columna]->materia;
+                _fecha = matrizTareas[cara][fila][columna]->fecha;
+                _hora = matrizTareas[cara][fila][columna]->hora;
+                _estado = matrizTareas[cara][fila][columna]->estado;
+                _linea = matrizTareas[cara][fila][columna]->k;
+
+                listadoble.actualizar(_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
+
+                cout << "\n";
+            }else if(op=="6"){
+                cout << "   -Ingrese hora >> ";
+                getline(cin,datos);
+                matrizTareas[cara][fila][columna]->hora = datos;
+
+                _carnet = matrizTareas[cara][fila][columna]->carnet;
+                _nombre = matrizTareas[cara][fila][columna]->nombreTarea;
+                _descripcion = matrizTareas[cara][fila][columna]->descripcion;
+                _materia = matrizTareas[cara][fila][columna]->materia;
+                _fecha = matrizTareas[cara][fila][columna]->fecha;
+                _hora = matrizTareas[cara][fila][columna]->hora;
+                _estado = matrizTareas[cara][fila][columna]->estado;
+                _linea = matrizTareas[cara][fila][columna]->k;
+
+                listadoble.actualizar(_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
+
+                cout << "\n";
+            }else if(op=="7"){
+                cout << "   -Ingrese estado >> ";
+                getline(cin,datos);
+                matrizTareas[cara][fila][columna]->estado = datos;
+
+                _carnet = matrizTareas[cara][fila][columna]->carnet;
+                _nombre = matrizTareas[cara][fila][columna]->nombreTarea;
+                _descripcion = matrizTareas[cara][fila][columna]->descripcion;
+                _materia = matrizTareas[cara][fila][columna]->materia;
+                _fecha = matrizTareas[cara][fila][columna]->fecha;
+                _hora = matrizTareas[cara][fila][columna]->hora;
+                _estado = matrizTareas[cara][fila][columna]->estado;
+                _linea = matrizTareas[cara][fila][columna]->k;
+
+                listadoble.actualizar(_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
+
+                cout << "\n";
+            }else if(op=="8"){
+                operacionTareas();
+            }else{
+                modificacionMatriz(cara,fila,columna);
+                cout << "   *Ingrese una opcion valida"<<endl;
+            }
+    }else{
+            cout << "   *Posicion vacia" << endl;
+            operacionTareas();
     }
 }
 
