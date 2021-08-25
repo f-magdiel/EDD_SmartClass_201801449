@@ -20,6 +20,7 @@ class ListaDoble
    void generadorImagen();
    void busquedaEstructura();
    void busquedaPosicion();
+   NodoListaDoble* getCabeza();
    NodoListaDoble* cabeza;
    NodoListaDoble* cola;
 

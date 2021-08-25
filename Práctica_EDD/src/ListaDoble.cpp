@@ -12,6 +12,10 @@ ListaDoble::ListaDoble()
     this->cola = NULL;
 }
 
+NodoListaDoble* ListaDoble::getCabeza(){
+    return this->cabeza;
+}
+
 void ListaDoble::agregar(int _id,string _carnet,string _nombre,string _descripcion,string _materia,string _fecha,string _hora,string _estado,int _linea){
     NodoListaDoble* nuevoNodo = new NodoListaDoble(_id,_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado,_linea);
     if(!this->cabeza){

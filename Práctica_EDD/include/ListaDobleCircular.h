@@ -18,6 +18,7 @@ class ListaDobleCircular
         void mostrar();
         bool buscar(string);
         void generadorImagen();
+        NodoDobleCircular* getCabeza();
 };
 
 extern ListaDobleCircular listadc;

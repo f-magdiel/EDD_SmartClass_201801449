@@ -9,6 +9,6 @@ void operacionEstudiantes();
 void operacionTareas();
 void modificacionMatriz(int,int,int);
 void menuReporte();
-
+void generarArchivoSalida();
 
 #endif // MENU_H

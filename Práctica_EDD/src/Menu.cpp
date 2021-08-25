@@ -7,6 +7,8 @@
 #include "ArchivoTarea.h"
 #include "Matriz.h"
 #include "ListaDoble.h"
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 int contadorImagelista=0;
@@ -467,12 +469,75 @@ void menuReporte(){
     colaDeError.generarImagen();
     menuReporte();
     }else if(opcionReporte == "6"){
+        if(colaDeError.tamanio==0){
+            generarArchivoSalida();
+            menuReporte();
+        }else{
+        cout<<"     *No se puede generar, aun no se ha arreglado los errores"<<endl;
+         menuReporte();
+        }
 
     }else if(opcionReporte == "7"){
-
+    menuPrincipal();
+    }else{
+        cout<<"    *Ingrese una opcion valida"<<endl;
+        menuPrincipal();
     }
 
 }
+
+void generarArchivoSalida(){
+
+    NodoDobleCircular* actualC = listadc.getCabeza();
+    NodoListaDoble* actualD = listadoble.getCabeza();
+    ofstream fs("archivoSalida.txt");
+
+    fs<<"¿Elements?"<<endl;
+    do{
+
+        if(actualC->carnet!="-1"){
+            fs<<"   ¿element type=\"user\"?"<<endl;
+            fs<<"       ¿item Carnet = \""<<actualC->carnet<<"\" $?"<<endl;
+            fs<<"       ¿item DPI = \""<<actualC->dpi<<"\" $?"<<endl;
+            fs<<"       ¿item Nombre = \""<<actualC->nombre<<"\" $?"<<endl;
+            fs<<"       ¿item Carrera = \""<<actualC->carrera<<"\" $?"<<endl;
+            fs<<"       ¿item Password = \""<<actualC->password<<"\" $?"<<endl;
+            fs<<"       ¿item Creditos = \""<<actualC->creditos<<"\" $?"<<endl;
+            fs<<"       ¿item Edad = \""<<actualC->edad<<"\" $?"<<endl;
+            fs<<"   ¿$element?"<<endl;
+
+        }
+        actualC = actualC->siguiente;
+    }while(actualC!=listadc.cabeza);
+
+    string cadena,mes,dia,anio,nuevaFecha;
+    while(actualD!=NULL){
+        if(actualD->carnet!="-1"){
+            fs<<"   ¿element type=\"task\""<<endl;
+            fs<<"       ¿item Carnet = \""<<actualD->carnet<<"\" $?"<<endl;
+            fs<<"       ¿item Nombre = \""<<actualD->carnet<<"\" $?"<<endl;
+            fs<<"       ¿item Descripcion = \""<<actualD->carnet<<"\" $?"<<endl;
+            fs<<"       ¿item Materia = \""<<actualD->carnet<<"\" $?"<<endl;
+            cadena = actualD->fecha;
+            stringstream input_stringstream(cadena);
+            getline(input_stringstream,anio,'/');
+            getline(input_stringstream,mes,'/');
+            getline(input_stringstream,dia,'/');
+            nuevaFecha = dia+"/"+mes+"/"+anio;
+
+            fs<<"       ¿item Fecha = \""<<nuevaFecha<<"\" $?"<<endl;
+            fs<<"       ¿item Hora = \""<<actualD->carnet<<"\" $?"<<endl;
+            fs<<"       ¿item Estado = \""<<actualD->carnet<<"\" $?"<<endl;
+            fs<<"   ¿$element?"<<endl;
+        }
+        actualD = actualD->siguiente;
+    }
+    fs<<"¿$Elements?"<<endl;
+    fs.close();
+
+}
+
+
 
 
 

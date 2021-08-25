@@ -13,6 +13,9 @@ ListaDobleCircular::ListaDobleCircular()
     this->cabeza = NULL;
     this->cola = NULL;
 }
+NodoDobleCircular* ListaDobleCircular::getCabeza(){
+    return this->cabeza;
+}
 
 void ListaDobleCircular::agregarFinal(string _carnet,string _dpi, string _nombre, string _carrera, string _pass,string _creditos, string _edad, string _correo){
 
