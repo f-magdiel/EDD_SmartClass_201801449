@@ -10,7 +10,7 @@
 
 1629862328 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
-1629858252 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+1629869334 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	<string>
@@ -20,6 +20,8 @@
 	"ArchivoTarea.h"
 	"Matriz.h"
 	"ListaDoble.h"
+	<fstream>
+	<sstream>
 
 1629324024 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\archivo.h
 	<string>
