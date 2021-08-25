@@ -123,7 +123,7 @@ void ArchivoTarea::validacionTarea(int _mes,int _dia,int _hora,string _carnet,st
         colaDeError.contadorID++;
         colaDeError.encolar(colaDeError.contadorID,"Tarea","Hora incorrecta",_carnet);
     }
-
+        hora_ = to_string(_hora+8);
     //validacion ingreso datos
     if((banderaCarnet == true)&&(banderaFecha == true)&&(banderaHora == true)){
         contadorIDTarea++;

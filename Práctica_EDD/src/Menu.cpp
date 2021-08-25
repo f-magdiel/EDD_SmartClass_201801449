@@ -455,7 +455,7 @@ void menuReporte(){
     listadc.generadorImagen();
     menuReporte();
     }else if(opcionReporte == "2"){
-
+    listadoble.generadorImagen();
     }else if(opcionReporte == "3"){
 
     }else if(opcionReporte == "4"){

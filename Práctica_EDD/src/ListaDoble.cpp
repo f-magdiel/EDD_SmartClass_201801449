@@ -4,7 +4,8 @@
 #include <fstream>
 
 using namespace std;
-
+int iteradorNo;
+int iteradorNoNombre;
 ListaDoble::ListaDoble()
 {
     this->cabeza = NULL;
@@ -70,12 +71,45 @@ void ListaDoble::imprimir(){
     cout << "IMPRESION"<<endl;
     NodoListaDoble* actual = this->cabeza;
     while(actual!=NULL){
-        cout << actual->carnet;
+        cout << actual->hora;
         cout << " ";
         actual = actual->siguiente;
     }
 }
 
+void ListaDoble::generadorImagen(){
+    iteradorNo++;
+    string iterador = to_string(iteradorNo);
+    string nombre = "listalinealizada"+iterador;
+    ofstream fs(nombre+".dot");
+        fs<<"digraph G {"<<"\n"<<endl;
+        fs << "rankdir = LR;\n" <<endl;
+        fs << "\tnode [shape=record,color=black];" <<endl;
+        fs << "label = \"Lista Tarea Linealizada\"; \n"<<endl;
+        fs << "color= black \n"<<endl;
+    NodoListaDoble* actual = this->cabeza;
+
+    while(actual!=NULL){
+        iteradorNoNombre++;
+        fs<<"\t\tN_"<<iteradorNoNombre<<"[label = \"ID: "<<actual->id<<"\\nCarnet : "<<actual->carnet<<"\\nNombre Tares : "<<actual->nombre<<"\\nDescripcion : "<<actual->descripcion<<"\\nMateria : "<<actual->materia<<"\\nFecha : "<<actual->fecha<<"\\nHora : "<<actual->hora<<"\\nEstado: "<<actual->estado<<"\"];\n"<<endl;
+        actual = actual->siguiente;
+
+    }
+
+    for(int i=1;i<iteradorNoNombre;i++){
+        fs<<"N_"<<i<<"->"<<"N_"<<i+1<<";"<<endl;
+        fs<<"N_"<<i+1<<"->"<<"N_"<<i<<";"<<endl;
+
+    }
+
+    fs << " }" << endl;
+    fs.close();
+    string info = "dot -Tsvg "+nombre+".dot -o "+nombre+".svg";
+    const char* c = info.c_str();
+    cout << c;
+    cout << "\n     *Generado exitosamente"<<endl;
+    system(c);
+}
 
 ListaDoble::~ListaDoble()
 {
