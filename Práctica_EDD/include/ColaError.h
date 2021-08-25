@@ -18,6 +18,7 @@ class ColaError
         void mostrarCola();
         void mostrarError();
         void cima(string);
+        void generarImagen();
 };
 extern ColaError colaDeError;
 #endif // COLAERROR_H

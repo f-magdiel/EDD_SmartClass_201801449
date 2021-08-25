@@ -44,7 +44,7 @@ void validacionCadena(string lineas){
     bool banderaCorreo = false;
 
 
-    const regex expCorreo ("[a-z0-9_.]+\\@[a-z]+\\.[com|es|org]+");
+    const regex expCorreo ("[a-zA-Z0-9_.]+\\@[a-zA-Z]+\\.[com|es|org]+");
     string correo = palabras[7];
     //validacion DPI
     if(palabras[1].length() == 13){

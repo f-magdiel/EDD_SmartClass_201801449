@@ -1,8 +1,11 @@
 #include "ColaError.h"
 #include <string>
 #include <iostream>
-using namespace std;
+#include <fstream>
 
+using namespace std;
+int iteradorError=0;
+int iteradorNombreError=0;
 ColaError::ColaError()
 {
     this->frente = NULL;
@@ -72,6 +75,38 @@ void ColaError::cima(string _dpi){
         cout << this->frente->dpi << endl;
         desencolar();
     }
+}
+
+void ColaError::generarImagen(){
+    iteradorError++;
+    string iterador = to_string(iteradorError);
+    string nombre = "colaerror"+iterador;
+    ofstream fs(nombre+".dot");
+        fs<<"digraph G {"<<"\n"<<endl;
+        fs << "rankdir = UD;\n" <<endl;
+        fs << "\tnode [shape=record,color=black];" <<endl;
+        fs << "label = \"Cola de Error\"; \n"<<endl;
+        fs << "color= black \n"<<endl;
+    NodoCola* actual = this->frente;
+
+    while(actual!=NULL){
+        iteradorNombreError++;
+        fs<<"\t\tN_"<<iteradorNombreError<<"[label = \"ID: "<<actual->id<<"\\nTipo : "<<actual->tipo<<"\\nDescripcion: "<<actual->descripcion<<"\"];\n"<<endl;
+        actual = actual->siguiente;
+
+    }
+    for(int i=1;i<iteradorNombreError;i++){
+        fs<<"N_"<<i<<"->"<<"N_"<<i+1<<";"<<endl;
+        fs<<"N_"<<i+1<<"->"<<"N_"<<i<<";"<<endl;
+
+    }
+    fs << " }" << endl;
+    fs.close();
+    string info = "dot -Tsvg "+nombre+".dot -o "+nombre+".svg";
+    const char* c = info.c_str();
+    cout << c;
+    cout << "\n     *Generado exitosamente"<<endl;
+    system(c);
 }
 ColaError::~ColaError()
 {

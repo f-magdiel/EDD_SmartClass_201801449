@@ -464,7 +464,8 @@ void menuReporte(){
     listadoble.busquedaPosicion();
     menuReporte();
     }else if(opcionReporte == "5"){
-
+    colaDeError.generarImagen();
+    menuReporte();
     }else if(opcionReporte == "6"){
 
     }else if(opcionReporte == "7"){
