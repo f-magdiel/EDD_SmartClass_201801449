@@ -10,7 +10,7 @@
 
 1629831217 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\menu.h
 
-1629851677 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
+1629856636 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	<string>
@@ -108,13 +108,13 @@
 1629779609 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\matriz.cpp
 	"Matriz.h"
 
-1629852507 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoble.cpp
+1629856597 source:c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\src\listadoble.cpp
 	"ListaDoble.h"
 	<string>
 	<iostream>
 	<fstream>
 
-1629831208 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\listadoble.h
+1629856479 c:\users\magdiel\desktop\edd_smartclass_201801449\práctica_edd\include\listadoble.h
 	"NodoListaDoble.h"
 	<iostream>
 	<string>

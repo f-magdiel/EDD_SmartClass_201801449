@@ -18,6 +18,8 @@ class ListaDoble
    void eliminar(int);
    void imprimir();
    void generadorImagen();
+   void busquedaEstructura();
+   void busquedaPosicion();
    NodoListaDoble* cabeza;
    NodoListaDoble* cola;
 

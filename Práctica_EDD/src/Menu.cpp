@@ -456,10 +456,13 @@ void menuReporte(){
     menuReporte();
     }else if(opcionReporte == "2"){
     listadoble.generadorImagen();
+    menuReporte();
     }else if(opcionReporte == "3"){
-
+    listadoble.busquedaEstructura();
+    menuReporte();
     }else if(opcionReporte == "4"){
-
+    listadoble.busquedaPosicion();
+    menuReporte();
     }else if(opcionReporte == "5"){
 
     }else if(opcionReporte == "6"){

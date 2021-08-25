@@ -111,6 +111,102 @@ void ListaDoble::generadorImagen(){
     system(c);
 }
 
+void ListaDoble::busquedaEstructura(){
+    string _mes,_dia,_hora;
+    int TZ = 5; //caras
+    int TJ = 9;
+    int _k=0;
+    bool bandera = false;
+    int mes,dia,hora;
+    cout <<"    -Ingrese mes >> ";
+    getline(cin,_mes);
+    cout <<"    -Ingrese dia >> ";
+    getline(cin,_dia);
+    cout <<"    -Ingrese hora >> ";
+    getline(cin,_hora);
+
+    mes = stoi(_mes);
+    dia = stoi(_dia);
+    hora = stoi(_hora);
+
+    mes = mes-7;
+    dia = dia-1;
+    hora = hora-8;
+    _k = (dia*TJ+hora)*TZ+mes;
+
+    NodoListaDoble* actual = this->cabeza;
+    while(actual!=NULL){
+        if(actual->linea==_k){
+            bandera = true;
+            cout << "INFORMACION"<<endl;
+            cout << "ID: ";
+            cout << actual->id<<endl;
+            cout << "Carnet: ";
+            cout << actual->carnet<<endl;
+            cout <<"Nombre tarea: ";
+            cout << actual->nombre<<endl;
+            cout << "Descripcion: ";
+            cout << actual->descripcion<<endl;
+            cout << "Materia: ";
+            cout << actual->materia<<endl;
+            cout << "Fecha: ";
+            cout << actual->fecha<<endl;
+            cout << "Hora: ";
+            cout << actual->hora<<endl;
+            cout << "Estado: ";
+            cout << actual->estado<<endl;
+
+        }
+        actual = actual->siguiente;
+
+    }
+    if(bandera==false){
+        cout << "   *Tarea No Existe"<<endl;
+    }
+
+
+}
+
+void ListaDoble::busquedaPosicion(){
+    string _mes,_dia,_hora;
+    int TZ = 5; //caras
+    int TJ = 9;
+    int _k=0;
+    bool bandera = false;
+    int mes,dia,hora;
+    cout <<"    -Ingrese mes >> ";
+    getline(cin,_mes);
+    cout <<"    -Ingrese dia >> ";
+    getline(cin,_dia);
+    cout <<"    -Ingrese hora >> ";
+    getline(cin,_hora);
+
+    mes = stoi(_mes);
+    dia = stoi(_dia);
+    hora = stoi(_hora);
+
+    mes = mes-7;
+    dia = dia-1;
+    hora = hora-8;
+    _k = (dia*TJ+hora)*TZ+mes;
+
+    NodoListaDoble* actual = this->cabeza;
+    while(actual!=NULL){
+        if(actual->linea==_k){
+            bandera = true;
+            cout << "POSICION: ";
+            cout << actual->linea<<endl;
+
+        }
+        actual = actual->siguiente;
+
+    }
+    if(bandera==false){
+        cout << "   *Posicion No Existe"<<endl;
+    }
+
+
+}
 ListaDoble::~ListaDoble()
 {
     //dtor
