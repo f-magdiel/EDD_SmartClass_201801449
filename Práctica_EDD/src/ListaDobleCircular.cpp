@@ -241,6 +241,7 @@ void ListaDobleCircular::generadorImagen(){
     fs<<"N_"<<"0"<<"->"<<"N_"<<nodoNombre-1<<";"<<endl;
     fs<<"N_"<<nodoNombre-1<<"->"<<"N_"<<"0"<<";"<<endl;
 
+    nodoNombre=0;
     fs << " }" << endl;
     fs.close();
     string info = "dot -Tsvg "+nombre+".dot -o "+nombre+".svg";

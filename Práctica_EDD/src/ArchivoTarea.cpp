@@ -54,9 +54,11 @@ void ArchivoTarea::dividirCadena(string lineas){
     mes = stoi(palabrasTarea[0]);
     dia = stoi(palabrasTarea[1]);
     hora = stoi(palabrasTarea[2]);
+
     mes = mes-7;
     dia = dia-1;
     hora = hora-8;
+
     //validacion de posiciones en la matriz
     if(hora>=0 && hora<=8){
         if(dia>=0 && dia<=29){
@@ -123,6 +125,7 @@ void ArchivoTarea::validacionTarea(int _mes,int _dia,int _hora,string _carnet,st
         colaDeError.contadorID++;
         colaDeError.encolar(colaDeError.contadorID,"Tarea","Hora incorrecta",_carnet);
     }
+
         hora_ = to_string(_hora+8);
     //validacion ingreso datos
     if((banderaCarnet == true)&&(banderaFecha == true)&&(banderaHora == true)){

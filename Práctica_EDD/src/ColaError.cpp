@@ -83,7 +83,7 @@ void ColaError::generarImagen(){
     string nombre = "colaerror"+iterador;
     ofstream fs(nombre+".dot");
         fs<<"digraph G {"<<"\n"<<endl;
-        fs << "rankdir = UD;\n" <<endl;
+        fs << "rankdir = LR;\n" <<endl;
         fs << "\tnode [shape=record,color=black];" <<endl;
         fs << "label = \"Cola de Error\"; \n"<<endl;
         fs << "color= black \n"<<endl;
@@ -97,9 +97,9 @@ void ColaError::generarImagen(){
     }
     for(int i=1;i<iteradorNombreError;i++){
         fs<<"N_"<<i<<"->"<<"N_"<<i+1<<";"<<endl;
-        fs<<"N_"<<i+1<<"->"<<"N_"<<i<<";"<<endl;
 
     }
+    iteradorNombreError=0;
     fs << " }" << endl;
     fs.close();
     string info = "dot -Tsvg "+nombre+".dot -o "+nombre+".svg";

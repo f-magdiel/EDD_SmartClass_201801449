@@ -1,0 +1,314 @@
+digraph G {
+
+rankdir = LR;
+
+	node [shape=record,color=black];
+label = "Lista Estudiantes"; 
+
+color= black 
+
+		N_0[label = "Carnet: 201183728\nDpi: 2050740201006\nNombre: Alvin Huckett\nCarrera: Ingenieria Quimica\nCorreo: AlvinHuckett_60@outlook.org\nPassword: DGHS2Xi\nCreditos: 222\nEdad: 20"];
+
+		N_1[label = "Carnet: 2010244\nDpi: 5970926381748\nNombre: Nertie Laurenzi\nCarrera: Ingenieria Mecanica Industrial\nCorreo: NertieLaurenzi.75@hotmail.es\nPassword: 198yxel\nCreditos: 139\nEdad: 19"];
+
+		N_2[label = "Carnet: 201210811\nDpi: 879575888\nNombre: Lamont Barthrup\nCarrera: Ingenieria Mecanica\nCorreo: LamontBarthrup_34@outlook.org\nPassword: j60uy9\nCreditos: 53\nEdad: 25"];
+
+		N_3[label = "Carnet: 201315898\nDpi: 5531711621404\nNombre: Bernadette Pescud\nCarrera: Ingenieria Mecanica Industrial\nCorreo: BernadettePescud.10outlook.com\nPassword: TXz6b\nCreditos: 190\nEdad: 28"];
+
+		N_4[label = "Carnet: 201582352\nDpi: 4172564417242\nNombre: Bobina Delacroux\nCarrera: Ingenieria Mecanica Industrial\nCorreo: BobinaDelacroux_46@hotmail.com\nPassword: m6ILxd\nCreditos: 113\nEdad: 23"];
+
+		N_5[label = "Carnet: 201115140\nDpi: 8429519350118\nNombre: Pebrook Gircke\nCarrera: Ingenieria Mecanica\nCorreo: PebrookGircke93@undefined.org\nPassword: Ysgy3Vt\nCreditos: 172\nEdad: 19"];
+
+		N_6[label = "Carnet: 201350393\nDpi: 9029374304090\nNombre: Laurie Tumilty\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: LaurieTumilty58@undefined.com\nPassword: UKazTS0\nCreditos: 124\nEdad: 20"];
+
+		N_7[label = "Carnet: 201698163\nDpi: 8010354636352\nNombre: Barn Killingbeck\nCarrera: Ingenieria Mecanica Electrica\nCorreo: BarnKillingbeck33@gmail.org\nPassword: 38KWHL\nCreditos: 130\nEdad: 20"];
+
+		N_8[label = "Carnet: 201402462\nDpi: 3594915493584\nNombre: Joscelin Fewings\nCarrera: Ingenieria Mecanica\nCorreo: JoscelinFewings_56@outlook.es\nPassword: tF7ZroZ\nCreditos: 202\nEdad: 25"];
+
+		N_9[label = "Carnet: 201643353\nDpi: 9692561360208\nNombre: Llywellyn Woodnutt\nCarrera: Ingenieria Mecanica Electrica\nCorreo: LlywellynWoodnutt_83@gmail.es\nPassword: ui708GE\nCreditos: 44\nEdad: 27"];
+
+		N_10[label = "Carnet: 201043689\nDpi: 0714796787404\nNombre: Ardene Benediktovich\nCarrera: Ingenieria Mecanica\nCorreo: ArdeneBenediktovich72@outlook.org\nPassword: muiPC17\nCreditos: 13\nEdad: 23"];
+
+		N_11[label = "Carnet: 201489697\nDpi: 3310894947855\nNombre: Judye Rossborough\nCarrera: Ingenieria Mecanica Electrica\nCorreo: JudyeRossborough_49@yahoo.com\nPassword: k9oGtrw\nCreditos: 3\nEdad: 26"];
+
+		N_12[label = "Carnet: 201818908\nDpi: 2689202578134\nNombre: Wilbur Alberts\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: WilburAlberts45@hotmail.org\nPassword: SSeRj8d\nCreditos: 64\nEdad: 18"];
+
+		N_13[label = "Carnet: 201816850\nDpi: 0154497044345\nNombre: Emili Palleske\nCarrera: Ingenieria Mecanica\nCorreo: EmiliPalleske.89@gmail.com\nPassword: 17x8L\nCreditos: 28\nEdad: 21"];
+
+		N_14[label = "Carnet: 201232485\nDpi: 3762365704505\nNombre: Vivian Currer\nCarrera: Ingenieria Quimica\nCorreo: VivianCurrer_25@outlook.org\nPassword: xe7yeho\nCreditos: 218\nEdad: 28"];
+
+		N_15[label = "Carnet: 201131811\nDpi: 3347258005328\nNombre: Eloise Trevarthen\nCarrera: Ingenieria Mecanica\nCorreo: EloiseTrevarthen91@hotmail.es\nPassword: B8FP4\nCreditos: 201\nEdad: 22"];
+
+		N_16[label = "Carnet: 201476680\nDpi: 4293824642888\nNombre: Kim Westphal\nCarrera: Ingenieria Quimica\nCorreo: KimWestphal38@yahoo.com\nPassword: qtry5\nCreditos: 159\nEdad: 19"];
+
+		N_17[label = "Carnet: 201511649\nDpi: 5648266954532\nNombre: Aylmar Raubenheimer\nCarrera: Ingenieria Mecanica\nCorreo: AylmarRaubenheimer.27@hotmail.es\nPassword: 76816q\nCreditos: 163\nEdad: 23"];
+
+		N_18[label = "Carnet: 201255643\nDpi: 7672150791181\nNombre: Alvin Huckett\nCarrera: Ingenieria Industrial\nCorreo: AlvinHuckett_63@undefined.org\nPassword: g4X4Ak\nCreditos: 65\nEdad: 29"];
+
+		N_19[label = "Carnet: 201947729\nDpi: 1430797138430\nNombre: Camila Dibbert\nCarrera: Ingenieria Mecanica Industrial\nCorreo: CamilaDibbert.81@gmail.com\nPassword: b4wdeP\nCreditos: 188\nEdad: 21"];
+
+		N_20[label = "Carnet: 201173540\nDpi: 3235002226847\nNombre: Alvin Huckett\nCarrera: Ingenieria Industrial\nCorreo: AlvinHuckett_65@outlook.org\nPassword: ITrpSM0\nCreditos: 104\nEdad: 22"];
+
+		N_21[label = "Carnet: 201704168\nDpi: 3379162068993\nNombre: Tim Goldspink\nCarrera: Ingenieria Mecanica Electrica\nCorreo: TimGoldspink.71@aol.com\nPassword: Cmg7g\nCreditos: 137\nEdad: 19"];
+
+		N_22[label = "Carnet: 201661519\nDpi: 9302712249273\nNombre: Harvey Darbyshire\nCarrera: Ingenieria Mecanica\nCorreo: HarveyDarbyshire_63@gmail.com\nPassword: Asv30\nCreditos: 55\nEdad: 26"];
+
+		N_23[label = "Carnet: 201309890\nDpi: 6364119505269\nNombre: Grayce Poltone\nCarrera: Ingenieria Industrial\nCorreo: GraycePoltone_20@hotmail.es\nPassword: bCp3F57\nCreditos: 133\nEdad: 18"];
+
+		N_24[label = "Carnet: 201740604\nDpi: 2625352358554\nNombre: Llywellyn Woodnutt\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: LlywellynWoodnutt.46@gmail.org\nPassword: Bk8jU\nCreditos: 3\nEdad: 19"];
+
+		N_25[label = "Carnet: 201646518\nDpi: 8696013129504\nNombre: Aylmar Raubenheimer\nCarrera: Ingenieria Mecanica Electrica\nCorreo: AylmarRaubenheimer31@aol.com\nPassword: 3j9MHF\nCreditos: 192\nEdad: 22"];
+
+		N_26[label = "Carnet: 201766242\nDpi: 3780452896411\nNombre: Franky Viney\nCarrera: Ingenieria Mecanica Electrica\nCorreo: FrankyViney72@aol.com\nPassword: UC1hKp\nCreditos: 164\nEdad: 20"];
+
+		N_27[label = "Carnet: 201537627\nDpi: 6000394094296\nNombre: Aylmar Raubenheimer\nCarrera: Ingenieria Mecanica Electrica\nCorreo: AylmarRaubenheimer82@undefined.com\nPassword: 82MID7\nCreditos: 3\nEdad: 24"];
+
+		N_28[label = "Carnet: 201327675\nDpi: 5005953751371\nNombre: Lamont Barthrup\nCarrera: Ingenieria Mecanica Electrica\nCorreo: LamontBarthrup.75@hotmail.org\nPassword: CAt1n\nCreditos: 171\nEdad: 20"];
+
+		N_29[label = "Carnet: 201897987\nDpi: 2193345266141\nNombre: Michelle Glanister\nCarrera: Ingenieria Quimica\nCorreo: MichelleGlanister.13@aol.org\nPassword: 8cIUD\nCreditos: 226\nEdad: 25"];
+
+		N_30[label = "Carnet: 201500866\nDpi: 7040168688236\nNombre: Claybourne Nelmes\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: ClaybourneNelmes_2@aol.com\nPassword: 4xCS04\nCreditos: 121\nEdad: 19"];
+
+		N_31[label = "Carnet: 201359507\nDpi: 6474775706799\nNombre: Olly Brunelleschi\nCarrera: Ingenieria Quimica\nCorreo: OllyBrunelleschi_86@aol.com\nPassword: rdjy6j\nCreditos: 52\nEdad: 22"];
+
+		N_32[label = "Carnet: 201954202\nDpi: 2496399691941\nNombre: Eloise Trevarthen\nCarrera: Ingenieria Mecanica Industrial\nCorreo: EloiseTrevarthen.4@undefined.org\nPassword: 6RNgz\nCreditos: 196\nEdad: 29"];
+
+		N_33[label = "Carnet: 201412244\nDpi: 3239472177167\nNombre: Eba Keitley\nCarrera: Ingenieria Industrial\nCorreo: EbaKeitley73@undefined.com\nPassword: BRdQj\nCreditos: 238\nEdad: 22"];
+
+		N_34[label = "Carnet: 201234795\nDpi: 9082300809939\nNombre: Wilbur Alberts\nCarrera: Ingenieria Mecanica Industrial\nCorreo: WilburAlberts_86@yahoo.com\nPassword: 0oXnv\nCreditos: 80\nEdad: 29"];
+
+		N_35[label = "Carnet: 201594265\nDpi: 2831630574772\nNombre: Ardene Benediktovich\nCarrera: Ingenieria Mecanica Industrial\nCorreo: ArdeneBenediktovich_57@hotmail.org\nPassword: 15Asd\nCreditos: 242\nEdad: 26"];
+
+		N_36[label = "Carnet: 201790782\nDpi: 3168522176927\nNombre: Claybourne Nelmes\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: ClaybourneNelmes_82@aol.com\nPassword: d70Vi\nCreditos: 0\nEdad: 22"];
+
+		N_37[label = "Carnet: 201374369\nDpi: 8311431297185\nNombre: Lionel Messi\nCarrera: Ingenieria Mecanica Industrial\nCorreo: LionelMessi.17@aol.es\nPassword: cVzaR8\nCreditos: 93\nEdad: 20"];
+
+		N_38[label = "Carnet: 201709702\nDpi: 4245428187625\nNombre: Dillon Blandamere\nCarrera: Ingenieria Industrial\nCorreo: DillonBlandamere_33@undefined.com\nPassword: 3f5qj\nCreditos: 84\nEdad: 20"];
+
+		N_39[label = "Carnet: 201635991\nDpi: 2702608963916\nNombre: Boycie Langlais\nCarrera: Ingenieria Industrial\nCorreo: BoycieLanglais24@aol.es\nPassword: vCGgb2\nCreditos: 113\nEdad: 29"];
+
+		N_40[label = "Carnet: 201389879\nDpi: 1332692632257\nNombre: Darn Studdal\nCarrera: Ingenieria Industrial\nCorreo: DarnStuddal88@gmail.com\nPassword: r80ja\nCreditos: 244\nEdad: 23"];
+
+		N_41[label = "Carnet: 201375524\nDpi: 3164173770900\nNombre: Tim Goldspink\nCarrera: Ingenieria Quimica\nCorreo: TimGoldspink_27@yahoo.es\nPassword: Nu96Sq3\nCreditos: 1\nEdad: 20"];
+
+		N_42[label = "Carnet: 201428558\nDpi: 8783633019549\nNombre: Llywellyn Woodnutt\nCarrera: Ingenieria Mecanica\nCorreo: LlywellynWoodnutt.12@gmail.es\nPassword: qWlnP7\nCreditos: 5\nEdad: 24"];
+
+		N_43[label = "Carnet: 201933753\nDpi: 6467642780621\nNombre: Bobina Delacroux\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: BobinaDelacroux_64@gmail.com\nPassword: 8DGPFmN\nCreditos: 147\nEdad: 25"];
+
+		N_44[label = "Carnet: 201774497\nDpi: 6327689577005\nNombre: Llywellyn Woodnutt\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: LlywellynWoodnutt_44@aol.org\nPassword: RN1Dgbd\nCreditos: 90\nEdad: 26"];
+
+		N_45[label = "Carnet: 201145786\nDpi: 4820546644233\nNombre: Harvey Darbyshire\nCarrera: Ingenieria Mecanica\nCorreo: HarveyDarbyshire.56@outlook.com\nPassword: uJW2Q\nCreditos: 88\nEdad: 22"];
+
+		N_46[label = "Carnet: 201509061\nDpi: 3761268073554\nNombre: Tim Goldspink\nCarrera: Ingenieria Mecanica Electrica\nCorreo: TimGoldspink.36@aol.com\nPassword: DPx0LQ0\nCreditos: 108\nEdad: 23"];
+
+		N_47[label = "Carnet: 201068965\nDpi: 7207003476187\nNombre: Tim Goldspink\nCarrera: Ingenieria Mecanica Industrial\nCorreo: TimGoldspink.1@yahoo.org\nPassword: MF4vc6\nCreditos: 112\nEdad: 26"];
+
+		N_48[label = "Carnet: 201991578\nDpi: 7437219208336\nNombre: Olly Brunelleschi\nCarrera: Ingenieria Mecanica Industrial\nCorreo: OllyBrunelleschi.78@yahoo.org\nPassword: H1xi3\nCreditos: 102\nEdad: 29"];
+
+		N_49[label = "Carnet: 201803912\nDpi: 3995410773680\nNombre: Emili Palleske\nCarrera: Ingenieria Mecanica Industrial\nCorreo: EmiliPalleske.68@gmail.com\nPassword: ODYgI\nCreditos: 205\nEdad: 26"];
+
+		N_50[label = "Carnet: 201921767\nDpi: 5042024988582\nNombre: Consolata Reskelly\nCarrera: Ingenieria Mecanica\nCorreo: ConsolataReskelly.30@undefined.com\nPassword: cBP1bt7\nCreditos: 200\nEdad: 27"];
+
+		N_51[label = "Carnet: 201157605\nDpi: 2503385887437\nNombre: Alonzo Seagrove\nCarrera: Ingenieria Industrial\nCorreo: AlonzoSeagrove_35@undefined.org\nPassword: 92V6h\nCreditos: 226\nEdad: 22"];
+
+		N_52[label = "Carnet: 201761573\nDpi: 5372214388411\nNombre: Alonzo Seagrove\nCarrera: Ingenieria Quimica\nCorreo: AlonzoSeagrove_54@hotmail.es\nPassword: 24ldm\nCreditos: 51\nEdad: 22"];
+
+		N_53[label = "Carnet: 201825364\nDpi: 6772854332066\nNombre: Phillis Syrie\nCarrera: Ingenieria Quimica\nCorreo: PhillisSyrie_17@hotmail.es\nPassword: rU2QYr\nCreditos: 111\nEdad: 28"];
+
+		N_54[label = "Carnet: 201022466\nDpi: 0579054127201\nNombre: Wash Sedgemore\nCarrera: Ingenieria Mecanica Electrica\nCorreo: WashSedgemore_70@outlook.com\nPassword: 1E8vp8\nCreditos: 130\nEdad: 29"];
+
+		N_55[label = "Carnet: 201006295\nDpi: 6483009710551\nNombre: Roderigo Gomme\nCarrera: Ingenieria Mecanica Electrica\nCorreo: RoderigoGomme_92@yahoo.org\nPassword: w1E8BW\nCreditos: 23\nEdad: 24"];
+
+		N_56[label = "Carnet: 201116100\nDpi: 7247421869888\nNombre: Franky Viney\nCarrera: Ingenieria Quimica\nCorreo: FrankyViney_42@hotmail.es\nPassword: 5K0p7N\nCreditos: 42\nEdad: 26"];
+
+		N_57[label = "Carnet: 201773473\nDpi: 1563507262381\nNombre: Krystal Crellin\nCarrera: Ingenieria Mecanica\nCorreo: KrystalCrellin.48@outlook.org\nPassword: 3KgBk\nCreditos: 88\nEdad: 26"];
+
+		N_58[label = "Carnet: 201119966\nDpi: 9030770152211\nNombre: Michelle Glanister\nCarrera: Ingenieria Industrial\nCorreo: MichelleGlanister87@outlook.com\nPassword: J9Tq39\nCreditos: 225\nEdad: 23"];
+
+		N_59[label = "Carnet: 201669286\nDpi: 3126321523297\nNombre: Tim Goldspink\nCarrera: Ingenieria Mecanica\nCorreo: TimGoldspink_45@gmail.es\nPassword: QQNPe8\nCreditos: 187\nEdad: 21"];
+
+		N_60[label = "Carnet: 201147451\nDpi: 9093933675701\nNombre: Ellerey Sherwyn\nCarrera: Ingenieria Mecanica Electrica\nCorreo: EllereySherwyn.51@gmail.es\nPassword: 20H3Hx\nCreditos: 80\nEdad: 23"];
+
+		N_61[label = "Carnet: 201864201\nDpi: 8208413026556\nNombre: Claybourne Nelmes\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: ClaybourneNelmes.78@hotmail.com\nPassword: 69548z\nCreditos: 25\nEdad: 25"];
+
+		N_62[label = "Carnet: 201667272\nDpi: 9443025623424\nNombre: Adriaens Timms\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: AdriaensTimms43@aol.org\nPassword: Pe8Ucp\nCreditos: 237\nEdad: 21"];
+
+		N_63[label = "Carnet: 201668149\nDpi: 6435886693765\nNombre: Harvey Darbyshire\nCarrera: Ingenieria Mecanica\nCorreo: HarveyDarbyshire_31@gmail.org\nPassword: u4jxe57\nCreditos: 31\nEdad: 27"];
+
+		N_64[label = "Carnet: 201764124\nDpi: 6773833243077\nNombre: Harvey Darbyshire\nCarrera: Ingenieria Industrial\nCorreo: HarveyDarbyshire.59@gmail.es\nPassword: 0DDF8\nCreditos: 219\nEdad: 21"];
+
+		N_65[label = "Carnet: 201516603\nDpi: 4062043125856\nNombre: Aylmar Raubenheimer\nCarrera: Ingenieria Mecanica Industrial\nCorreo: AylmarRaubenheimer.85@aol.com\nPassword: Sv4HFP\nCreditos: 168\nEdad: 19"];
+
+		N_66[label = "Carnet: 201327079\nDpi: 8292286385716\nNombre: Franky Viney\nCarrera: Ingenieria Industrial\nCorreo: FrankyViney.59@aol.es\nPassword: GhhLi\nCreditos: 179\nEdad: 21"];
+
+		N_67[label = "Carnet: 201906670\nDpi: 2245119831085\nNombre: Franky Viney\nCarrera: Ingenieria Mecanica Industrial\nCorreo: FrankyViney_49@yahoo.es\nPassword: PCAanL\nCreditos: 198\nEdad: 23"];
+
+		N_68[label = "Carnet: 201461415\nDpi: 8579079230016\nNombre: Roderigo Gomme\nCarrera: Ingenieria Mecanica Industrial\nCorreo: RoderigoGomme_55@aol.org\nPassword: 6GEfOg\nCreditos: 113\nEdad: 20"];
+
+		N_69[label = "Carnet: 201009015\nDpi: 1962623323417\nNombre: Afton Hounson\nCarrera: Ingenieria Mecanica\nCorreo: AftonHounson.43@aol.com\nPassword: PQvEC5\nCreditos: 12\nEdad: 23"];
+
+		N_70[label = "Carnet: 201137248\nDpi: 4264540703955\nNombre: Eba Keitley\nCarrera: Ingenieria Mecanica\nCorreo: EbaKeitley83@outlook.org\nPassword: K8ZY0mI\nCreditos: 35\nEdad: 22"];
+
+		N_71[label = "Carnet: 201339503\nDpi: 1169570189320\nNombre: Drusilla Louca\nCarrera: Ingenieria Mecanica Industrial\nCorreo: DrusillaLouca1@outlook.com\nPassword: xW0NS\nCreditos: 41\nEdad: 29"];
+
+		N_72[label = "Carnet: 201110247\nDpi: 7882408800987\nNombre: Aylmar Raubenheimer\nCarrera: Ingenieria Mecanica Electrica\nCorreo: AylmarRaubenheimer_82@yahoo.org\nPassword: oKlY9O7\nCreditos: 171\nEdad: 19"];
+
+		N_73[label = "Carnet: 201125580\nDpi: 1846903502498\nNombre: Boycie Langlais\nCarrera: Ingenieria en Ciencias y Sistemas\nCorreo: BoycieLanglais.61@hotmail.com\nPassword: MhBaUtl\nCreditos: 190\nEdad: 21"];
+
+		N_74[label = "Carnet: 201315288\nDpi: 7044319749868\nNombre: Joscelin Fewings\nCarrera: Ingenieria Mecanica Electrica\nCorreo: JoscelinFewings.27@yahoo.es\nPassword: 3htilF\nCreditos: 89\nEdad: 27"];
+
+		N_75[label = "Carnet: 201801449\nDpi: 3275247541405\nNombre: Francisco Magdiel Asicona\nCarrera: Ciencias y sistemas\nCorreo: magdielasicona@gmail.com\nPassword: hola123\nCreditos: 123\nEdad: "];
+
+N_0->N_1;
+N_1->N_0;
+N_1->N_2;
+N_2->N_1;
+N_2->N_3;
+N_3->N_2;
+N_3->N_4;
+N_4->N_3;
+N_4->N_5;
+N_5->N_4;
+N_5->N_6;
+N_6->N_5;
+N_6->N_7;
+N_7->N_6;
+N_7->N_8;
+N_8->N_7;
+N_8->N_9;
+N_9->N_8;
+N_9->N_10;
+N_10->N_9;
+N_10->N_11;
+N_11->N_10;
+N_11->N_12;
+N_12->N_11;
+N_12->N_13;
+N_13->N_12;
+N_13->N_14;
+N_14->N_13;
+N_14->N_15;
+N_15->N_14;
+N_15->N_16;
+N_16->N_15;
+N_16->N_17;
+N_17->N_16;
+N_17->N_18;
+N_18->N_17;
+N_18->N_19;
+N_19->N_18;
+N_19->N_20;
+N_20->N_19;
+N_20->N_21;
+N_21->N_20;
+N_21->N_22;
+N_22->N_21;
+N_22->N_23;
+N_23->N_22;
+N_23->N_24;
+N_24->N_23;
+N_24->N_25;
+N_25->N_24;
+N_25->N_26;
+N_26->N_25;
+N_26->N_27;
+N_27->N_26;
+N_27->N_28;
+N_28->N_27;
+N_28->N_29;
+N_29->N_28;
+N_29->N_30;
+N_30->N_29;
+N_30->N_31;
+N_31->N_30;
+N_31->N_32;
+N_32->N_31;
+N_32->N_33;
+N_33->N_32;
+N_33->N_34;
+N_34->N_33;
+N_34->N_35;
+N_35->N_34;
+N_35->N_36;
+N_36->N_35;
+N_36->N_37;
+N_37->N_36;
+N_37->N_38;
+N_38->N_37;
+N_38->N_39;
+N_39->N_38;
+N_39->N_40;
+N_40->N_39;
+N_40->N_41;
+N_41->N_40;
+N_41->N_42;
+N_42->N_41;
+N_42->N_43;
+N_43->N_42;
+N_43->N_44;
+N_44->N_43;
+N_44->N_45;
+N_45->N_44;
+N_45->N_46;
+N_46->N_45;
+N_46->N_47;
+N_47->N_46;
+N_47->N_48;
+N_48->N_47;
+N_48->N_49;
+N_49->N_48;
+N_49->N_50;
+N_50->N_49;
+N_50->N_51;
+N_51->N_50;
+N_51->N_52;
+N_52->N_51;
+N_52->N_53;
+N_53->N_52;
+N_53->N_54;
+N_54->N_53;
+N_54->N_55;
+N_55->N_54;
+N_55->N_56;
+N_56->N_55;
+N_56->N_57;
+N_57->N_56;
+N_57->N_58;
+N_58->N_57;
+N_58->N_59;
+N_59->N_58;
+N_59->N_60;
+N_60->N_59;
+N_60->N_61;
+N_61->N_60;
+N_61->N_62;
+N_62->N_61;
+N_62->N_63;
+N_63->N_62;
+N_63->N_64;
+N_64->N_63;
+N_64->N_65;
+N_65->N_64;
+N_65->N_66;
+N_66->N_65;
+N_66->N_67;
+N_67->N_66;
+N_67->N_68;
+N_68->N_67;
+N_68->N_69;
+N_69->N_68;
+N_69->N_70;
+N_70->N_69;
+N_70->N_71;
+N_71->N_70;
+N_71->N_72;
+N_72->N_71;
+N_72->N_73;
+N_73->N_72;
+N_73->N_74;
+N_74->N_73;
+N_74->N_75;
+N_75->N_74;
+N_0->N_75;
+N_75->N_0;
+ }

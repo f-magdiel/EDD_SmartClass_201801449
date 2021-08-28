@@ -34,13 +34,13 @@ getline(cin,opcionPrincipal);
 if(opcionPrincipal == "1"){
     leerArchivo();
     colaDeError.mostrarError();
-    colaDeError.mostrarCola();
+    //colaDeError.mostrarCola();
     cout << "\n" << endl;
     menuPrincipal();
 }else if(opcionPrincipal == "2"){
     archivoTarea.leerArchivoTarea();
-    colaDeError.mostrarCola();
-    listadoble.imprimir();
+    //colaDeError.mostrarCola();
+    //listadoble.imprimir();
     menuPrincipal();
 
 }else if(opcionPrincipal == "3"){
@@ -134,15 +134,15 @@ void operacionEstudiantes(){
             informacion = _carnet+","+_dpi+","+_nombre+","+_carrera+","+_pass+","+_creditos+","+_edad+","+_correo;
 
             validacionCadena(informacion);
-            colaDeError.mostrarCola();
-            listadc.mostrar();
-            colaDeError.mostrarCola();
+            //colaDeError.mostrarCola();
+            //listadc.mostrar();
+            //colaDeError.mostrarCola();
             operacionEstudiantes();
         }else if(opEstudiante == "2"){
             cout << "   -Ingrese el dpi >> ";
             getline(cin,_dpi);
             listadc.buscarModificar(_dpi);
-            listadc.mostrar();
+            //listadc.mostrar();
         }else if(opEstudiante == "3"){
             cout << "   -Ingrese el dpi >> ";
             getline(cin,_dpi);
@@ -151,7 +151,7 @@ void operacionEstudiantes(){
             getline(cin,op);
             if(op=="S"){
                 listadc.eliminar(_dpi);
-                listadc.mostrar();
+                //listadc.mostrar();
                 operacionEstudiantes();
             }else{
                 operacionEstudiantes();

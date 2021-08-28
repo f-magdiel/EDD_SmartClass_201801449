@@ -1,0 +1,12 @@
+digraph G {
+
+rankdir = LR;
+
+	node [shape=record,color=black];
+label = "Cola de Error"; 
+
+color= black 
+
+		N_1[label = "ID: 2\nTipo : Tarea\nDescripcion: Fecha incorrecta"];
+
+ }

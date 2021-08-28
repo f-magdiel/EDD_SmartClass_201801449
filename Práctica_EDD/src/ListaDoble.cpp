@@ -105,6 +105,7 @@ void ListaDoble::generadorImagen(){
         fs<<"N_"<<i+1<<"->"<<"N_"<<i<<";"<<endl;
 
     }
+    iteradorNoNombre=0;
 
     fs << " }" << endl;
     fs.close();
