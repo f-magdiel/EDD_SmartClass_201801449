@@ -1,3 +1,6 @@
+import os
+import sys
+
 class Nodo:
     def __init__(self,_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad):
         self.carnet = _carnet
@@ -18,6 +21,9 @@ class Avl:
 
     def __init__(self):
         self.raiz = None
+        self.lista = []
+        self.conexion = ""
+        self.contGen = 0
 
     def maximo(self,v1,v2):
         if(v1>v2):
@@ -26,10 +32,11 @@ class Avl:
             return v2
 
     def altura(self,nodo):
-        if(nodo==None):
-            return -1
-        else:
+        if(nodo!=None):
             return nodo.altura
+        
+        return -1
+            
     
     def insertar(self,_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad):
         self.raiz = self.add(_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad,self.raiz)
@@ -41,7 +48,8 @@ class Avl:
         else:
             if (_carnet < nodo.carnet):
                 nodo.izquierdo = self.add(_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad,nodo.izquierdo)
-                
+                alt1 = self.altura(nodo.derecho)
+                alt2 = self.altura(nodo.izquierdo)
                 if(self.altura(nodo.derecho)-self.altura(nodo.izquierdo) == -2):
                     if(_carnet < nodo.izquierdo.carnet):
                         nodo = self.RotIzquierda(nodo)
@@ -49,6 +57,8 @@ class Avl:
                         nodo = self.RotDobIzquierda(nodo)
             elif (_carnet > nodo.carnet):
                 nodo.derecho = self.add(_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad,nodo.derecho)
+                alt1 = self.altura(nodo.derecho)
+                alt2 = self.altura(nodo.izquierdo)
                 if(self.altura(nodo.derecho)-self.altura(nodo.izquierdo) == 2):
                     if(_carnet > nodo.derecho.carnet):
                         nodo = self.RotDerecha(nodo)
@@ -56,7 +66,8 @@ class Avl:
                         nodo = self.RotDobDerecha(nodo)
             else:
                 nodo.carnet = _carnet
-
+        alt1 = self.altura(nodo.derecho)
+        alt2 = self.altura(nodo.izquierdo)
         nodo.altura = self.maximo(self.altura(nodo.izquierdo),self.altura(nodo.derecho)) +1
         return nodo
 
@@ -66,7 +77,7 @@ class Avl:
         nodo.izquierdo = aux.derecho
         aux.derecho = nodo
         nodo.altura = self.maximo(self.altura(nodo.derecho),self.altura(nodo.izquierdo)) +1
-        aux.altura = self.maximo(self.altura(nodo.izquierdo),nodo.altura) +1
+        aux.altura = self.maximo(self.altura(aux.izquierdo),nodo.altura) +1
         return aux
 
     def RotDobIzquierda(self,nodo):
@@ -74,11 +85,11 @@ class Avl:
         return self.RotIzquierda(nodo)
 
     def RotDerecha(self,nodo):
-        aux = nodo.derecho
+        aux = nodo.derecho  
         nodo.derecho = aux.izquierdo
         aux.izquierdo = nodo
         nodo.altura = self.maximo(self.altura(nodo.derecho),self.altura(nodo.izquierdo)) +1
-        aux.altura = self.maximo(self.altura(nodo.derecho),nodo.altura) +1
+        aux.altura = self.maximo(self.altura(aux.derecho),nodo.altura) +1
         return aux
 
     def RotDobDerecha(self,nodo):
@@ -117,55 +128,123 @@ class Avl:
         if(self.raiz !=None):
             self.raiz = self.borrado(_carnet,self.raiz)
         
-    def borrado(self,_carnet,raiz):
-        if(_carnet < raiz.carnet):
-            raiz.izquierdo = self.borrado(_carnet,raiz.izquierdo)
-        elif(_carnet > raiz.carnet):
-            raiz.derecho = self.borrado(_carnet,raiz.derecho)
-        elif(_carnet == raiz.carnet):
-            if(raiz.izquierdo == None and raiz.derecho == None):
-                return None
-            elif(raiz.izquierdo!= None and raiz.derecho == None):
-                raiz = raiz.izquierdo
-            elif(raiz.izquierdo == None and raiz.derecho != None):
-                raiz = raiz.derecho
+    def borrado(self,_carnet,nodo):
+        #eliminar nodos
+        if(_carnet < nodo.carnet): # <- izquierdo
+            nodo.izquierdo = self.borrado(_carnet,nodo.izquierdo)
+        elif(_carnet > nodo.carnet): # -> derecho
+            nodo.derecho = self.borrado(_carnet,nodo.derecho)
+        elif(_carnet == nodo.carnet): #Es igual
+            #Eliminar nodos
+            if(nodo.izquierdo == None and nodo.derecho == None):
+                return None #es hoja - > directo 
+            elif(nodo.izquierdo != None and nodo.derecho == None):
+                nodo = nodo.izquierdo #
+                return nodo            
+            elif(nodo.derecho != None and nodo.izquierdo == None):
+                nodo = nodo.derecho
+                return nodo
             else:
-                aux = self.IzqMayor(raiz.izquierdo)
-                raiz = self.borrado(aux,raiz)
-                raiz.carnet = aux
+                carnetB = nodo.carnet
+                aux = self.IzqMayor(nodo.izquierdo)
+                nodo = self.borrado(aux.carnet,nodo)
+                self.actualizar(carnetB,aux.carnet,aux.dpi,aux.nombre,aux.carrera,aux.correo,aux.password,aux.creditos,aux.edad)
+                
+        nodo = self.equilibrar(nodo)
+        nodo.altura = self.maximo(self.altura(nodo.izquierdo),self.altura(nodo.derecho)) +1
+        return nodo
 
-        raiz = self.equilibrar(raiz)
-        raiz.altura = self.maximo(self.altura(raiz.izquierdo),self.altura(raiz.derecho)) +1
-        return raiz
+    def IzqMayor(self,nodo):
+        while(nodo.derecho!=None):
+            nodo = nodo.derecho
 
-    def IzqMayor(self,raiz):
-        while(raiz.derecho!=None):
-            raiz = raiz.derecho
+        return nodo
 
-        return raiz.carnet
 
     def equilibrar(self,raiz):
         if(self.altura(raiz.derecho)-self.altura(raiz.izquierdo) == -2):
-            if(self.altura(raiz.izquierdo)==1):
-                raiz = self.RotDobDerecha(raiz)
-            else:
-                raiz = self.RotDerecha(raiz)
-        elif(self.altura(raiz.derecho)-self.altura(raiz.izquierdo) == 2):
-            if(self.altura(raiz.derecho) == -1):
+            if(self.altura(raiz.izquierdo.derecho)-self.altura(raiz.izquierdo.izquierdo)==1):
                 raiz = self.RotDobIzquierda(raiz)
-            else:
+            elif(self.altura(raiz.izquierdo.derecho)-self.altura(raiz.izquierdo.izquierdo)==0):
+                raiz = self.RotIzquierda(raiz)
+            elif(self.altura(raiz.izquierdo.derecho)-self.altura(raiz.izquierdo.izquierdo)==-1):
                 raiz = self.RotIzquierda(raiz)
 
+        elif(self.altura(raiz.derecho)-self.altura(raiz.izquierdo) == 2):
+            if(self.altura(raiz.derecho.derecho)-self.altura(raiz.derecho.izquierdo)==1):
+                raiz = self.RotDerecha(raiz)
+            elif(self.altura(raiz.derecho.derecho)-self.altura(raiz.derecho.izquierdo)==0):
+                raiz = self.RotDerecha(raiz)
+            elif(self.altura(raiz.derecho.derecho)-self.altura(raiz.derecho.izquierdo)==-1):
+                raiz = self.RotDobDerecha(raiz)
+            
+
         return raiz 
+    
+    def generadorGrafica(self):
+        self.contGen += 1
+        name = "Avl"+str(self.contGen)
+        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file.write("digraph G{\n")
+        file.write("rankdir=UD;\n")
+        file.write("node[shape=circle,color=lightblue2,style=filled,fixedsize=true];\n")
+        self.recorrido(self.raiz)
+        
+        for nodo in self.lista:
+            file.write("D"+str(nodo)+'[label="'+str(nodo)+'"];\n')
+
+        file.write(self.conexion)
+        file.write("}")
+        file.close()
+        self.lista = []
+        self.conexion = ""
+
+    def recorrido(self,nodo):
+        if(nodo.izquierdo!=None and  nodo.derecho!=None):
+            self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.izquierdo.carnet)+"\n";
+            self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.derecho.carnet)+"\n";
+            self.lista.append(str(nodo.carnet))
+            self.recorrido(nodo.izquierdo)
+            self.recorrido(nodo.derecho)
+
+        elif(nodo.izquierdo!=None and nodo.derecho==None):
+            self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.izquierdo.carnet)+"\n";
+            self.lista.append(str(nodo.carnet))
+            self.recorrido(nodo.izquierdo)
+
+        elif(nodo.izquierdo==None and nodo.derecho!=None):
+            self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.derecho.carnet)+"\n";
+            self.lista.append(str(nodo.carnet))
+            self.recorrido(nodo.derecho)
+            
+        else:
+            self.lista.append(str(nodo.carnet))
+        
+
+
+
+
 
 avl = Avl()
-avl.insertar(20,2014,"juan","sistema","juan@gmail.com",1234,20,23)
-avl.insertar(10,2012,"pedro","sistema","ped@gmail.com",1143,21,17)
-avl.insertar(30,2011,"lucas","sistema","luc@gmail.com",1544,23,20)
-avl.insertar(5,2014,"pinda","sistema","juan@gmail.com",1234,20,23)
-avl.insertar(15,2012,"kaspal","sistema","ped@gmail.com",1143,21,17)
-avl.insertar(25,2011,"lolo","sistema","luc@gmail.com",1544,23,20)
+#avl.insertar(20,2014,"juan","sistema","juan@gmail.com",1234,20,23)
+avl.insertar(21,2012,"pedro","sistema","ped@gmail.com",1143,21,17)
+avl.insertar(22,2011,"lucas","sistema","luc@gmail.com",1544,23,20)
+avl.insertar(23,2014,"pinda","sistema","pin@gmail.com",1234,20,23)
+avl.insertar(24,2012,"kaspal","sistema","kas@gmail.com",1143,21,17)
+avl.insertar(25,2011,"lolo","sistema","lol@gmail.com",1544,23,20)
+avl.insertar(26,2009,"luna","sistema","lun@gmail.com",1544,23,20)
+avl.insertar(27,2008,"sol","sistema","sol@gmail.com",1544,23,20)
+avl.insertar(28,2014,"perro","sistema","perr@gmail.com",1544,23,20)
+avl.insertar(29,2015,"lola","sistema","lal@gmail.com",1544,23,20)
+avl.insertar(30,2018,"car","sistema","car@gmail.com",1544,23,20)
+avl.insertar(31,2019,"kiro","sistema","kiro@gmail.com",1544,23,20)
 #print(avl.buscar(10))
-avl.eliminar(20)
+avl.generadorGrafica()
+avl.eliminar(24)
+avl.generadorGrafica()
+avl.eliminar(28)
+avl.generadorGrafica()
+avl.eliminar(23)
+avl.generadorGrafica()
 print("Fin")
 
