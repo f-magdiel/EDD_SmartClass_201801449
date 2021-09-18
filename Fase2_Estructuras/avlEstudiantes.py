@@ -21,7 +21,8 @@ class Avl:
 
     def __init__(self):
         self.raiz = None
-        self.lista = []
+        self.listaLabel = []
+        self.listaNo = []
         self.conexion = ""
         self.contGen = 0
 
@@ -123,6 +124,23 @@ class Avl:
                 actual.creditos = _creditos
                 actual.edad = _edad
                 break
+    
+    def modificar(self,_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad):
+        actual = self.raiz
+        while(actual!=None):
+            if(_carnet > actual.carnet):
+                actual = actual.derecho
+            elif(_carnet < actual.carnet):
+                actual = actual.izquierdo
+            elif(_carnet == actual.carnet):
+                actual.dpi = _dpi
+                actual.nombre = _nombre
+                actual.carrera = _carrera
+                actual.correo = _correo
+                actual.password = _password
+                actual.creditos = _creditos
+                actual.edad = _edad
+                break             
 
     def eliminar(self,_carnet):
         if(self.raiz !=None):
@@ -187,38 +205,44 @@ class Avl:
         file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=UD;\n")
-        file.write("node[shape=circle,color=lightblue2,style=filled,fixedsize=true];\n")
+        file.write("node[shape=circle,color=lightblue2,style=filled];\n")
         self.recorrido(self.raiz)
         
-        for nodo in self.lista:
-            file.write("D"+str(nodo)+'[label="'+str(nodo)+'"];\n')
+        lista = range(len(self.listaNo))
+        for i in lista:
+            file.write("D"+str(self.listaNo[i])+'[label="'+str(self.listaLabel[i])+'"];\n')
 
         file.write(self.conexion)
         file.write("}")
         file.close()
-        self.lista = []
+        self.listaLabel = []
+        self.listaNo = []
         self.conexion = ""
 
     def recorrido(self,nodo):
         if(nodo.izquierdo!=None and  nodo.derecho!=None):
             self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.izquierdo.carnet)+"\n";
             self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.derecho.carnet)+"\n";
-            self.lista.append(str(nodo.carnet))
+            self.listaLabel.append(str(nodo.carnet)+" \\n "+str(nodo.dpi)+" \\n "+str(nodo.nombre)+" \\n "+str(nodo.carrera)+" \\n "+str(nodo.correo)+" \\n "+str(nodo.password)+" \\n "+str(nodo.creditos)+" \\n "+str(nodo.edad)) #lista label
+            self.listaNo.append(str(nodo.carnet)) #lista carnet
             self.recorrido(nodo.izquierdo)
             self.recorrido(nodo.derecho)
 
         elif(nodo.izquierdo!=None and nodo.derecho==None):
             self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.izquierdo.carnet)+"\n";
-            self.lista.append(str(nodo.carnet))
+            self.listaLabel.append(str(nodo.carnet)+" \\n "+str(nodo.dpi)+" \\n "+str(nodo.nombre)+" \\n "+str(nodo.carrera)+" \\n "+str(nodo.correo)+" \\n "+str(nodo.password)+" \\n "+str(nodo.creditos)+" \\n "+str(nodo.edad))
+            self.listaNo.append(str(nodo.carnet)) #lista carnet
             self.recorrido(nodo.izquierdo)
 
         elif(nodo.izquierdo==None and nodo.derecho!=None):
             self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.derecho.carnet)+"\n";
-            self.lista.append(str(nodo.carnet))
+            self.listaLabel.append(str(nodo.carnet)+" \\n "+str(nodo.dpi)+" \\n "+str(nodo.nombre)+" \\n "+str(nodo.carrera)+" \\n "+str(nodo.correo)+" \\n "+str(nodo.password)+" \\n "+str(nodo.creditos)+" \\n "+str(nodo.edad))
+            self.listaNo.append(str(nodo.carnet)) #lista carnet
             self.recorrido(nodo.derecho)
             
         else:
-            self.lista.append(str(nodo.carnet))
+            self.listaLabel.append(str(nodo.carnet)+" \\n "+str(nodo.dpi)+" \\n "+str(nodo.nombre)+" \\n "+str(nodo.carrera)+" \\n "+str(nodo.correo)+" \\n "+str(nodo.password)+" \\n "+str(nodo.creditos)+" \\n "+str(nodo.edad))
+            self.listaNo.append(str(nodo.carnet)) #lista carnet
         
 
 
@@ -226,8 +250,8 @@ class Avl:
 
 
 avl = Avl()
-#avl.insertar(20,2014,"juan","sistema","juan@gmail.com",1234,20,23)
-avl.insertar(21,2012,"pedro","sistema","ped@gmail.com",1143,21,17)
+
+avl.insertar(201801449,3275257541405,"Magdiel Asicona","Ciencias y sistemas","magdielasicona@gmail.com","buenasnoches",119,23)
 avl.insertar(22,2011,"lucas","sistema","luc@gmail.com",1544,23,20)
 avl.insertar(23,2014,"pinda","sistema","pin@gmail.com",1234,20,23)
 avl.insertar(24,2012,"kaspal","sistema","kas@gmail.com",1143,21,17)
