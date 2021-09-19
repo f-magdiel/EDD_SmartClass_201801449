@@ -205,7 +205,7 @@ class Avl:
         file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=UD;\n")
-        file.write("node[shape=circle,color=lightblue2,style=filled];\n")
+        file.write("node[shape=circle,width=0.7,height=0.7,color=lightblue2,style=filled];\n")
         self.recorrido(self.raiz)
         
         lista = range(len(self.listaNo))
@@ -215,9 +215,11 @@ class Avl:
         file.write(self.conexion)
         file.write("}")
         file.close()
+        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
         self.listaLabel = []
         self.listaNo = []
         self.conexion = ""
+
 
     def recorrido(self,nodo):
         if(nodo.izquierdo!=None and  nodo.derecho!=None):
