@@ -203,7 +203,7 @@ class matriz:
         if(aux1 != None):
             aux2 = aux1.lista_interna.buscarNodo(posx,posy)
             if(aux2!=None):
-                return aux2
+                return aux2.valor
             else:
                 return None
         else:
@@ -218,94 +218,87 @@ class matriz:
         file.write("node[shape = box,color=\"lightblue2\" style=\"filled\"];\n")
         file.write("edge[style = \"bold\"]; \n")
 
-        pivote = self.cabeceras_X.primero
+        inicio = self.cabeceras_X.primero
         posx = 0
-        while (pivote != None):
-            file.write("\n\tnode[label = \"C:"+str(pivote.posicion)+"\" fillcolor=\" dodgerblue4\" pos = \""+str(posx)+",1!\" shape = box]X"+str(pivote.posicion)+";"+"\n")
-            pivote = pivote.sig
+        while (inicio != None):
+            file.write("\n\tnode[label = \"C:"+str(inicio.posicion)+"\" fillcolor=\" dodgerblue4\" pos = \""+str(posx)+",1!\" shape = box]X"+str(inicio.posicion)+";"+"\n")
+            inicio = inicio.sig
             posx += 1
-        #pivote = self.cabeceras_X.primero.lista_interna.primero
+        
         aux2 = self.cabeceras_X.primero
         while (aux2.sig!=None):
-        #while (pivote.abajo != None):
             file.write("X"+str(aux2.posicion)+" -> "+"X"+str(aux2.sig.posicion)+"\n")
             file.write("X" + str(aux2.sig.posicion) + " -> " + "X" + str(aux2.posicion)+"\n")
             aux2 = aux2.sig
 
-        #file.write("principal -> "+str(self.cabeceras_X.primero.posicion)+";\n")# SE COMENTA PARA VALIDAR ERRORES
-        #Para Y
-        pivotey = self.cabeceras_y.primero
+
+        inicioy = self.cabeceras_y.primero
         posy = 0
-        while (pivotey != None):
-            file.write("\n\tnode[label = \"F:" + str(pivotey.posicion) + "\" fillcolor=\" dodgerblue4\" pos = \""+"-1,-" + str(posy) +"!\" shape = box]Y" + str(pivotey.posicion) + ";" + "\n")
-            pivotey = pivotey.sig
+        while (inicioy != None):
+            file.write("\n\tnode[label = \"F:" + str(inicioy.posicion) + "\" fillcolor=\" dodgerblue4\" pos = \""+"-1,-" + str(posy) +"!\" shape = box]Y" + str(inicioy.posicion) + ";" + "\n")
+            inicioy = inicioy.sig
             posy+=1
-        pivotey = self.cabeceras_y.primero
-        while (pivotey.sig != None):
-            file.write("Y" + str(pivotey.posicion) + " -> " + "Y" + str(pivotey.sig.posicion)+"\n")
-            file.write("Y" + str(pivotey.sig.posicion) + " -> " + "Y" + str(pivotey.posicion)+"\n")
-            pivotey = pivotey.sig
+        inicioy = self.cabeceras_y.primero
+        while (inicioy.sig != None):
+            file.write("Y" + str(inicioy.posicion) + " -> " + "Y" + str(inicioy.sig.posicion)+"\n")
+            file.write("Y" + str(inicioy.sig.posicion) + " -> " + "Y" + str(inicioy.posicion)+"\n")
+            inicioy = inicioy.sig
 
-        #file.write("principal -> " + str(self.cabeceras_y.primero.posicion) + ";\n")# SE COMENTA PARA VALIDAR ERRORES
-
-
-        #----------------------------------------------------------
-        #GRAFICAR INTERNOS
-        pivote = self.cabeceras_X.primero
+        #----------- DATOS INTERNOS -------------------
+        inicio = self.cabeceras_X.primero
         posx = 0
-        while(pivote!=None):
-            pivote_interno = pivote.lista_interna.primero
-            while(pivote_interno!=None):
-                pivotey = self.cabeceras_y.primero
+        while(inicio!=None):
+            inicio_interno = inicio.lista_interna.primero
+            while(inicio_interno!=None):
+                inicioy = self.cabeceras_y.primero
                 posy_interno = 0
-                while(pivotey!=None):
-                    if(pivotey.posicion==pivote_interno.pos_y):
+                while(inicioy!=None):
+                    if(inicioy.posicion==inicio_interno.pos_y):
                         break
                     posy_interno+=1
-                    pivotey=pivotey.sig
+                    inicioy=inicioy.sig
 
-                #file.write("\n\tnode[label = \" %d , %d \n  %s \" fillcolor=\" azure2\" pos = \"%d,-%d!\" shape = box]\"i%d-%d\";",pivote_interno.pos_x, pivote_interno->getY(), pivote_interno->getColor().c_str(), posx, posy_interno, pivote_interno->getX(), pivote_interno->getY());
-                # coloque comentado de prueba#file.write("\n\tnode[label = \""+str(pivote_interno.pos_x)+ ","+str(pivote_interno.pos_y)+" \n \" fillcolor=\" azure2\" pos = \"" + str(posx) + ",-" + str(posy_interno) + "!\" shape = box]\"i" + str(pivote_interno.pos_x) + "-" + str(pivote_interno.pos_y) + "\";")
-                file.write("\n\tnode[label = \""+str(pivote_interno.pos_x)+ ","+str(pivote_interno.pos_y)+"\n"+"T: "+str(pivote_interno.valor)+" \n \" fillcolor=\" azure2\" pos = \"" + str(posx) + ",-" + str(posy_interno) + "!\" shape = box]\"i" + str(pivote_interno.pos_x) + "-" + str(pivote_interno.pos_y) + "\";")
-                pivote_interno = pivote_interno.sig
-            pivote_interno = pivote.lista_interna.primero
+                file.write("\n\tnode[label = \""+str(inicio_interno.pos_x)+ ","+str(inicio_interno.pos_y)+"\n"+"T: "+str(inicio_interno.valor)+" \n \" fillcolor=\" azure2\" pos = \"" + str(posx) + ",-" + str(posy_interno) + "!\" shape = box]\"i" + str(inicio_interno.pos_x) + "-" + str(inicio_interno.pos_y) + "\";")
+                inicio_interno = inicio_interno.sig
+            inicio_interno = inicio.lista_interna.primero
 
-            while (pivote_interno != None):
-                if (pivote_interno.sig != None):#           0                        0                                                    0                           1
-                    file.write("\n \"i" + str(pivote_interno.pos_x) + "-" + str(pivote_interno.pos_y) + "\" -> \"i" + str(pivote_interno.sig.pos_x) + "-" + str(pivote_interno.sig.pos_y) + "\";\n")
-                    file.write("\"i" + str(pivote_interno.sig.pos_x) + "-" + str(pivote_interno.sig.pos_y) + "\" -> \"i" + str(pivote_interno.pos_x) + "-" + str(pivote_interno.pos_y) + "\";\n")
-                pivote_interno = pivote_interno.sig                                                                                                                 #quitare el .sig
-            file.write("\n X" + str(pivote.posicion) + " -> \"i" + str(pivote.lista_interna.primero.pos_x) + "-" + str(pivote.lista_interna.primero.pos_y) + "\" \n")
-            file.write("\n \"i" + str(pivote.lista_interna.primero.pos_x) + "-" + str(pivote.lista_interna.primero.pos_y) + "\"-> X" + str(pivote.posicion) + "  \n")
-            pivote = pivote.sig
+            while (inicio_interno != None):
+                if (inicio_interno.sig != None):#           0                        0                                                    0                           1
+                    file.write("\n \"i" + str(inicio_interno.pos_x) + "-" + str(inicio_interno.pos_y) + "\" -> \"i" + str(inicio_interno.sig.pos_x) + "-" + str(inicio_interno.sig.pos_y) + "\";\n")
+                    file.write("\"i" + str(inicio_interno.sig.pos_x) + "-" + str(inicio_interno.sig.pos_y) + "\" -> \"i" + str(inicio_interno.pos_x) + "-" + str(inicio_interno.pos_y) + "\";\n")
+                inicio_interno = inicio_interno.sig                                                                                                                 #quitare el .sig
+            file.write("\n X" + str(inicio.posicion) + " -> \"i" + str(inicio.lista_interna.primero.pos_x) + "-" + str(inicio.lista_interna.primero.pos_y) + "\" \n")
+            file.write("\n \"i" + str(inicio.lista_interna.primero.pos_x) + "-" + str(inicio.lista_interna.primero.pos_y) + "\"-> X" + str(inicio.posicion) + "  \n")
+            inicio = inicio.sig
             posx+=1
-            #----ultimo while
 
-        pivote=self.cabeceras_y.primero
-        while(pivote!=None):
-            pivote_interno=pivote.lista_interna.primero
-            while(pivote_interno!=None):
-                if(pivote_interno.abajo!=None):
-                    file.write("\n \"i" + str(pivote_interno.pos_x) + "-" + str(pivote_interno.pos_y) + "\" -> \"i" + str(pivote_interno.abajo.pos_x) + "-" + str(pivote_interno.abajo.pos_y) + "\";\n")
-                    file.write("\"i"+str(pivote_interno.abajo.pos_x)+"-"+str(pivote_interno.abajo.pos_y)+"\" -> \"i"+str(pivote_interno.pos_x)+"-"+str(pivote_interno.pos_y)+"\";\n")
-                pivote_interno = pivote_interno.abajo
-            file.write(("\n Y"+str(pivote.posicion)+" -> \"i"+str(pivote.lista_interna.primero.pos_x)+"-"+str(pivote.lista_interna.primero.pos_y)+"\" \n"))
-            file.write("\n \"i"+str(pivote.lista_interna.primero.pos_x)+"-"+str(pivote.lista_interna.primero.pos_y)+"\" -> Y"+str(pivote.posicion)+" \n")
-            pivote = pivote.sig
+        inicio=self.cabeceras_y.primero
+        while(inicio!=None):
+            inicio_interno=inicio.lista_interna.primero
+            while(inicio_interno!=None):
+                if(inicio_interno.abajo!=None):
+                    file.write("\n \"i" + str(inicio_interno.pos_x) + "-" + str(inicio_interno.pos_y) + "\" -> \"i" + str(inicio_interno.abajo.pos_x) + "-" + str(inicio_interno.abajo.pos_y) + "\";\n")
+                    file.write("\"i"+str(inicio_interno.abajo.pos_x)+"-"+str(inicio_interno.abajo.pos_y)+"\" -> \"i"+str(inicio_interno.pos_x)+"-"+str(inicio_interno.pos_y)+"\";\n")
+                inicio_interno = inicio_interno.abajo
+            file.write(("\n Y"+str(inicio.posicion)+" -> \"i"+str(inicio.lista_interna.primero.pos_x)+"-"+str(inicio.lista_interna.primero.pos_y)+"\" \n"))
+            file.write("\n \"i"+str(inicio.lista_interna.primero.pos_x)+"-"+str(inicio.lista_interna.primero.pos_y)+"\" -> Y"+str(inicio.posicion)+" \n")
+            inicio = inicio.sig
 
-                    #file.write(lin)
-        #file.write(lin2)
+                   
         file.write("} \n")
         file.close()
+        
         os.system("neato dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
-        #os.startfile("..Graficas//Matriz.svg")
+        #os.startfile("..Graficas//Matriz.svg")  No jala XD
 
-#insertar en matriz
+#La matriz se crea
 matriz1 = matriz("junio")
-               #(v,x,y)
+#(valor, x,y)
 matriz1.insertar(1,5,2)
 matriz1.insertar(2,1,1)
 matriz1.insertar(3,4,1)
 matriz1.insertar(4,4,2)
+print(matriz1.buscarNodoMatriz(1,1))
+matriz1.graficar()
 matriz1.graficar()
 matriz1.recorrer_matriz()
