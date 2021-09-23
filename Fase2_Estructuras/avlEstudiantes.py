@@ -205,7 +205,7 @@ class Avl:
         file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=UD;\n")
-        file.write("node[shape=circle,width=0.7,height=0.7,color=lightblue2,style=filled];\n")
+        file.write("node[shape=circle,color=lightblue2,style=filled];\n")
         self.recorrido(self.raiz)
         
         lista = range(len(self.listaNo))
@@ -225,25 +225,25 @@ class Avl:
         if(nodo.izquierdo!=None and  nodo.derecho!=None):
             self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.izquierdo.carnet)+"\n";
             self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.derecho.carnet)+"\n";
-            self.listaLabel.append(str(nodo.carnet)+" \\n "+str(nodo.dpi)+" \\n "+str(nodo.nombre)+" \\n "+str(nodo.carrera)+" \\n "+str(nodo.correo)+" \\n "+str(nodo.password)+" \\n "+str(nodo.creditos)+" \\n "+str(nodo.edad)) #lista label
+            self.listaLabel.append("Carnet:"+str(nodo.carnet)+" \\n DPI:"+str(nodo.dpi)+" \\n Nombre:"+str(nodo.nombre)+" \\n Carrera:"+str(nodo.carrera)+" \\n Correo:"+str(nodo.correo)+" \\n Password:"+str(nodo.password)+" \\n Creditos:"+str(nodo.creditos)+" \\n Edad:"+str(nodo.edad)) #lista label
             self.listaNo.append(str(nodo.carnet)) #lista carnet
             self.recorrido(nodo.izquierdo)
             self.recorrido(nodo.derecho)
 
         elif(nodo.izquierdo!=None and nodo.derecho==None):
             self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.izquierdo.carnet)+"\n";
-            self.listaLabel.append(str(nodo.carnet)+" \\n "+str(nodo.dpi)+" \\n "+str(nodo.nombre)+" \\n "+str(nodo.carrera)+" \\n "+str(nodo.correo)+" \\n "+str(nodo.password)+" \\n "+str(nodo.creditos)+" \\n "+str(nodo.edad))
+            self.listaLabel.append("Carnet:"+str(nodo.carnet)+" \\n DPI:"+str(nodo.dpi)+" \\n Nombre:"+str(nodo.nombre)+" \\n Carrera:"+str(nodo.carrera)+" \\n Correo:"+str(nodo.correo)+" \\n Password:"+str(nodo.password)+" \\n Creditos:"+str(nodo.creditos)+" \\n Edad:"+str(nodo.edad))
             self.listaNo.append(str(nodo.carnet)) #lista carnet
             self.recorrido(nodo.izquierdo)
 
         elif(nodo.izquierdo==None and nodo.derecho!=None):
             self.conexion+= "D"+str(nodo.carnet) +"->"+ "D"+str(nodo.derecho.carnet)+"\n";
-            self.listaLabel.append(str(nodo.carnet)+" \\n "+str(nodo.dpi)+" \\n "+str(nodo.nombre)+" \\n "+str(nodo.carrera)+" \\n "+str(nodo.correo)+" \\n "+str(nodo.password)+" \\n "+str(nodo.creditos)+" \\n "+str(nodo.edad))
+            self.listaLabel.append("Carnet:"+str(nodo.carnet)+" \\n DPI:"+str(nodo.dpi)+" \\n Nombre:"+str(nodo.nombre)+" \\n Carrera:"+str(nodo.carrera)+" \\n Correo:"+str(nodo.correo)+" \\n Password:"+str(nodo.password)+" \\n Creditos:"+str(nodo.creditos)+" \\n Edad:"+str(nodo.edad))
             self.listaNo.append(str(nodo.carnet)) #lista carnet
             self.recorrido(nodo.derecho)
             
         else:
-            self.listaLabel.append(str(nodo.carnet)+" \\n "+str(nodo.dpi)+" \\n "+str(nodo.nombre)+" \\n "+str(nodo.carrera)+" \\n "+str(nodo.correo)+" \\n "+str(nodo.password)+" \\n "+str(nodo.creditos)+" \\n "+str(nodo.edad))
+            self.listaLabel.append("Carnet:"+str(nodo.carnet)+" \\n DPI:"+str(nodo.dpi)+" \\n Nombre:"+str(nodo.nombre)+" \\n Carrera:"+str(nodo.carrera)+" \\n Correo:"+str(nodo.correo)+" \\n Password:"+str(nodo.password)+" \\n Creditos:"+str(nodo.creditos)+" \\n Edad:"+str(nodo.edad))
             self.listaNo.append(str(nodo.carnet)) #lista carnet
         
 

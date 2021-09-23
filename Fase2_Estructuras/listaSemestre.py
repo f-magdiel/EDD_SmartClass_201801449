@@ -90,4 +90,5 @@ class listaSemestre:
 lista = listaSemestre()
 lista.buscarAgregar(1)
 lista.buscarAgregar(2)
+lista.buscarAgregar(3)
 print("Fin")
