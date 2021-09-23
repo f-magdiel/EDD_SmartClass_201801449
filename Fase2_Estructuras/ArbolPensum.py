@@ -55,7 +55,7 @@ class Rama:
                     break
                 
 
-class Arbolb:
+class ArbolPensum:
     def __init__(self):
         self.raiz = None
         self.orden = 5
@@ -184,7 +184,7 @@ class Arbolb:
 
     def graficar(self):
         self.contGen +=1
-        name = "arbolb"+str(self.contGen)
+        name = "arbolpensum"+str(self.contGen)
         file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdor = TB;\n")
@@ -264,7 +264,7 @@ class Arbolb:
             #grafo += "\n"+actual+":C"+str(cont)+"->"+self.graficarEnlaces(raiz_actual.raiz.derecho)
             return grafo 
  
-b = Arbolb()
+b = ArbolPensum()
 b.insertar(101,"Matematica Basica 1",7,"",True)
 b.insertar(39,"Deportes 1",1,"",False)
 b.insertar(348,"Quimica General 1",3,"",True)
