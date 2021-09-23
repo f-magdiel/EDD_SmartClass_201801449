@@ -51,7 +51,7 @@ class listatarea:
 
 
 
-    def actualizar(self,_id,_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado):
+    def actualizar(self,_id,_carnet,_nombre,_descripcion,_materia,_estado):
         actual = self.cabeza
         while(actual!=None):
             if(_id == actual.id):
@@ -59,8 +59,6 @@ class listatarea:
                 actual.nombre = _nombre
                 actual.descripcion = _descripcion
                 actual.materia = _materia
-                actual.fecha = _fecha
-                actual.hora = _hora
                 actual.estado = _estado
                 break
             actual = actual.siguiente
@@ -70,7 +68,7 @@ class listatarea:
         encontrado = False
 
         while((actual!=None) and (encontrado == False)):
-            encontrado = (actual.year == _id)
+            encontrado = (actual.id == _id)
             if(encontrado == False):
                 actual = actual.siguiente
 
@@ -96,15 +94,16 @@ class listatarea:
         file.write('node[shape = record,style="rounded,filled",fillcolor=lightblue2];\n')
         aux = self.cabeza
         while(aux!=None):
-            file.write(str(aux.id)+"[label =\"{*|"+"ID:"+str(aux.id)+"\\n Carnet:"+str(aux.carnet)+"\\n Nombre:"+str(aux.nombre)+"\\n Descripcion:"+str(aux.descripcion)+"\\n Materia:"+str(aux.materia)+"\\n Fecha:"+str(aux.fecha)+"\\n Hora:"+str(aux.hora)+"\\n Estado"+str(aux.estado)+"|*}\"];\n")
+            file.write(str(aux.id)+"[label =\"{*|"+"ID:"+str(aux.id)+"\\n Carnet:"+str(aux.carnet)+"\\n Nombre:"+str(aux.nombre)+"\\n Descripcion:"+str(aux.descripcion)+"\\n Materia:"+str(aux.materia)+"\\n Fecha:"+str(aux.fecha)+"\\n Hora:"+str(aux.hora)+"\\n Estado:"+str(aux.estado)+"|*}\"];\n")
             aux = aux.siguiente
 
-        x = range(self.gentID-1)
-        for n in x:
-            if(n!=x):
-                file.write(str(n+1)+"->"+str(n+2)+";\n")
-                file.write(str(n+2)+"->"+str(n+1)+";\n")
-        
+        edge = self.cabeza
+        while(edge!=None):
+            if(edge.siguiente!=None):
+                file.write(str(edge.id)+"->"+str(edge.id+1)+";\n")
+                file.write(str(edge.id+1)+"->"+str(edge.id)+";\n")
+            
+            edge = edge.siguiente
 
         file.write("\n}")
         file.close()
@@ -116,4 +115,9 @@ tarea.agregar(20180149,"Tarea Matematica 2","Realizar","Matematica 2","01/02/201
 tarea.agregar(20180149,"Tarea Matematica 3","Realizar","Matematica 3","01/02/2012","8:00","Incumplido")
 tarea.agregar(20180149,"Tarea Matematica 4","Realizar","Matematica 4","01/02/2012","8:00","Incumplido")
 tarea.agregar(20180149,"Tarea Matematica 5","Realizar","Matematica 5","01/02/2012","8:00","Incumplido")
+tarea.graficar()
+print(tarea.buscar(2))
+tarea.actualizar(1,202101449,"Logica","Realizar","Logica","Incumplido")
+tarea.graficar()
+tarea.eliminar(1)
 tarea.graficar()
