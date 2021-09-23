@@ -1,6 +1,6 @@
 import os
 import sys
-#lista interna 
+from Fase2_Estructuras.ListaTarea import *
 class Nodo:
     def __init__(self, valor, x,y):
         self.valor = valor
@@ -13,6 +13,8 @@ class Nodo:
 
         self.arriba = None
         self.abajo = None
+
+        self.lista_tarea = listatarea()
 
 class Lista:
     def __init__(self):
@@ -293,6 +295,7 @@ class matriz:
 
 #La matriz se crea
 matriz1 = matriz("junio")
+'''
 #(valor, x,y)
 matriz1.insertar(1,5,2)
 matriz1.insertar(2,1,1)
@@ -302,3 +305,4 @@ print(matriz1.buscarNodoMatriz(1,1))
 matriz1.graficar()
 matriz1.graficar()
 matriz1.recorrer_matriz()
+'''

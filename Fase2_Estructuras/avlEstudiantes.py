@@ -1,5 +1,6 @@
 import os
 import sys
+from Fase2_Estructuras.ListaAño import *
 
 class Nodo:
     def __init__(self,_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad):
@@ -14,7 +15,7 @@ class Nodo:
         self.izquierdo = None
         self.derecho = None
         self.altura = 0
-        #lista de años
+        self.lista_año = listaAño()
 
 
 class Avl:
@@ -252,7 +253,7 @@ class Avl:
 
 
 avl = Avl()
-
+'''
 avl.insertar(201801449,3275257541405,"Magdiel Asicona","Ciencias y sistemas","magdielasicona@gmail.com","buenasnoches",119,23)
 avl.insertar(22,2011,"lucas","sistema","luc@gmail.com",1544,23,20)
 avl.insertar(23,2014,"pinda","sistema","pin@gmail.com",1234,20,23)
@@ -273,4 +274,5 @@ avl.generadorGrafica()
 avl.eliminar(23)
 avl.generadorGrafica()
 print("Fin")
+'''
 

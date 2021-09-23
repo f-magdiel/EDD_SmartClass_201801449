@@ -265,6 +265,7 @@ class ArbolPensum:
             return grafo 
  
 b = ArbolPensum()
+'''
 b.insertar(101,"Matematica Basica 1",7,"",True)
 b.insertar(39,"Deportes 1",1,"",False)
 b.insertar(348,"Quimica General 1",3,"",True)
@@ -283,7 +284,7 @@ b.insertar(2036,"Practica Intermedia",0,"778,777,773,2025",True)
 b.buscarNodo(2033)
 b.graficar()
 #b.buscarNodo(26)
-
+'''
 
                 
 

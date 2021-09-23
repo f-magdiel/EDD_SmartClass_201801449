@@ -1,11 +1,12 @@
 import os
 import sys
+from Fase2_Estructuras.MatrizTarea import *
 class Nodo:
     def __init__(self,_mes):
         self.mes = _mes
         self.siguiente = None
         self.anterior = None
-        #apuntador matriz
+        self.matriz_tarea = matriz()
 
 
 class listaMes:
@@ -111,6 +112,7 @@ class listaMes:
             
 
 lista = listaMes()
+'''
 lista.buscarAgregar("Mayo")
 lista.buscarAgregar("Junio")
 lista.buscarAgregar("Julio")
@@ -120,3 +122,4 @@ lista.graficar()
 lista.eliminar("Mayo")
 lista.graficar()
 print("Fin")
+'''

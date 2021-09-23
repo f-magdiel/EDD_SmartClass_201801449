@@ -1,11 +1,12 @@
 import os
 import sys
+from Fase2_Estructuras.ArbolCursos import *
 class Nodo:
     def __init__(self,_semestre):
         self.semestre = _semestre
         self.siguiente = None
         self.anterior = None
-        #apuntador arbol b
+        self.arbol_curso = Arbolb()
 
 
 class listaSemestre:
@@ -110,7 +111,9 @@ class listaSemestre:
         os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
 
 lista = listaSemestre()
+'''
 lista.buscarAgregar("Semestre 1")
 lista.buscarAgregar("Semestre 2")
 lista.graficar()
 print("Fin")
+'''

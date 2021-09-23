@@ -110,6 +110,7 @@ class listatarea:
         os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
 
 tarea = listatarea()
+'''
 tarea.agregar(20180149,"Tarea Matematica 1","Realizar","Matematica 1","01/02/2012","8:00","Incumplido")
 tarea.agregar(20180149,"Tarea Matematica 2","Realizar","Matematica 2","01/02/2012","8:00","Incumplido")
 tarea.agregar(20180149,"Tarea Matematica 3","Realizar","Matematica 3","01/02/2012","8:00","Incumplido")
@@ -121,3 +122,4 @@ tarea.actualizar(1,202101449,"Logica","Realizar","Logica","Incumplido")
 tarea.graficar()
 tarea.eliminar(1)
 tarea.graficar()
+'''

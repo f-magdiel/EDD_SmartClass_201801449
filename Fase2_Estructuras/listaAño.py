@@ -1,12 +1,14 @@
 import os
 import sys
+from Fase2_Estructuras.ListaSemestre import *
+from Fase2_Estructuras.ListaMes import *
 class Nodo:
     def __init__(self,_year):
         self.year = _year
         self.siguiente = None
         self.anterior = None
-        #apuntador semestre
-        #apuntador mes
+        self.lista_semestre = listaSemestre()
+        self.lista_mes = listaMes()
 
 
 class listaAño:
@@ -111,6 +113,7 @@ class listaAño:
         os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
 
 lista = listaAño()
+'''
 lista.buscarAgregar(2012)
 lista.buscarAgregar(2013)
 lista.buscarAgregar(2014)
@@ -120,3 +123,4 @@ lista.graficar()
 lista.eliminar(2012)
 lista.graficar()
 print("Fin")
+'''
