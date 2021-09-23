@@ -1,3 +1,5 @@
+import os
+import sys
 class Nodo:
     def __init__(self,_year):
         self.year = _year
@@ -11,6 +13,7 @@ class listaAño:
     def __init__(self):
         self.cabeza = None
         self.cola = None
+        self.contGen = 0
 
     def agregar(self,_year):
         nuevoNodo = Nodo(_year)
@@ -82,12 +85,38 @@ class listaAño:
                 self.cola = actual.anterior
                 actual = None
 
+    def graficar(self):
+        self.contGen += 1
+        name = "lista_año"+str(self.contGen)
+        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file.write("digraph G{\n")
+        file.write("rankdir=LR;\n")
+        file.write('node[shape = record,style="rounded,filled",fillcolor=lightblue2];\n')
+        aux = self.cabeza
+        while(aux!=None):
+            file.write(str(aux.year)+"[label=\"{*|"+"Año:"+str(aux.year)+"|*}\"];\n")
+            aux = aux.siguiente
+
+        edge = self.cabeza
+        while(edge!=None):
+            if(edge.siguiente!=None):
+                aux = edge
+                aux = aux.siguiente
+                file.write(str(edge.year)+"->"+str(aux.year)+";\n")
+                file.write(str(aux.year)+"->"+str(edge.year)+";\n")
+            edge = edge.siguiente
+
+        file.write("\n}")
+        file.close()
+        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
 
 lista = listaAño()
-lista.buscarAgregar(12)
-lista.buscarAgregar(13)
-lista.buscarAgregar(14)
-lista.buscarAgregar(15)
-lista.buscarAgregar(16)
-lista.eliminar(12)
+lista.buscarAgregar(2012)
+lista.buscarAgregar(2013)
+lista.buscarAgregar(2014)
+lista.buscarAgregar(2015)
+lista.buscarAgregar(2016)
+lista.graficar()
+lista.eliminar(2012)
+lista.graficar()
 print("Fin")
