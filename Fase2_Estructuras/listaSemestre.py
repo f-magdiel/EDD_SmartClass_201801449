@@ -1,3 +1,5 @@
+import os
+import sys
 class Nodo:
     def __init__(self,_semestre):
         self.semestre = _semestre
@@ -11,6 +13,7 @@ class listaSemestre:
         self.cabeza = None
         self.cola = None
         self.posicion = 0
+        self.contGen = 0
 
     def agregar(self,_semetre):
         self.posicion +=1 
@@ -86,9 +89,28 @@ class listaSemestre:
                 self.cola = actual.anterior
                 actual = None
 
+    def graficar(self):
+        self.contGen += 1
+        name = "lista_semestre"+str(self.contGen)
+        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file.write("digraph G{\n")
+        file.write("rankdir=LR;\n")
+        file.write('node[shape = record,style="rounded,filled",fillcolor=lightblue2];\n')
+        aux = self.cabeza
+        num = 0
+        while(aux!=None):
+            num+=1
+            file.write("S"+str(num)+"[label=\"{*|"+str(aux.semestre)+"|*}\"];\n")
+            aux = aux.siguiente
+
+        file.write("S1->S2;\n")
+        file.write("S2->S1;\n")
+        file.write("\n}")
+        file.close()
+        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
 
 lista = listaSemestre()
-lista.buscarAgregar(1)
-lista.buscarAgregar(2)
-lista.buscarAgregar(3)
+lista.buscarAgregar("Semestre 1")
+lista.buscarAgregar("Semestre 2")
+lista.graficar()
 print("Fin")
