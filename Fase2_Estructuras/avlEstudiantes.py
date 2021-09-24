@@ -106,7 +106,7 @@ class Avl:
             elif (_carnet < actual.carnet):
                 actual = actual.izquierdo
             elif (_carnet == actual.carnet):
-                return actual.carnet
+                return actual
 
     def actualizar(self,_datoCarnet,_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad):
         actual = self.raiz
@@ -253,6 +253,10 @@ class Avl:
 
 
 avl = Avl()
+avl.insertar(201801449,3275257541405,"Magdiel Asicona","Ciencias y sistemas","magdielasicona@gmail.com","buenasnoches",119,23)
+aux = avl.buscar(201801449)
+aux.lista_año.agregar("2019")
+
 '''
 avl.insertar(201801449,3275257541405,"Magdiel Asicona","Ciencias y sistemas","magdielasicona@gmail.com","buenasnoches",119,23)
 avl.insertar(22,2011,"lucas","sistema","luc@gmail.com",1544,23,20)
