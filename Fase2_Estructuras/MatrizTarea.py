@@ -154,8 +154,10 @@ class matriz:
         self.cabeceras_X= ListaCabecera()
         self.cabeceras_y = ListaCabecera()
         self.contMat = 0
+        print("Crea matriz")
 
     def insertar(self, valor,posx,posy):
+        print("Ingreso en matriz")
         nodo_cabecera_x=None 
         nodo_cabecera_y=None
 
@@ -205,7 +207,7 @@ class matriz:
         if(aux1 != None):
             aux2 = aux1.lista_interna.buscarNodo(posx,posy)
             if(aux2!=None):
-                return aux2.valor
+                return aux2
             else:
                 return None
         else:
@@ -214,7 +216,7 @@ class matriz:
     def graficar(self):
         self.contMat += 1
         name = "Matriz"+str(self.contMat)
-        file = open("Graficas/"+name+".dot", "w", encoding="UTF-8")
+        file = open("../Graficas/"+name+".dot", "w", encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=TB  \n")
         file.write("node[shape = box,color=\"lightblue2\" style=\"filled\"];\n")
@@ -290,19 +292,19 @@ class matriz:
         file.write("} \n")
         file.close()
         
-        os.system("neato dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
+        os.system("neato dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
         #os.startfile("..Graficas//Matriz.svg")  No jala XD
-
+'''
 #La matriz se crea
 matriz1 = matriz("junio")
-'''
+
 #(valor, x,y)
 matriz1.insertar(1,5,2)
 matriz1.insertar(2,1,1)
 matriz1.insertar(3,4,1)
 matriz1.insertar(4,4,2)
 print(matriz1.buscarNodoMatriz(1,1))
-matriz1.graficar()
-matriz1.graficar()
+#matriz1.graficar()
+#matriz1.graficar()
 matriz1.recorrer_matriz()
 '''

@@ -6,7 +6,7 @@ class Nodo:
         self.mes = _mes
         self.siguiente = None
         self.anterior = None
-        self.matriz_tarea = matriz()
+        self.matriz_tarea = matriz(_mes)
 
 
 class listaMes:
@@ -16,6 +16,7 @@ class listaMes:
         self.contGen = 0
 
     def agregar(self,_mes):
+        print("Ingreso en mes")
         nuevoNodo = Nodo(_mes)
         if(self.cabeza==None):
             self.cabeza = nuevoNodo
@@ -33,7 +34,7 @@ class listaMes:
         actual = self.cabeza
         while(actual!=None):
             if(_mes == actual.mes):
-                return actual.mes
+                return actual
             
             actual = actual.siguiente
 
@@ -88,7 +89,7 @@ class listaMes:
     def graficar(self):
         self.contGen += 1
         name = "lista_mes"+str(self.contGen)
-        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file = open("../Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=LR;\n")
         file.write('node[shape = record,style="rounded,filled",fillcolor=lightblue2];\n')
@@ -108,18 +109,17 @@ class listaMes:
 
         file.write("\n}")
         file.close()
-        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
+        os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
             
 
 lista = listaMes()
-'''
-lista.buscarAgregar("Mayo")
-lista.buscarAgregar("Junio")
-lista.buscarAgregar("Julio")
-lista.buscarAgregar("Agosto")
-lista.buscarAgregar("Septiembre")
+
+lista.buscarAgregar("07")
+lista.buscarAgregar("08")
+lista.buscarAgregar("09")
+lista.buscarAgregar("10")
+lista.buscarAgregar("11")
 lista.graficar()
-lista.eliminar("Mayo")
+lista.eliminar("08")
 lista.graficar()
 print("Fin")
-'''

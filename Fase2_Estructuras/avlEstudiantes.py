@@ -15,11 +15,10 @@ class Nodo:
         self.izquierdo = None
         self.derecho = None
         self.altura = 0
-        self.lista_año = listaAño()
+        self.lista_anio = listaAño()
 
 
 class Avl:
-
     def __init__(self):
         self.raiz = None
         self.listaLabel = []
@@ -41,6 +40,7 @@ class Avl:
             
     
     def insertar(self,_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad):
+        print("Ingreso al avl")
         self.raiz = self.add(_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad,self.raiz)
 
     def add(self,_carnet,_dpi,_nombre,_carrera,_correo,_password,_creditos,_edad,nodo):
@@ -203,7 +203,7 @@ class Avl:
     def generadorGrafica(self):
         self.contGen += 1
         name = "Avl"+str(self.contGen)
-        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file = open("../Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=UD;\n")
         file.write("node[shape=circle,color=lightblue2,style=filled];\n")
@@ -216,7 +216,7 @@ class Avl:
         file.write(self.conexion)
         file.write("}")
         file.close()
-        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
+        os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
         self.listaLabel = []
         self.listaNo = []
         self.conexion = ""
@@ -250,15 +250,14 @@ class Avl:
 
 
 
-
-
-avl = Avl()
-avl.insertar(201801449,3275257541405,"Magdiel Asicona","Ciencias y sistemas","magdielasicona@gmail.com","buenasnoches",119,23)
-aux = avl.buscar(201801449)
-aux.lista_año.agregar("2019")
-
 '''
-avl.insertar(201801449,3275257541405,"Magdiel Asicona","Ciencias y sistemas","magdielasicona@gmail.com","buenasnoches",119,23)
+avl = Avl()
+#avl.insertar(201801449,3275257541405,"Magdiel Asicona","Ciencias y sistemas","magdielasicona@gmail.com","buenasnoches",119,23)
+#aux = avl.buscar(201801449)
+#aux.lista_año.agregar("2019")
+
+
+avl.insertar(21,3275257541405,"Magdiel Asicona","Ciencias y sistemas","magdielasicona@gmail.com","buenasnoches",119,23)
 avl.insertar(22,2011,"lucas","sistema","luc@gmail.com",1544,23,20)
 avl.insertar(23,2014,"pinda","sistema","pin@gmail.com",1234,20,23)
 avl.insertar(24,2012,"kaspal","sistema","kas@gmail.com",1143,21,17)

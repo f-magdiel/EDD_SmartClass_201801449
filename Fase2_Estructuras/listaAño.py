@@ -18,6 +18,7 @@ class listaAño:
         self.contGen = 0
 
     def agregar(self,_year):
+        print("Ingreso en año")
         nuevoNodo = Nodo(_year)
         if(self.cabeza==None):
             self.cabeza = nuevoNodo
@@ -35,7 +36,7 @@ class listaAño:
         actual = self.cabeza
         while(actual!=None):
             if(_year == actual.year):
-                return actual.year
+                return actual
             
             actual = actual.siguiente
 
@@ -53,7 +54,7 @@ class listaAño:
             actual = actual.siguiente
 
         if(banderaRepetido == True):
-            print("Dato ya existe")
+            print("Año ya existe")
         else:
             self.agregar(_year) #en este metodo se agrega si no hay repeat en la lista
 
@@ -90,7 +91,7 @@ class listaAño:
     def graficar(self):
         self.contGen += 1
         name = "lista_año"+str(self.contGen)
-        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file = open("../Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=LR;\n")
         file.write('node[shape = record,style="rounded,filled",fillcolor=lightblue2];\n')
@@ -110,9 +111,9 @@ class listaAño:
 
         file.write("\n}")
         file.close()
-        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
+        os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
 
-lista = listaAño()
+#lista = listaAño()
 '''
 lista.buscarAgregar(2012)
 lista.buscarAgregar(2013)

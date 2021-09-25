@@ -185,7 +185,7 @@ class ArbolPensum:
     def graficar(self):
         self.contGen +=1
         name = "arbolpensum"+str(self.contGen)
-        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file = open("../Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdor = TB;\n")
         file.write("splines=line;\n")
@@ -196,7 +196,7 @@ class ArbolPensum:
         file.write("\n")
         file.write("}\n")
         file.close()
-        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
+        os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
 
     def graficarNodos(self,raiz_actual):
         grafo =""

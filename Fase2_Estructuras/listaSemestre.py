@@ -93,7 +93,7 @@ class listaSemestre:
     def graficar(self):
         self.contGen += 1
         name = "lista_semestre"+str(self.contGen)
-        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file = open("../Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=LR;\n")
         file.write('node[shape = record,style="rounded,filled",fillcolor=lightblue2];\n')
@@ -108,7 +108,7 @@ class listaSemestre:
         file.write("S2->S1;\n")
         file.write("\n}")
         file.close()
-        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
+        os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
 
 lista = listaSemestre()
 '''

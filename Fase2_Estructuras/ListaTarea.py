@@ -25,6 +25,7 @@ class listatarea:
         
 
     def agregar(self,_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado):
+        print("Ingreso en lista tarea")
         self.gentID += 1
         nuevoNodo = Nodo(self.gentID,_carnet,_nombre,_descripcion,_materia,_fecha,_hora,_estado)
         if(self.cabeza==None):
@@ -88,7 +89,7 @@ class listatarea:
     def graficar(self):
         self.contGen +=1
         name = "Lista_Tarea"+str(self.contGen)
-        file = open("Graficas/"+name+".dot","w",encoding="UTF-8")
+        file = open("../Graficas/"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=LR;")
         file.write('node[shape = record,style="rounded,filled",fillcolor=lightblue2];\n')
@@ -107,10 +108,10 @@ class listatarea:
 
         file.write("\n}")
         file.close()
-        os.system("dot -Tsvg Graficas/"+name+".dot -o Graficas/"+name+".svg")
-
-tarea = listatarea()
+        os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
 '''
+tarea = listatarea()
+
 tarea.agregar(20180149,"Tarea Matematica 1","Realizar","Matematica 1","01/02/2012","8:00","Incumplido")
 tarea.agregar(20180149,"Tarea Matematica 2","Realizar","Matematica 2","01/02/2012","8:00","Incumplido")
 tarea.agregar(20180149,"Tarea Matematica 3","Realizar","Matematica 3","01/02/2012","8:00","Incumplido")
