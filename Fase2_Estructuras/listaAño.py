@@ -55,6 +55,7 @@ class listaAño:
 
         if(banderaRepetido == True):
             print("Año ya existe")
+            return actual
         else:
             self.agregar(_year) #en este metodo se agrega si no hay repeat en la lista
 

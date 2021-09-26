@@ -44,7 +44,7 @@ class listatarea:
         actual = self.cabeza
         while(actual!=None):
             if(_id == actual.id):
-                return actual.id
+                return actual
             
             actual = actual.siguiente
 

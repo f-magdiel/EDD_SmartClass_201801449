@@ -109,9 +109,9 @@ class listaSemestre:
         file.write("\n}")
         file.close()
         os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
-
-lista = listaSemestre()
 '''
+lista = listaSemestre()
+
 lista.buscarAgregar("Semestre 1")
 lista.buscarAgregar("Semestre 2")
 lista.graficar()

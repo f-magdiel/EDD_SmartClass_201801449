@@ -93,7 +93,7 @@ class Lista:
                 return aux
             aux = aux.sig
             print("No se encontro")
-            return None
+        return None
 
 #lista cabeceras
 class NodoCabecera:
@@ -154,6 +154,7 @@ class matriz:
         self.cabeceras_X= ListaCabecera()
         self.cabeceras_y = ListaCabecera()
         self.contMat = 0
+        self.contadorTask = 0
         print("Crea matriz")
 
     def insertar(self, valor,posx,posy):
@@ -212,6 +213,19 @@ class matriz:
                 return None
         else:
             return None
+
+    def buscarAgregar(self,posx,posy):
+        aux = self.cabeceras_X.buscarCabecera(posx)
+        if aux!=None:
+            aux2 = aux.lista_interna.buscarNodo(posx,posy)
+            if aux2 != None:
+
+                aux2.valor+=1
+                return aux2 #si ya se encuetra solo devuelve el nodo
+            else:
+                self.insertar(1,posx,posy)
+        else:
+            self.insertar(1,posx,posy)
 
     def graficar(self):
         self.contMat += 1
@@ -299,12 +313,13 @@ class matriz:
 matriz1 = matriz("junio")
 
 #(valor, x,y)
-matriz1.insertar(1,5,2)
-matriz1.insertar(2,1,1)
-matriz1.insertar(3,4,1)
-matriz1.insertar(4,4,2)
-print(matriz1.buscarNodoMatriz(1,1))
-#matriz1.graficar()
+matriz1.buscarAgregar(5,2)
+matriz1.buscarAgregar(1,1)
+matriz1.buscarAgregar(4,1)
+matriz1.buscarAgregar(4,2)
+matriz1.buscarAgregar(4,2)
+#print(matriz1.buscarNodoMatriz(4,4))
+matriz1.graficar()
 #matriz1.graficar()
 matriz1.recorrer_matriz()
 '''

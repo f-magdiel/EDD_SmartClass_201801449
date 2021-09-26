@@ -53,6 +53,7 @@ class listaMes:
 
         if(banderaRepetido == True):
             print("Mes ya existe")
+            return actual
         else:
             self.agregar(_mes) #en este metodo se agrega si no hay repeat en la lista
 
@@ -111,7 +112,7 @@ class listaMes:
         file.close()
         os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
             
-
+'''
 lista = listaMes()
 
 lista.buscarAgregar("07")
@@ -123,3 +124,4 @@ lista.graficar()
 lista.eliminar("08")
 lista.graficar()
 print("Fin")
+'''
