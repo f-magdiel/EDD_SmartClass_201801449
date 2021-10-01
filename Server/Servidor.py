@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request
 from analizador.sintactico import parser
 from Fase2_Estructuras.AvlEstudiantes import *
@@ -8,6 +10,10 @@ arbol = Avl()
 
 # definir
 app = Flask(__name__)
+#@app.route('/cursoEstudiante',methods=['post'])
+#def cursoEstudiante():
+
+
 
 @app.route('/recordatorios',methods=['post','update','get','delete'])
 def recordatorios():
@@ -118,8 +124,33 @@ def recordatorios():
                 "mensaje":"No se obtuvo informacion de recodatorio"
             }
     elif request.method == 'DELETE':
-        ##Aqui me quede falta eliminar para recordatorio
+        carnet = json_entrada['Carnet']
+        year = json_entrada['Anio']
+        mes = json_entrada['Mes']
+        dia = json_entrada['Dia']
+        hora = json_entrada['Hora']
+        id = json_entrada['Id']
 
+        auxCarnet = int(carnet)
+        auxId = int(id)
+        auxDia = int(dia)
+        auxHora = int(hora.replace(":00", ""))
+
+        aux = arbol.buscar(auxCarnet)
+        auxAnio = aux.lista_anio.buscar(str(year))
+        auxMes = auxAnio.lista_mes.buscar(str(mes))
+        auxMatriz = auxMes.matriz_tarea.buscarNodoMatriz(auxDia, auxHora)
+        try:
+            auxMatriz.lista_tarea.eliminar(auxId)
+            return {
+                "estado":200,
+                "mensaje":"Se ha eliminado el recodatorio"
+            }
+        except:
+            return {
+                "estado": 400,
+                "mensaje": "No se ha eliminado el recodatorio"
+            }
 
 # rutas
 @app.route('/estudiante',methods=['post','update','delete','get'])
@@ -276,7 +307,25 @@ def reporte():
                     "estado":400,
                     "mensaje":"No se genere la grafica lista tareas"
                 }
+        elif (tipo == 4):
+            carnet = json_entrada['carnet']
+            year = json_entrada['año']
+            semestre = json_entrada['semestre']
 
+            aux = arbol.buscar(int(carnet))
+            auxAnio = aux.lista_anio.buscar(year)
+            auxSemestre = auxAnio.lista_semestre.buscar(int(semestre))
+            try:
+                auxSemestre.arbol_curso.graficar()
+                return {
+                    "estado":200,
+                    "mensaje":"Grafica de semestre exitoso"
+                }
+            except:
+                return {
+                    "estado":400,
+                    "mensaje":"Grafica de semestre fallido"
+                }
 
 @app.route('/carga', methods=['post'])
 def carga():
@@ -284,6 +333,7 @@ def carga():
         json_entrada = request.get_json()
         tipo = json_entrada['tipo']
         path = json_entrada['path']
+        print(path)
         if tipo == "estudiantes":
             f = open(path, "r", encoding="utf-8")
             mensaje = f.read()
@@ -346,9 +396,41 @@ def carga():
                     "mensaje": "No se ingreso en avl"
                 }
 
+        elif tipo == "curso estudiantes":
 
-        elif tipo == "curso estudiante":
-            print("")
+            archivo = open(path, "r", encoding="utf-8")
+            datos = json.load(archivo)
+            try:
+                if 'Estudiantes' in datos.keys():
+                    for item_student in datos['Estudiantes']:
+                        for item_anio in item_student['Años']:
+                            for item_semestre in item_anio['Semestres']:
+                                for item_curso in item_semestre['Cursos']:
+                                    carnet = item_student['Carnet']
+                                    year = item_anio['Año']
+                                    semestre = item_semestre['Semestre']
+                                    codigo = item_curso['Codigo']
+                                    nombre = item_curso['Nombre']
+                                    creditos = item_curso['Creditos']
+                                    cursoPre = item_curso['Prerequisitos']
+                                    obligatorio = item_curso['Obligatorio']
+
+                                    aux = arbol.buscar(int(carnet))
+                                    aux.lista_anio.buscarAgregar(year)
+                                    auxYear = aux.lista_anio.buscar(year)
+                                    auxYear.lista_semestre.buscarAgregar(int(semestre))
+                                    auxB = auxYear.lista_semestre.buscar(int(semestre))
+                                    auxB.arbol_curso.insertar(int(codigo),nombre,creditos,cursoPre,obligatorio)
+
+                return {
+                    "estado":200,
+                    "mensaje":"Carga de curso estudiantes exitosa"
+                }
+            except:
+                return {
+                    "estado":400,
+                    "mensaje":"Carga de curso estudiantes fallido"
+                }
         elif tipo == "curso pensum":
             print("")
 

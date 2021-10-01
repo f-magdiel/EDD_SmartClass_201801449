@@ -35,7 +35,7 @@ class listaSemestre:
         actual = self.cabeza
         while(actual!=None):
             if(_semestre == actual.semestre):
-                return actual.semestre
+                return actual
             
             actual = actual.siguiente
 
@@ -54,6 +54,7 @@ class listaSemestre:
 
         if(banderaRepetido == True):
             print("Semestre ya existe")
+            return actual
         else:
             if(self.posicion == 2):
                 print("Posiciones ocupadas")
