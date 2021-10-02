@@ -3,17 +3,34 @@ import json
 from flask import Flask, request
 from analizador.sintactico import parser
 from Fase2_Estructuras.AvlEstudiantes import *
+from Fase2_Estructuras.ArbolPensum import *
 import flask
 
 # Estrutura
 arbol = Avl()
+arbolCursos = ArbolPensum()
 
 # definir
 app = Flask(__name__)
 #@app.route('/cursoEstudiante',methods=['post'])
 #def cursoEstudiante():
 
-
+@app.route('/cursosEstudiante',methods=['post'])
+def cursosEstudiante():
+    json_entrada = request.get_json()
+    if request.method == "POST":
+        print(json_entrada)
+    try:
+        print(json_entrada)
+        return {
+            "estado":200,
+            "mensaje":"Tarea Agregado exitosamente"
+        }
+    except:
+        return {
+            "estado":400,
+            "mensaje":"Fallo al agregar Tarea"
+        }
 
 @app.route('/recordatorios',methods=['post','update','get','delete'])
 def recordatorios():
@@ -307,6 +324,18 @@ def reporte():
                     "estado":400,
                     "mensaje":"No se genere la grafica lista tareas"
                 }
+        elif tipo == 3:
+            try:
+                arbolCursos.graficar()
+                return {
+                    "estado":200,
+                    "mensaje":"Grafica cursos pensum generado exitosamente"
+                }
+            except:
+                return {
+                    "estado":400,
+                    "mensaje":"Grafica de cursos pensum fallido"
+                }
         elif (tipo == 4):
             carnet = json_entrada['carnet']
             year = json_entrada['año']
@@ -396,7 +425,7 @@ def carga():
                     "mensaje": "No se ingreso en avl"
                 }
 
-        elif tipo == "curso estudiantes":
+        elif tipo == "cursos estudiantes":
 
             archivo = open(path, "r", encoding="utf-8")
             datos = json.load(archivo)
@@ -424,16 +453,34 @@ def carga():
 
                 return {
                     "estado":200,
-                    "mensaje":"Carga de curso estudiantes exitosa"
+                    "mensaje":"Carga de cursos estudiantes exitoso"
                 }
             except:
                 return {
                     "estado":400,
-                    "mensaje":"Carga de curso estudiantes fallido"
+                    "mensaje":"Carga de cursos estudiantes fallido"
                 }
-        elif tipo == "curso pensum":
-            print("")
+        elif tipo == "cursos pensum":
+            archivo = open(path, "r", encoding="utf-8")
+            datos = json.load(archivo)
 
+            try:
+                for item in datos['Cursos']:
+                    codigo = item['Codigo']
+                    nombre = item['Nombre']
+                    creditos = item['Creditos']
+                    pre = item['Prerequisitos']
+                    obligatorio = item['Obligatorio']
+                    arbolCursos.insertar(int(codigo),nombre,creditos,pre,obligatorio)
 
+                return {
+                    "estado":200,
+                    "mensaje":"Carga de cursos pensum exitoso"
+                }
+            except:
+                return {
+                    "estado":400,
+                    "mensaje":"Carga de cursos pensum fallido"
+                }
 # ejecutar
 app.run(host='0.0.0.0', port=3000, debug=True)
