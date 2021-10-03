@@ -86,6 +86,7 @@ class listatarea:
                 self.cola = actual.anterior
                 actual = None
 
+        return self.cabeza
     def graficar(self):
         self.contGen +=1
         name = "Lista_Tarea"+str(self.contGen)

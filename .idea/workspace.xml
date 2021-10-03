@@ -193,12 +193,24 @@
       <workItem from="1632931631066" duration="151000" />
       <workItem from="1633017303073" duration="16670000" />
       <workItem from="1633206105865" duration="4677000" />
-      <workItem from="1633233708509" duration="9967000" />
+      <workItem from="1633233708509" duration="10063000" />
+      <workItem from="1633299085031" duration="3941000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Server/Servidor.py</url>
+          <line>184</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/EDD_SmartClass_201801449$ListaMes.coverage" NAME="ListaMes Coverage Results" MODIFIED="1632549377829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Fase2_Estructuras" />
@@ -206,7 +218,7 @@
     <SUITE FILE_PATH="coverage/EDD_SmartClass_201801449$Carga__1_.coverage" NAME="Carga (1) Coverage Results" MODIFIED="1632522318900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/EDD_SmartClass_201801449$AvlEstudiantes.coverage" NAME="AvlEstudiantes Coverage Results" MODIFIED="1632543875755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Fase2_Estructuras" />
     <SUITE FILE_PATH="coverage/EDD_SmartClass_201801449$main.coverage" NAME="main Coverage Results" MODIFIED="1632520960774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/EDD_SmartClass_201801449$Servidor.coverage" NAME="Servidor Coverage Results" MODIFIED="1633242662755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
+    <SUITE FILE_PATH="coverage/EDD_SmartClass_201801449$Servidor.coverage" NAME="Servidor Coverage Results" MODIFIED="1633302515990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Server" />
     <SUITE FILE_PATH="coverage/EDD_SmartClass_201801449$ArbolCursos.coverage" NAME="ArbolCursos Coverage Results" MODIFIED="1633062555672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Fase2_Estructuras" />
   </component>
 </project>

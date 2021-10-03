@@ -186,6 +186,7 @@ def recordatorios():
         carnet = json_entrada['Carnet']
         fecha = json_entrada['Fecha'].split("/")
         hora = json_entrada['Hora']
+        id = json_entrada['Id']
 
         auxCarnet = int(carnet)
         auxHora = int(hora.replace(":00", ""))
@@ -193,9 +194,14 @@ def recordatorios():
         aux = arbol.buscar(auxCarnet)
         auxAnio = aux.lista_anio.buscar(str(fecha[2]))
         auxMes = auxAnio.lista_mes.buscar(str(fecha[1]))
+        auxMat = auxMes.matriz_tarea.buscarNodoMatriz(int(fecha[0]),auxHora)
 
         try:
-            auxMes.matriz_tarea.eliminar(int(fecha[0]),auxHora)
+            auxCabeza = auxMat.lista_tarea.eliminar(int(id))
+            if auxCabeza==None:
+                auxMes.matriz_tarea.eliminar(int(fecha[0]),auxHora)
+            else:
+                auxMes.matriz_tarea.buscarEliminar(int(fecha[0]),auxHora)
             return {
                 "estado":200,
                 "mensaje":"Se ha eliminado el recodatorio"

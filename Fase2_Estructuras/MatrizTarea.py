@@ -292,7 +292,6 @@ class matriz:
             if aux2 != None:
 
                 aux2.valor-=1
-                #return aux2 #si ya se encuetra solo devuelve el nodo
             else:
                 return None
         else:
@@ -301,7 +300,6 @@ class matriz:
     def eliminar(self, posx, posy):
         cabecera_x = self.cabeceras_X.buscarCabecera(posx)
         cabecera_y = self.cabeceras_y.buscarCabecera(posy)
-        self.buscarEliminar(posx,posy) #metodo para reducir cantidad de tareas en nodo
 
         if (cabecera_x != None and cabecera_y != None):
             # eliminar en la lista x
