@@ -14,23 +14,67 @@ arbolCursos = ArbolPensum()
 app = Flask(__name__)
 #@app.route('/cursoEstudiante',methods=['post'])
 #def cursoEstudiante():
+@app.route('/cursosPensum',methods=['post'])
+def cursosPensum():
+    json_entrada = request.get_json()
+    if request.method == 'POST':
+        try:
+            for item in json_entrada['Cursos']:
+                codigo = item['Codigo']
+                nombre = item['Nombre']
+                creditos = item['Creditos']
+                preRe = item['Prerequisitos']
+                obligatorio = item['Obligatorio']
+                arbolCursos.insertar(int(codigo),nombre,creditos,preRe,obligatorio)
+
+            return {
+                "estado":200,
+                "mensaje":"Cursos pensum agregados exitosamente"
+            }
+        except:
+            return {
+                "estado":400,
+                "mensaje":"Fallo agregar cursos pensum"
+            }
 
 @app.route('/cursosEstudiante',methods=['post'])
 def cursosEstudiante():
     json_entrada = request.get_json()
+
     if request.method == "POST":
-        print(json_entrada)
-    try:
-        print(json_entrada)
-        return {
-            "estado":200,
-            "mensaje":"Tarea Agregado exitosamente"
-        }
-    except:
-        return {
-            "estado":400,
-            "mensaje":"Fallo al agregar Tarea"
-        }
+        try:
+            if 'Estudiantes' in json_entrada.keys():
+                for item_estudiante in json_entrada['Estudiantes']:
+                    for item_anio in item_estudiante['Años']:
+                        for item_semestre in item_anio['Semestres']:
+                            for item_curso in item_semestre['Cursos']:
+                                carnet = item_estudiante['Carnet']
+                                year = item_anio['Año']
+                                semestre = item_semestre['Semestre']
+                                codigo = item_curso['Codigo']
+                                nombre = item_curso['Nombre']
+                                creditos = item_curso['Creditos']
+                                prerrequisitos = item_curso['Prerequisitos']
+                                obligatorio = item_curso['Obligatorio']
+
+                                aux = arbol.buscar(int(carnet))
+                                aux.lista_anio.buscarAgregar(year)
+                                auxYear = aux.lista_anio.buscar(year)
+                                auxYear.lista_semestre.buscarAgregar(int(semestre))
+                                auxB = auxYear.lista_semestre.buscar(int(semestre))
+                                auxB.arbol_curso.insertar(int(codigo),nombre,creditos,prerrequisitos,obligatorio)
+            return {
+                "estado": 200,
+                "mensaje": "Cursos estudiante agregado exitosamente"
+            }
+        except:
+            return {
+                "estado": 400,
+                "mensaje": "Fallo al agregar cursos estudiante"
+            }
+
+
+
 
 @app.route('/recordatorios',methods=['post','update','get','delete'])
 def recordatorios():
@@ -107,20 +151,18 @@ def recordatorios():
             }
     elif request.method == "GET":
         carnet = json_entrada['Carnet']
-        year = json_entrada['Anio']
-        mes = json_entrada['Mes']
-        dia = json_entrada['Dia']
+        fecha = json_entrada['Fecha'].split("/")
         hora = json_entrada['Hora']
         id = json_entrada['Id']
 
         auxCarnet = int(carnet)
         auxId = int(id)
-        auxDia = int(dia)
+        auxDia = int(fecha[0])
         auxHora = int(hora.replace(":00",""))
 
         aux = arbol.buscar(auxCarnet)
-        auxAnio = aux.lista_anio.buscar(str(year))
-        auxMes = auxAnio.lista_mes.buscar(str(mes))
+        auxAnio = aux.lista_anio.buscar(str(fecha[2]))
+        auxMes = auxAnio.lista_mes.buscar(str(fecha[1]))
         auxMatriz = auxMes.matriz_tarea.buscarNodoMatriz(auxDia, auxHora)
 
         try:
@@ -142,23 +184,18 @@ def recordatorios():
             }
     elif request.method == 'DELETE':
         carnet = json_entrada['Carnet']
-        year = json_entrada['Anio']
-        mes = json_entrada['Mes']
-        dia = json_entrada['Dia']
+        fecha = json_entrada['Fecha'].split("/")
         hora = json_entrada['Hora']
-        id = json_entrada['Id']
 
         auxCarnet = int(carnet)
-        auxId = int(id)
-        auxDia = int(dia)
         auxHora = int(hora.replace(":00", ""))
 
         aux = arbol.buscar(auxCarnet)
-        auxAnio = aux.lista_anio.buscar(str(year))
-        auxMes = auxAnio.lista_mes.buscar(str(mes))
-        auxMatriz = auxMes.matriz_tarea.buscarNodoMatriz(auxDia, auxHora)
+        auxAnio = aux.lista_anio.buscar(str(fecha[2]))
+        auxMes = auxAnio.lista_mes.buscar(str(fecha[1]))
+
         try:
-            auxMatriz.lista_tarea.eliminar(auxId)
+            auxMes.matriz_tarea.eliminar(int(fecha[0]),auxHora)
             return {
                 "estado":200,
                 "mensaje":"Se ha eliminado el recodatorio"

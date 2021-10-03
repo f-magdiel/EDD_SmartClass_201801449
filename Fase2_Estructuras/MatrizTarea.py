@@ -95,6 +95,48 @@ class Lista:
             print("No se encontro")
         return None
 
+    def eliminar_x(self, pos_y):
+        if self.primero:
+            aux = self.primero
+
+            while (aux):
+                if aux.pos_y == pos_y:
+                    # validamos que posicion estamos eliminando
+                    if (aux == self.primero):
+                        if aux.sig:
+                            aux.sig.ant = None
+                        self.primero = aux.sig
+                        break
+                    else:
+                        aux.ant.sig = aux.sig
+                        if aux.sig:
+                            aux.sig.ant = aux.ant
+                        break
+                else:
+                    aux = aux.sig
+        else:
+            print("no hay datos en la lista")
+
+    def eliminar_y(self, pos_x):
+        if self.primero:
+            aux = self.primero
+            while (aux):
+                if aux.pos_x == pos_x:
+                    # validamos que posicion estamos eliminando
+                    if (aux == self.primero):
+                        if aux.abajo:
+                            aux.abajo.arriba = None
+                        self.primero = aux.abajo
+                        break
+                    else:
+                        aux.arriba.abajo = aux.abajo
+                        if aux.abajo:
+                            aux.abajo.arriba = aux.arriba
+                        break
+                else:
+                    aux = aux.abajo
+        else:
+            print("no hay datos en la lista")
 #lista cabeceras
 class NodoCabecera:
     def __init__(self, pos):
@@ -146,7 +188,23 @@ class ListaCabecera:
         while aux:
             print(aux.posicion)
             aux = aux.sig
-        
+
+    def eliminar_cabecera(self, dato):
+        if self.primero:
+            aux = self.primero
+            if self.primero.posicion == dato:  # eliminar el primero
+                if aux.sig:
+                    aux.sig.ant = None
+                self.primero = aux.sig
+            else:
+                while (aux):
+                    if (aux.posicion == dato):
+                        aux.ant.sig = aux.sig
+                        if (aux.sig):
+                            aux.sig.ant = aux.ant
+                        break
+                    else:
+                        aux = aux.sig
 
 class matriz:
     def __init__(self, mes):
@@ -227,10 +285,40 @@ class matriz:
         else:
             self.insertar(1,posx,posy)
 
+    def buscarEliminar(self,posx,posy):
+        aux = self.cabeceras_X.buscarCabecera(posx)
+        if aux!=None:
+            aux2 = aux.lista_interna.buscarNodo(posx,posy)
+            if aux2 != None:
+
+                aux2.valor-=1
+                #return aux2 #si ya se encuetra solo devuelve el nodo
+            else:
+                return None
+        else:
+            return None
+
+    def eliminar(self, posx, posy):
+        cabecera_x = self.cabeceras_X.buscarCabecera(posx)
+        cabecera_y = self.cabeceras_y.buscarCabecera(posy)
+        self.buscarEliminar(posx,posy) #metodo para reducir cantidad de tareas en nodo
+
+        if (cabecera_x != None and cabecera_y != None):
+            # eliminar en la lista x
+            cabecera_x.lista_interna.eliminar_x(posy)
+            if (cabecera_x.lista_interna.primero == None):
+                self.cabeceras_X.eliminar_cabecera(cabecera_x.posicion)
+
+            cabecera_y.lista_interna.eliminar_y(posx)
+            if (cabecera_y.lista_interna.primero == None):
+                self.cabeceras_y.eliminar_cabecera(cabecera_y.posicion)
+        else:
+            print("no existe esa posicion")
+
     def graficar(self):
         self.contMat += 1
         name = "Matriz"+str(self.contMat)
-        file = open("../Graficas/"+name+".dot", "w", encoding="UTF-8")
+        file = open("C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\"+name+".dot", "w", encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=TB  \n")
         file.write("node[shape = box,color=\"lightblue2\" style=\"filled\"];\n")
@@ -306,7 +394,7 @@ class matriz:
         file.write("} \n")
         file.close()
         
-        os.system("neato dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
+        os.system("neato dot -Tsvg C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\"+name+".dot -o C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\"+name+".svg")
         #os.startfile("..Graficas//Matriz.svg")  No jala XD
 '''
 #La matriz se crea
@@ -317,9 +405,9 @@ matriz1.buscarAgregar(5,2)
 matriz1.buscarAgregar(1,1)
 matriz1.buscarAgregar(4,1)
 matriz1.buscarAgregar(4,2)
-matriz1.buscarAgregar(4,2)
-#print(matriz1.buscarNodoMatriz(4,4))
+matriz1.recorrer_matriz()
 matriz1.graficar()
-#matriz1.graficar()
+matriz1.eliminar(5,2)
+matriz1.graficar()
 matriz1.recorrer_matriz()
 '''

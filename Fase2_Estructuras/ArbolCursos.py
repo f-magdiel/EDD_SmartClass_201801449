@@ -196,7 +196,7 @@ class Arbolb:
     def graficar(self):
         self.contGen += 1
         name = "arbolb" + str(self.contGen)
-        file = open("../Graficas/" + name + ".dot", "w", encoding="UTF-8")
+        file = open("C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\" + name + ".dot", "w", encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdor = TB;\n")
         file.write("splines=line;\n")
@@ -207,7 +207,7 @@ class Arbolb:
         file.write("\n")
         file.write("}\n")
         file.close()
-        os.system("dot -Tsvg ../Graficas/" + name + ".dot -o ../Graficas/" + name + ".svg")
+        os.system("dot -Tsvg C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\" + name + ".dot -o C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\" + name + ".svg")
 
     def graficarNodos(self, raiz_actual):
         grafo = ""

@@ -203,7 +203,7 @@ class Avl:
     def generadorGrafica(self):
         self.contGen += 1
         name = "Avl"+str(self.contGen)
-        file = open("../Graficas/"+name+".dot","w",encoding="UTF-8")
+        file = open("C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\"+name+".dot","w",encoding="UTF-8")
         file.write("digraph G{\n")
         file.write("rankdir=UD;\n")
         file.write("node[shape=circle,color=lightblue2,style=filled];\n")
@@ -216,7 +216,7 @@ class Avl:
         file.write(self.conexion)
         file.write("}")
         file.close()
-        os.system("dot -Tsvg ../Graficas/"+name+".dot -o ../Graficas/"+name+".svg")
+        os.system("dot -Tsvg C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\"+name+".dot -o C:\\Users\\Magdiel\\Desktop\\Reportes_F2\\"+name+".svg")
         self.listaLabel = []
         self.listaNo = []
         self.conexion = ""
