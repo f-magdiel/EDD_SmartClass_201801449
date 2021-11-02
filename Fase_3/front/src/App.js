@@ -5,8 +5,9 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Login from "./Componentes/Login";
 import Registro from "./Componentes/Registro";
 import Admin from "./Componentes/Admin";
-import Inicio from "./Componentes/Inicio"
-import Estudiante from "./Componentes/Estudiante"
+import Inicio from "./Componentes/Inicio";
+import Estudiante from "./Componentes/Estudiante";
+import Apunte from "./Componentes/Apunte";
 
 import "./App.css";
 
@@ -21,6 +22,7 @@ function App(){
       <Route exact path="/registro" component={Registro}/>
       <Route exact path="/admin" component={Admin}/>
       <Route exact path="/estudiante" component={Estudiante}/>
+      <Route exact path="/apunte" component={Apunte}/>
       </Switch>
     </Router>
          
