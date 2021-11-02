@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import swal  from "sweetalert";
+import {Link} from 'react-router-dom';
 function Registro(){
 
   const [datos,setDatos]=useState({
@@ -140,9 +141,16 @@ function Registro(){
                       />
                       <label className="form-label" >Edad</label>
                     </div>
+                    <div>
                     <button className="btn btn-outline-light btn-lg px-5" type="submit">Registrarse</button>
-                  </div>
-                 
+                    </div>
+                    <br/>
+                    <Link to="/">
+                    <div>                            
+                    <button className="btn btn-outline-light btn-lg px-5" type="submit">Regresar</button>
+                    </div>                           
+                    </Link>
+                  </div>                                                          
                 </div>
               </div>
             </div>

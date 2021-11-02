@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Redirect} from 'react-router-dom';
+import {Redirect,Link} from 'react-router-dom';
 import swal from "sweetalert";
 
 
@@ -44,8 +44,20 @@ function Login(){
         console.log(bandera)
         console.log(tipo)
         if(tipo ==="admin" && bandera===true){
+            swal({
+                title:"Admin",
+                text:"Sesión iniciada",
+                icon:"success",
+                button:"Aceptar"
+              })
             setLoginadmin(true);
         }else if(tipo ==="estudiante" && bandera ===true){
+            swal({
+                title:"Estudiante",
+                text:"Sesión iniciada",
+                icon:"success",
+                button:"Aceptar"
+              })
             setLoginUser(true);
         }else if (tipo==="error"){
             swal({
@@ -94,11 +106,17 @@ function Login(){
                                                    onChange={handleInputChange} />
                                                    <label className="form-label" htmlFor="typePasswordX">Contraseña</label>
                                                </div>
-                                               
+                                               <div>
                                                    <button 
                                                    className="btn btn-outline-light btn-lg px-5" 
                                                    type="submit"  >Login</button>
-                                               
+                                                </div>
+                                                <br/>
+                                                 <Link to="/">
+                                                <div>
+                                                <button className="btn btn-outline-light btn-lg px-5" type="submit">Regresar</button>
+                                                </div>
+                                                </Link>
                                    </div>
                                    <div>
                                     <p className="mb-0">Estructura de Datos </p>
