@@ -54,7 +54,7 @@ function Registro(){
         icon:"success",
         button:"Aceptar"
       })
-    }else if (estado=="400"){
+    }else if (estado==="400"){
       swal({
         title:"Registro",
         text:"Registro fallido",
