@@ -112,7 +112,7 @@ function Login(){
                                                    type="submit"  >Login</button>
                                                 </div>
                                                 <br/>
-                                                 <Link to="/">
+                                                <Link to="/">
                                                 <div>
                                                 <button className="btn btn-outline-light btn-lg px-5" type="submit">Regresar</button>
                                                 </div>
