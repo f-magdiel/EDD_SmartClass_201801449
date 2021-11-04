@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import {Redirect,Link} from 'react-router-dom';
 import swal from "sweetalert";
+import Admin from "./Admin";
 
 
 function Login(){
     
     const [Loginadmin,setLoginadmin] = useState(false);
     const [LoginUser,setLoginUser] = useState(false);
+    const [username,setUsername] = useState('')
 
     const [datos,setDatos] = useState ({
         usuario:'',
@@ -36,14 +38,16 @@ function Login(){
 
         )
         const data = await res.json();
-         var tipo,bandera;
+         var tipo,bandera,carnet;
         data.map(function(dat){
             tipo = dat.tipo;
             bandera = dat.bandera;
+            carnet = dat.dato;
         })
         console.log(bandera)
         console.log(tipo)
         if(tipo ==="admin" && bandera===true){
+            setUsername(tipo)
             swal({
                 title:"Admin",
                 text:"Sesión iniciada",
@@ -52,6 +56,7 @@ function Login(){
               })
             setLoginadmin(true);
         }else if(tipo ==="estudiante" && bandera ===true){
+            setUsername(carnet)
             swal({
                 title:"Estudiante",
                 text:"Sesión iniciada",
@@ -74,9 +79,15 @@ function Login(){
     
     return(
        <div>
-           {Loginadmin ? <Redirect to="/admin"/>
+           {Loginadmin ? <Redirect to={{
+               pathname:"/admin",
+               state:username
+           }} />
            :
-           LoginUser ? <Redirect to ="/estudiante"/>
+           LoginUser ? <Redirect to ={{
+               pathname:"/estudiante",
+               state:username
+           }}/>
            :
            <form onSubmit={enviarDatos} >
            <section className="vh-100 gradient-custom">
@@ -109,7 +120,8 @@ function Login(){
                                                <div>
                                                    <button 
                                                    className="btn btn-outline-light btn-lg px-5" 
-                                                   type="submit"  >Login</button>
+                                                   type="submit"  
+                                                   >Login</button>
                                                 </div>
                                                 <br/>
                                                 <Link to="/">

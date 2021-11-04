@@ -1,10 +1,10 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import {Link} from 'react-router-dom';
 
 import Apunte from "./Apunte";
 import Curso from "./Curso";
-function Estudiante(){
-
+function Estudiante(props){
+    console.log(props.location.state)
     const [banderaApunte,setBanderaApunte] = useState(false);
     const [banderaCurso,setBanderaCurso] = useState(false);
     
@@ -17,6 +17,8 @@ function Estudiante(){
         setBanderaCurso(true);
         setBanderaApunte(false);
     }
+
+
 
     return(
     <section className="vh-100 gradient-custom">  

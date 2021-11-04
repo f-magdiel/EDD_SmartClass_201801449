@@ -4,8 +4,10 @@ from werkzeug.wrappers import response
 
 #Estructuras
 from Registro import *
+from Hash import *
 
-avl = Avl()
+avl = Avl() #avl para login y registro
+tabla = Hash() #tabla hash
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -29,7 +31,8 @@ def login():
                     print("Si es student")
                     return jsonify([{
                     "tipo":"estudiante",
-                    "bandera":True
+                    "bandera":True,
+                    "dato":usuario
                     }])
                 else:
                      return jsonify([{
