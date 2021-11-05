@@ -1,6 +1,7 @@
 import math
 import os
 import sys
+import json
 
 class Nodo:
     def __init__(self, indice):
@@ -109,7 +110,20 @@ class Hash:
         posicion = id % self.tamano
         return posicion
 
+    def buscar(self,carnet):
+        auxList = []
+        dic ={}
+        for i in self.vector:
+            if i:
+                if carnet == i.indice:
+                    for j in i.lista:
+                        dic["titulo"] = str(j.titulo)
+                        dic["contenido"] = str(j.contenido)
+                        dic_copy = dic.copy()
+                        auxList.append(dic_copy)
 
+        
+        return auxList
 
     def print(self):
         contador = 0
@@ -173,4 +187,6 @@ tabla.insertar(2,"saca2","no hay colision")
 tabla.insertar(2,"saca3","1")
 tabla.insertar(16,"sacaasd","colision")
 tabla.insertar(16,"sacafdsf","colision")
-tabla.graficar()  """
+#tabla.graficar()
+aux = tabla.buscar(2)
+print(json.dumps(aux)) """

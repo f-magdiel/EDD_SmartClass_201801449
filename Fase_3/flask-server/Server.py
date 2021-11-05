@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from werkzeug.wrappers import response
@@ -70,8 +71,31 @@ def registro():
             "estado":"400"
         }])
         
-        
+@app.route('/getEstudiantes',methods=['post'])
+def getEstudiantes():
+
+    carnet = request.json['carnet']
+    resultado = tabla.buscar(int(carnet))
+    conver = json.dumps(resultado)
+    print(conver)
+    if request.method == 'POST':
+        return jsonify(conver)       
     
+@app.route('/newApunte',methods=['post'])
+def newApunte():
+    carnet = request.json['carnet']
+    titulo = request.json['titulo']
+    contenido = request.json['contenido']
+    if request.method == 'POST':
+        try:
+            tabla.insertar(int(carnet),titulo,contenido);
+            return jsonify([{
+                "estado":"200"
+            }])
+        except:
+            return jsonify([{
+                "estado":"400"
+            }])
     
 
 app.run(host='0.0.0.0', port=3000, debug=True)
