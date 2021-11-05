@@ -1,8 +1,7 @@
 import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from werkzeug.wrappers import response
-
+import base64
 #Estructuras
 from Registro import *
 from Hash import *
@@ -97,5 +96,17 @@ def newApunte():
                 "estado":"400"
             }])
     
+@app.route('/graficaHash',methods=['post'])
+def graficaHash():
+    if request.method == 'POST':
+        tabla.graficar()
+        base_64 = ""
+        with open("C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\hash.png","rb") as img_file:
+            base_64 = base64.b64encode(img_file.read())
+
+        return jsonify({
+            "estado":"200",
+            "img":str(base_64.decode("utf-8"))
+        })
 
 app.run(host='0.0.0.0', port=3000, debug=True)

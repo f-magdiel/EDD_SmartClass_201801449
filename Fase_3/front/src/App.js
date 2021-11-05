@@ -10,6 +10,7 @@ import Estudiante from "./Componentes/Estudiante";
 import Apunte from "./Componentes/Apunte";
 import NuevoApunte from "./Componentes/Apuntes/Nuevo"
 import VerApunte from "./Componentes/Apuntes/VerApunte"
+import Prueba from "./Componentes/prueba";
 import "./App.css";
 
 
@@ -26,7 +27,7 @@ function App(){
       <Route exact path="/estudiante/apunte" component={Apunte}/>
       <Route exact path="/estudiante/apunte/nuevo" component={NuevoApunte}/>
       <Route exact path="/estudiante/apunte/ver" component={VerApunte}/>
-      
+      <Route exact path="/prueba" component={Prueba}/>
       </Switch>
     </Router>
          
