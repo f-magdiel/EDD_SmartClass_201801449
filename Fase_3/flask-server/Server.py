@@ -154,10 +154,20 @@ def cargaCursos():
 
             #para crear conexion(ady)
             for elem in datos['Cursos']:
+                cod = elem['Codigo']
                 prere = elem['Prerequisitos']
                 arrayPre = prere.split(",")
                 print(arrayPre)
-                
+                print(len(arrayPre))
+                if len(arrayPre)==1:        
+                    if arrayPre[0]!="":
+                        grafo.insertar_adya(int(arrayPre[0]),int(cod))
+
+                elif len(arrayPre)>1:
+                    for i in arrayPre:
+                        grafo.insertar_adya(int(i),int(cod))
+
+            
             return jsonify({
                 "estado":"200"
             })
@@ -166,4 +176,41 @@ def cargaCursos():
                 "estado":"400"
             })
 
+@app.route('/cargaApuntes',methods=['post'])
+def cargaApuntes():
+    json_entrada = request.get_json();
+    datos = json.loads(json_entrada)
+    if request.method=='POST':
+        try:
+            #recorrer usuarios
+            for item in datos['usuarios']:
+                carnet = item['carnet']
+                #recorrer apuntes
+                for elemento in item['apuntes']:
+                    titulo = str(elemento['Título']).replace("-","").replace("/","").replace(" ","_")
+                    contenido = str(elemento['Contenido']).replace("-","").replace(" ","_")
+                    tabla.insertar(int(carnet),titulo,contenido)
+                    print("se inserto")
+
+            return jsonify({
+                "estado":"200"
+            })
+        except:
+            return jsonify({
+                "estado":"400"
+            })
+
+@app.route('/graficaGrafo',methods=['post'])
+def graficaGrafo():
+
+    if request.method == 'POST':
+        grafo.graficar();
+        base_64 = ""
+        with open("C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\grafo_pensum.png","rb") as img_file:
+            base_64 = base64.b64encode(img_file.read())
+
+        return jsonify({
+            "estado":"200",
+            "img":str(base_64.decode("utf-8"))
+        })
 app.run(host='0.0.0.0', port=3000, debug=True)

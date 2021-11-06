@@ -1,8 +1,46 @@
-import React from "react";
+import React,{useState}from "react";
+import swal from "sweetalert";
 
 function CargaApuntes(){
+    const [informacion,setInformacion] = useState("");
+
+    const handleInputChange = (event)=>{
+        console.log(event.target.value)
+        setInformacion(event.target.value)
+    }
+
+    const enviarCarga = async(event)=>{
+        console.log("enviar apuntes")
+        event.preventDefault();
+        const res = await fetch('http://192.168.185.104:3000/cargaApuntes',{
+            method:'post',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(informacion)
+        })
+
+        const data = await res.json();
+        
+        if(data.estado==="200"){
+            swal({
+                title:"Carga Cursos",
+                text:"Carga exitosa",
+                icon:"success",
+                button:"Aceptar"
+            })
+        }else{
+            swal({
+                title:"Carga Cursos",
+                text:"Carga fallida",
+                icon:"error",
+                button:"Aceptar"
+            })
+        }
+        event.target.reset();
+    }
 return(
-    <form >
+    <form onSubmit={enviarCarga}>
             <div>
             <div className="mb-3">
             
@@ -15,7 +53,7 @@ return(
             rows={14} 
             defaultValue={""} 
             name="contenido"
-            
+            onChange={handleInputChange}
             />
             </div>
             </div>
