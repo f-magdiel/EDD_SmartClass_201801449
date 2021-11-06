@@ -5,9 +5,12 @@ import base64
 #Estructuras
 from Registro import *
 from Hash import *
+from Grafo import *
 
 avl = Avl() #avl para login y registro
 tabla = Hash() #tabla hash
+grafo = Grafo() #grafo para los cursos del pensum
+
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -108,5 +111,59 @@ def graficaHash():
             "estado":"200",
             "img":str(base_64.decode("utf-8"))
         })
+
+
+@app.route('/cargaEstudiantes',methods=['post'])
+def cargaEstudiantes():
+    json_entrada = request.get_json()
+    datos = json.loads(json_entrada)
+    if request.method == 'POST':
+        try:
+            for item in datos['estudiantes']:
+                carnet = item['carnet']
+                dpi = item['DPI']
+                nombre = item['nombre']
+                carrera = item['carrera']
+                correo = item['correo']
+                password = item['password']
+                edad = item['edad']
+                avl.insertar(int(carnet),dpi,nombre,carrera,correo,password,edad)
+
+            return jsonify({
+                "estado":"200"
+            })
+        except:
+            return jsonify({
+                "estado":"400"
+            })
+
+@app.route('/cargaCursos',methods=['post'])
+def cargaCursos():
+    json_entada = request.get_json();
+    datos = json.loads(json_entada)
+    if request.method=='POST':
+        try:
+            #para crear nodo de cursos
+            for item in datos['Cursos']:
+                codigo = item['Codigo']
+                nombre = item['Nombre']
+                creditos = item['Creditos']
+                prerequisitos = item['Prerequisitos']
+                obligatorio = item['Obligatorio']
+                grafo.insercion_Grafo(int(codigo),nombre,creditos,prerequisitos,obligatorio)
+
+            #para crear conexion(ady)
+            for elem in datos['Cursos']:
+                prere = elem['Prerequisitos']
+                arrayPre = prere.split(",")
+                print(arrayPre)
+                
+            return jsonify({
+                "estado":"200"
+            })
+        except:
+            return({
+                "estado":"400"
+            })
 
 app.run(host='0.0.0.0', port=3000, debug=True)

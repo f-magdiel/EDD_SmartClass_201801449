@@ -1,13 +1,22 @@
 import React,{useState} from "react";
 import Reporte from "./Administrador/Reporte";
+import Cargas from "./Administrador/Cargas"
 
 function Admin(props){
     
     const [reporte,setReporte] = useState(false);
+    const [cargas,setCargas] = useState(false);
 
     function estadoReporte(){
         setReporte(true);
+        setCargas(false);
     }
+
+    function estadoCarga(){
+      setCargas(true);
+      setReporte(false);
+    }
+
     return(
         <section className="vh-100 gradient-custom">  
           <nav className="navbar navbar-expand-lg bg-dark navbar-dark ">
@@ -37,7 +46,7 @@ function Admin(props){
                 <button 
                     className="btn btn-outline-light btn-sm px-3" 
                     type="submit" 
-                    
+                    onClick={estadoCarga}
                     >Cargas
                     
                 </button>
@@ -64,7 +73,8 @@ function Admin(props){
                                    <div className="card-body p-5 text-center">
                                        <div className="mb-md-5 mt-md-4 pb-5">
                                         {reporte?<Reporte/>
-                                        :<h1>Admin</h1>
+                                        :cargas?<Cargas/>:
+                                        <h1>Admin</h1>
                                         }
                                                  
                                         </div>
