@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import "./estilo.css";
 
 function Grafo(){
     const [image,setImage] = useState("");
@@ -31,7 +32,11 @@ function Grafo(){
             </button>
             </div>
             <br/>
-            <img src={image} height="200px"/>
+            <div className="pic">
+                <img src={image}  />    
+            </div>
+            
+            
         </div>
     )
 }

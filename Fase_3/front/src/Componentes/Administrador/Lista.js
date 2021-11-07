@@ -1,5 +1,5 @@
 import React ,{useState}from "react";
-
+import "./estilo.css";
 function Lista(){
     const [basImg,setBasImg] = useState('')
 
@@ -33,7 +33,10 @@ function Lista(){
             </button>
             </div>
             <br/>
-            <img src={basImg} height="200px"/>
+            <div className="pic">
+             <img src={basImg} style={{ maxWidth: '75rem' }}/>   
+            </div>
+            
         </div>
     )
 }

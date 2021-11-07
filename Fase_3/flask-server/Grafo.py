@@ -85,7 +85,7 @@ class Grafo:
         # recorer los nodos para imprimirlos
         aux = self.Inicio
         while aux:
-            cadena += "n" + str(aux.indice) + "[label= \"" + str(aux.nombre) + "\"];\n"
+            cadena += "n" + str(aux.indice) + "[label= \"" + str(aux.indice) +"\\n"+str(aux.nombre)+ "\"];\n"
             aux = aux.siguiente
 
         # gaficar enlaces
@@ -101,8 +101,38 @@ class Grafo:
         Archivo.write(cadena)
         Archivo.close()
         os.system("dot -Tpng C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\grafo_pensum.dot -o C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\grafo_pensum.png")
-""" 
-graph = Grafo()
+
+    def graficarCodigo(self,codigo):
+        nodo_nuevo = self.Inicio
+        cadena = "digraph pensum {\n rankdir=\"LR\";\n"
+        cadena+= 'node[shape = box,style="rounded,filled",fillcolor=lightblue2];\n'
+        # recorer los nodos para imprimirlos
+        aux = nodo_nuevo
+        while aux:
+            
+            if codigo ==aux.indice:
+                cadena += "n" + str(aux.indice) + "[label= \"" + str(aux.indice) +"\\n"+str(aux.nombre)+"\""+",fillcolor=brown1" +"];\n"
+                aux = aux.siguiente
+            else:
+                cadena += "n" + str(aux.indice) + "[label= \"" + str(aux.indice) +"\\n"+str(aux.nombre)+ "\"];\n"
+                aux = aux.siguiente
+        
+        # gaficar enlaces
+        aux = nodo_nuevo
+        while aux:
+            aux2 = aux.lista_ad.Inicio
+            while aux2:
+                cadena += "n" + str(aux.indice) + " -> n" + str(aux2.indice) + ";\n"
+                aux2 = aux2.siguiente
+            aux = aux.siguiente
+        cadena += "}"
+        Archivo = open("C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\grafo_pensum_estudiante.dot","w",encoding="UTF-8")
+        Archivo.write(cadena)
+        Archivo.close()
+        os.system("dot -Tpng C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\grafo_pensum_estudiante.dot -o C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\grafo_pensum_estudiante.png")
+
+
+""" graph = Grafo()
 graph.insercion_Grafo(20,"magdiel",10,"11,12",True)
 graph.insercion_Grafo(10,"uno",13,"11,12",True)
 graph.insercion_Grafo(21,"dos",14,"11,12",True)
@@ -110,4 +140,5 @@ graph.insercion_Grafo(23,"tres",9,"11,12",True)
 graph.insertar_adya(20,10)
 graph.insertar_adya(10,21)
 graph.insertar_adya(20,23)
-graph.graficar() """
+graph.graficar()
+graph.graficarCodigo(10) """

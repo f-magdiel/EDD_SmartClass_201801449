@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {Link} from 'react-router-dom';
 import Reporte from "./Administrador/Reporte";
 import Cargas from "./Administrador/Cargas"
 
@@ -53,12 +54,13 @@ function Admin(props){
                 </div>
     
                 <div className="col-md-5">
-                
+                <Link to="/">
                 <button 
                     className="btn btn-outline-light btn-sm px-3" 
                     type="submit"  
                     >Salir
                 </button>
+                </Link>
                 
                 </div>
               </ul>

@@ -26,7 +26,7 @@ function CargaEstudiante(){
         console.log(data.estado)
         if(data.estado==="200"){
             swal({
-                title:"Carga",
+                title:"Carga Estudiantes",
                 text:"Carga exitosa",
                 icon:"success",
                 button:"Aceptar"
@@ -34,7 +34,7 @@ function CargaEstudiante(){
         }else{
             swal({
                 title:"Carga",
-                text:"Carga fallido",
+                text:"Carga fallida",
                 icon:"error",
                 button:"Aceptar"
             })

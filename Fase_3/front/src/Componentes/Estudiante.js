@@ -52,7 +52,7 @@ function Estudiante(props){
       {/* Container wrapper */}
       <div className="container-fluid">
         {/* Navbar brand */}
-        <a className="navbar-brand" href="#">{user}</a>
+        <a className="navbar-brand" href="#">Usuario: {user}</a>
         {/* Toggle button */}
         <button className="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i className="fas fa-bars" />
@@ -103,7 +103,7 @@ function Estudiante(props){
                                    <div className="mb-md-5 mt-md-4 pb-5">
                                     
                                     {banderaApunte?<Apunte value={user}/>
-                                    :banderaCurso?<Curso/>
+                                    :banderaCurso?<Curso value={user}/>
                                     :<h1>Bienvenido</h1>
                                     }
                                              

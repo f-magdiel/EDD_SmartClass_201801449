@@ -46,8 +46,8 @@ function VerApunte({value}){
         <Container>
             <Table striped bordered hover variant="dark" className="tableh">
                 <thead><tr>
-                <th>No</th>
                 <th>Titulo</th>
+                <th>Contenido</th>
                 </tr>
                 </thead>
                 

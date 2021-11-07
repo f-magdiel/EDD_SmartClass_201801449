@@ -188,7 +188,7 @@ def cargaApuntes():
                 #recorrer apuntes
                 for elemento in item['apuntes']:
                     titulo = str(elemento['Título']).replace("-","").replace("/","").replace(" ","_")
-                    contenido = str(elemento['Contenido']).replace("-","").replace(" ","_")
+                    contenido = str(elemento['Contenido'])
                     tabla.insertar(int(carnet),titulo,contenido)
                     print("se inserto")
 
@@ -213,4 +213,19 @@ def graficaGrafo():
             "estado":"200",
             "img":str(base_64.decode("utf-8"))
         })
+
+@app.route('/graficaCodigo', methods=['post'])
+def graficaCodigo():
+    codigo = request.json['codigo']
+    if request.method == 'POST':
+        grafo.graficarCodigo(int(codigo))
+        base_64 = ""
+        with open("C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\grafo_pensum_estudiante.png","rb") as img_file:
+            base_64 = base64.b64encode(img_file.read())
+
+        return jsonify({
+            "estado":"200",
+            "img":str(base_64.decode("utf-8"))
+        })
+
 app.run(host='0.0.0.0', port=3000, debug=True)
