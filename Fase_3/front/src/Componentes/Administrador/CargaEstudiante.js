@@ -14,7 +14,7 @@ function CargaEstudiante(){
         console.log("enviar carga")
         event.preventDefault();
         console.log(informacion)
-        const res = await fetch('http://192.168.185.104:3000/cargaEstudiantes',{
+        const res = await fetch('http://192.168.185.102:3000/cargaEstudiantes',{
             method:'post',
             headers:{
                 'Content-Type':'application/json'

@@ -13,7 +13,7 @@ function CargaCursos(){
     const enviarCarga = async(event)=>{
         console.log("enviar cursos")
         event.preventDefault();
-        const res = await fetch('http://192.168.185.104:3000/cargaCursos',{
+        const res = await fetch('http://192.168.185.102:3000/cargaCursos',{
             method:'post',
             headers:{
                 'Content-Type':'application/json'

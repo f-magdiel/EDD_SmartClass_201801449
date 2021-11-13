@@ -180,6 +180,7 @@ def cargaCursos():
 def cargaApuntes():
     json_entrada = request.get_json();
     datos = json.loads(json_entrada)
+    
     if request.method=='POST':
         try:
             #recorrer usuarios
@@ -190,7 +191,7 @@ def cargaApuntes():
                     titulo = str(elemento['Título']).replace("-","").replace("/","").replace(" ","_")
                     contenido = str(elemento['Contenido'])
                     tabla.insertar(int(carnet),titulo,contenido)
-                    print("se inserto")
+                    print("se inserto "+str(carnet)+" "+str(titulo))
 
             return jsonify({
                 "estado":"200"

@@ -28,7 +28,7 @@ function Nuevo ({value}){
         console.log(value)//aqui me quedo
         event.preventDefault();
 
-        const res = await fetch('http://192.168.185.104:3000/newApunte',{
+        const res = await fetch('http://192.168.185.102:3000/newApunte',{
             method:'post',
             headers:{
                 'Content-Type':'application/json'

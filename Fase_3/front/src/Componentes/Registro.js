@@ -22,7 +22,7 @@ function Registro(){
 
   const enviarInformacion = async (event) =>{
     event.preventDefault();
-    const response = await fetch('http://192.168.185.104:3000/registro',{
+    const response = await fetch('http://192.168.185.102:3000/registro',{
       method:'post',
       headers:{
         'Content-Type':'application/json'

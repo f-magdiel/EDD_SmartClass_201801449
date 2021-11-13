@@ -25,7 +25,7 @@ function Login(){
     
     const enviarDatos = async (event) =>{
         event.preventDefault();
-        const res = await fetch('http://192.168.185.104:3000/login',{
+        const res = await fetch('http://192.168.185.102:3000/login',{
             method:'post',
             headers:{
                 'Content-Type':'application/json'

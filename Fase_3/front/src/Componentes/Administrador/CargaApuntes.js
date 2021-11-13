@@ -12,7 +12,7 @@ function CargaApuntes(){
     const enviarCarga = async(event)=>{
         console.log("enviar apuntes")
         event.preventDefault();
-        const res = await fetch('http://192.168.185.104:3000/cargaApuntes',{
+        const res = await fetch('http://192.168.185.102:3000/cargaApuntes',{
             method:'post',
             headers:{
                 'Content-Type':'application/json'

@@ -24,7 +24,7 @@ function VerApunte({value}){
     const getDatos=async()=>{
         console.log("user")
         console.log(user)
-        const res = await fetch('http://192.168.185.104:3000/getEstudiantes',{
+        const res = await fetch('http://192.168.185.102:3000/getEstudiantes',{
           method:'post',
           headers:{
             'Content-Type':'application/json'

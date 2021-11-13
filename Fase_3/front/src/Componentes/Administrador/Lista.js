@@ -6,7 +6,7 @@ function Lista(){
     const cargar = async(event) =>{
         console.log("ver")
         event.preventDefault();
-        const res = await fetch('http://192.168.185.104:3000/graficaHash',{
+        const res = await fetch('http://192.168.185.102:3000/graficaHash',{
             method:'post',
             headers:{
                 'Content-Type':'application/json'

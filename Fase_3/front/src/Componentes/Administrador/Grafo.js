@@ -6,7 +6,7 @@ function Grafo(){
 
     const cargar = async(event)=>{
         console.log("ver grafo")
-        const res = await fetch('http://192.168.185.104:3000/graficaGrafo',{
+        const res = await fetch('http://192.168.185.102:3000/graficaGrafo',{
             method:'post',
             headers:{
                 'Content-Type':'application/json'

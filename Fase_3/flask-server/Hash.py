@@ -28,11 +28,23 @@ class Hash:
 
     def insertar(self, id, titulo, contenido):
         posicion = self.funcion_hash(id)
-        
+        print("pos prim"+str(posicion))
         if self.vector[posicion] != None: #cuando ya existe el nodo principal
-            listas = self.vector[posicion].lista
-            _carnet = listas[0].carnet
-            if _carnet == id: #si el carnet es igual al ingresado
+            #listas = self.vector[posicion].lista
+            #_carnet = listas[0].carnet
+            print("Ya existe nodo")
+            bande = False
+            pos =0
+            for x in range(len(self.vector)):
+                lis = self.vector[x]
+
+                if lis!=None:
+                    lst = lis.lista
+                    car = lst[0].carnet
+                    if car == id:
+                        bande = True
+
+            if bande==True: #si el carnet es igual al ingresado
                 nuevo_contenido = Llave(id,titulo,contenido)
                 self.vector[posicion].lista.append(nuevo_contenido)
             else:#si el carnet es nuevo pero se colisiona, pues exploracion
@@ -43,11 +55,21 @@ class Hash:
                 self.elementos+=1
                 self.factorCarga = self.elementos/self.tamano
         else: #cuando se crea el nodo principal
-            nuevo = Nodo(id)
-            nuevo.lista.append(Llave(id,titulo, contenido))
-            self.vector[posicion] = nuevo
-            self.elementos+=1
-            self.factorCarga = self.elementos/self.tamano
+            if self.vector[posicion]==None:
+                print("nodo libre se ingresa nuevo")
+                nuevo = Nodo(id)
+                nuevo.lista.append(Llave(id,titulo, contenido))
+                self.vector[posicion] = nuevo
+                self.elementos+=1
+                self.factorCarga = self.elementos/self.tamano
+            else:
+                print("nodo ocupado se explora")
+                newpos = self.exploracion(posicion)
+                nuevo = Nodo(id)
+                nuevo.lista.append(Llave(id,titulo, contenido))
+                self.vector[newpos] = nuevo
+                self.elementos+=1
+                self.factorCarga = self.elementos/self.tamano
 
         if self.factorCarga > 0.5:
             self.rehashing()
@@ -76,7 +98,7 @@ class Hash:
                 disponible = True
 
             i+=1
-
+        
         return indice
 
     def rehashing(self):
@@ -166,14 +188,14 @@ class Hash:
             if m!=None:
                 for n in m.lista:
                     if bandeNodo == True:
-                        file.write('"'+str(n.titulo)+'"[label="'+str(n.titulo)+'"];\n')
-                        file.write('"hash":c'+str(m.indice)+"->"+str(n.titulo)+';\n')
-                        anterior = n.titulo
+                        file.write('"'+str(n.titulo)+str(n.carnet)+'"[label="'+str(n.titulo)+'"];\n')
+                        file.write('"hash":c'+str(m.indice)+"->"+str(n.titulo)+str(n.carnet)+';\n')
+                        anterior = n.titulo+str(n.carnet)
                         bandeNodo = False
                     else:
-                        file.write('"'+str(n.titulo)+'"[label="'+str(n.titulo)+'"];\n')
-                        file.write(str(anterior)+"->"+str(n.titulo)+";\n")
-                        anterior = n.titulo
+                        file.write('"'+str(n.titulo)+str(n.carnet)+'"[label="'+str(n.titulo)+'"];\n')
+                        file.write(str(anterior)+"->"+str(n.titulo)+str(n.carnet)+";\n")
+                        anterior = n.titulo+str(n.carnet)
         file.write("}\n")
         file.close()
         os.system("dot -Tpng C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\hash.dot -o C:\\Users\\Magdiel\\Desktop\\EDD_SmartClass_201801449\\Fase_3\\Reportes\\hash.png")
